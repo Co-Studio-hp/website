@@ -1,0 +1,29 @@
+import Link from "next/link";
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-gray-100 py-12 mt-24">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div>
+          <p className="text-sm font-light tracking-widest uppercase mb-1">Co-Studio株式会社</p>
+          <p className="text-xs text-gray-400">東京都中央区日本橋本町3丁目8-3 日本橋ライフサイエンスビルディング</p>
+        </div>
+        <nav className="flex flex-col md:flex-row gap-4 md:gap-8">
+          {[
+            { label: "HOME", href: "/" },
+            { label: "SERVICE", href: "/service" },
+            { label: "ABOUT US", href: "/about" },
+            { label: "CONTACT", href: "/contact" },
+          ].map((l) => (
+            <Link key={l.href} href={l.href} className="text-xs tracking-widest uppercase text-gray-400 hover:text-black transition-colors">
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+      <div className="max-w-6xl mx-auto px-6 mt-8 pt-8 border-t border-gray-100">
+        <p className="text-xs text-gray-300">© 2019-{new Date().getFullYear()} Co-Studio Inc. All Rights Reserved.</p>
+      </div>
+    </footer>
+  );
+}
