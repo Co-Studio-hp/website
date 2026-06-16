@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Co-Studio コーポレートサイト
 
-## Getting Started
+Co-Studio株式会社の公式HP（[co-studio.co.jp](https://www.co-studio.co.jp)）。Next.js 16 + Tailwind v4 で構築し、Vercel でホスティングしています。
 
-First, run the development server:
+- **本番URL**: https://co-studio.co.jp （切替後）/ https://co-studio-hp-v2.vercel.app
+- **リポジトリ**: Co-Studio-hp/website
+- **ホスティング**: Vercel（プロジェクト名 `co-studio-hp-v2`）
 
+## 更新方法（保守運用ガイド）
+
+### 1. 記事・ニュースは「自動」— コード不要
+- **MEDIA**ページ … note（[note.com/co_studio](https://note.com/co_studio)）に投稿すると自動反映（RSS連携）
+- **NEWS**ページ … 各社のPR TIMESリリースを自動集約・表示
+- **Night DEZIMA**ページ … noteのDEZIMA記事バナーを自動表示
+
+→ 日常の情報発信は **note と PR TIMES に出すだけ** でサイトに反映されます。
+
+### 2. 文言・デザインの修正 — コードを編集
+このリポジトリにアクセス権のあるメンバーなら誰でも更新できます。
+
+**かんたんな文言修正（GitHubブラウザ上で完結）**
+1. GitHubでこのリポジトリを開く
+2. 該当ファイル（例：`app/page.tsx`）を開いて鉛筆アイコンで編集
+3. 「Commit changes」で保存 → **Vercelが自動でビルド＆公開**
+
+**本格的な編集（ローカル）**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Co-Studio-hp/website.git
+cd website
+npm install
+npm run dev      # http://localhost:3000 で確認
+# 編集後：
+git add -A && git commit -m "変更内容" && git push
+# push すると Vercel が自動デプロイ
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. 主要ページの場所
+| ページ | ファイル |
+|---|---|
+| トップ | `app/page.tsx` |
+| サービス | `app/service/page.tsx` |
+| 実績 | `app/results/page.tsx` |
+| ポートフォリオ | `app/portfolio/` |
+| Night DEZIMA | `app/dezima/page.tsx` |
+| NEWS | `app/news/page.tsx` |
+| MEDIA | `app/media/page.tsx` |
+| ABOUT | `app/about/page.tsx` |
+| お問い合わせ | `app/contact/` |
+| 旧URLの転送設定 | `next.config.ts` |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. 環境変数（Vercel側で管理）
+- `SLACK_CONTACT_WEBHOOK_URL` … お問い合わせフォーム→Slack通知用。Vercelプロジェクトの Settings → Environment Variables で管理（コードには含めない）。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 技術スタック
+Next.js 16 (App Router) / React 19 / Tailwind CSS v4 / TypeScript
