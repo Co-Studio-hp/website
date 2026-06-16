@@ -1,224 +1,304 @@
 import Link from "next/link";
 
-const clients = [
-  "アース製薬", "塩野義製薬", "フィリップス", "NTT西日本", "エーザイ",
-  "旭化成ファーマ", "小野薬品", "ダイキン", "デンカ", "学研",
-  "ロート製薬", "大正製薬", "住友ファーマ", "OMRON", "味の素",
-  "三井物産", "東京ガス", "ENEOS", "三井不動産", "サントリー",
-  "JT", "キリン", "SOMPO", "神戸新聞", "福岡地所",
-  "日産化学", "MITSUI&CO.", "Wismettac", "Gakken", "YUTAKA",
+const portfolios = [
+  { slug: "do-sukasu",  name: "do.Sukasu",               year: "2020", field: "ヘルスケア / 教育 / 自動車", milestone: "シリーズA調達中" },
+  { slug: "aikomi",     name: "Aikomi",                   year: "2021", field: "認知症ケア / AI",            milestone: "約1億円調達" },
+  { slug: "hers",       name: "Hers HeAlth Technologies", year: "2025", field: "ヘルステック / 更年期",      milestone: "PoC実施中" },
+  { slug: "enaforward", name: "エナフォワード",             year: "2023", field: "美容 / SaaS",              milestone: "EXIT（2026）", href: "/results" },
 ];
 
-const services = [
+const clients = [
+  "住友ファーマ","ダイキン","OMRON","味の素","JT","キリン","SOMPO",
+  "三井物産","東京ガス","三井不動産","サントリー","アース製薬","塩野義製薬","エーザイ","旭化成ファーマ",
+];
+
+const serviceGroups = [
   {
     phase: "0→1",
-    title: "新規事業の種を育てる",
-    body: "アイデアの探索からビジネスモデル設計、PoC実施まで。正解のない問いに向き合い、事業の「芽」を確かにします。",
-    programs: ["SPRINT", "BUSINESS LAB", "LIVING LAB"],
+    label: "事業の種を見つけ、形にする",
+    items: [
+      { name: "SPRINT",        price: "1,500万〜/3ヶ月",   desc: "近未来デザイン×Bizモデル×特許を一体開発。6ヶ月で事業の骨格をつくる。" },
+      { name: "BUSINESS LAB",  price: "500万/3ヶ月",       desc: "隔週セッション。ビジネスモデル・知財・近未来デザインの悩みを継続解決。" },
+      { name: "LIVING LAB",    price: "500万/3ヶ月",       desc: "PoCフィールドがない企業の検証設計から実施まで。" },
+    ],
   },
   {
     phase: "1→10",
-    title: "外で事業を育てる",
-    body: "大企業の資産を活かしながら、組織の外に出島スタートアップを設立。ガバナンスの制約を外し、スピードと柔軟性で事業化を加速します。",
-    programs: ["Co-DEZIMA"],
+    label: "独立した会社として、共に育てる",
+    items: [
+      { name: "Co-DEZIMA",     price: "100〜200万/月+株式", desc: "出島スタートアップを設立し、株式参画でCo-Studioが共に走る。" },
+    ],
+  },
+  {
+    phase: "10→100",
+    label: "スケールを加速させる",
+    items: [
+      { name: "Growth Support", price: "応相談",             desc: "事業基盤が整った段階での戦略・組織・資金調達の加速支援。" },
+    ],
   },
   {
     phase: "Spot",
-    title: "今すぐ壁打ちしたい",
-    body: "具体的な課題を持つ担当者向けの単発セッション。短時間で論点を整理し、次の一手を見つけます。",
-    programs: ["Spot Assist"],
-  },
-];
-
-const differentiators = [
-  {
-    title: "支援ではなく、共創",
-    body: "私たちは答えを売りません。自らリスクを取り、事業化の果実（株式・ROI）を共に追求します。担当者の「想い」が社会に実装されるまで、走り続けます。",
-  },
-  {
-    title: "External R&D という思想",
-    body: "大企業のオペレーションから一部離脱させ、外部環境でR&Dを実行する。「出島方式」により、ガバナンスの制約なく新結合を引き寄せます。",
-  },
-  {
-    title: "7年間の実績と知見",
-    body: "50社以上の大企業・中小企業・自治体支援を通じて蓄積した、0→1フェーズ特有のノウハウ・ネットワーク・失敗知識を全て投入します。",
-  },
-];
-
-const portfolios = [
-  {
-    name: "do.Sukasu",
-    tags: ["ヘルスケア", "教育", "自動車"],
-    parent: "住友ファーマ",
-    body: "視空間認知技術を活用し、ヘルスケア・教育・運転支援領域で展開。住友ファーマから出島し、シードラウンドで4,500万円を調達。",
-  },
-  {
-    name: "エナフォワード",
-    tags: ["美容", "SaaS"],
-    parent: "ENEOS",
-    body: "美容師と顧客をつなぐコミュニケーションアプリ「ビーネ」を開発。ENEOSから出島し、設立2年で100店舗への導入を達成。",
-  },
-  {
-    name: "Aikomi",
-    tags: ["認知症ケア", "AI"],
-    parent: "武田薬品",
-    body: "AIを活用した認知症ケア向けデジタルセラピーを提供。武田薬品から出島し、医療・介護現場に展開中。",
+    label: "まず動く、試す",
+    items: [
+      { name: "Spot Assist 他", price: "25〜50万/枚",         desc: "壁打ち・勉強会・イベント設計・アドベンチャーレース。" },
+    ],
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="min-h-[88vh] flex flex-col justify-center px-6 max-w-6xl mx-auto">
-        <p className="text-xs tracking-widest uppercase text-gray-400 mb-6">Open Studio for Innovation</p>
-        <h1 className="text-5xl md:text-7xl font-light leading-tight tracking-tight mb-8">
-          創ろう、共に、<br />未来から。
-        </h1>
-        <p className="text-base md:text-lg text-gray-500 max-w-xl leading-relaxed mb-12">
-          Co-Studioは、大企業の新規事業開発を「共に走る」オープンスタジオです。<br className="hidden md:block" />
-          コンサルとは異なり、自らリスクを取って事業化の果実を共に目指します。
-        </p>
-        <div className="flex flex-wrap gap-12 mb-12">
-          {[
-            { num: "7年", label: "の実績" },
-            { num: "50社+", label: "の支援実績" },
-            { num: "7社", label: "の出島スタートアップ" },
-          ].map((s) => (
-            <div key={s.label}>
-              <p className="text-4xl font-light tracking-tight">{s.num}</p>
-              <p className="text-xs text-gray-400 mt-1">{s.label}</p>
-            </div>
-          ))}
-        </div>
-        <div className="flex gap-4 flex-wrap">
-          <Link href="/service" className="px-8 py-3 bg-black text-white text-xs tracking-widest uppercase hover:bg-gray-800 transition-colors">
-            サービスを見る
-          </Link>
-          <Link href="/contact" className="px-8 py-3 border border-black text-xs tracking-widest uppercase hover:bg-black hover:text-white transition-colors">
-            お問い合わせ
-          </Link>
-        </div>
-      </section>
+      {/* 1. HERO */}
+      <section className="bg-[#F5F3EE] min-h-screen flex flex-col relative overflow-hidden">
+        <div className="absolute inset-0 cross-grid opacity-30 pointer-events-none" />
 
-      {/* Clients */}
-      <section className="bg-gray-50 py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-gray-400 mb-8">Clients</p>
-          <div className="flex flex-wrap gap-x-8 gap-y-3">
-            {clients.map((c) => (
-              <span key={c} className="text-sm text-gray-500">{c}</span>
-            ))}
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3 z-10">
+          <div className="w-px h-16 bg-black/15" />
+          <span className="text-[10px] tracking-[0.4em] uppercase text-black/25 whitespace-nowrap" style={{writingMode:"vertical-rl"}}>Open Studio for Innovation</span>
+          <div className="w-px h-16 bg-black/15" />
+        </div>
+
+        <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-7xl mx-auto w-full py-28 relative z-10">
+          <p className="text-xs tracking-[0.5em] uppercase text-black/30 mb-8">Co-Studio — Since 2019</p>
+          <div className="mb-10">
+            <h1 className="text-[clamp(4rem,11vw,9rem)] font-normal leading-[0.95] tracking-[-0.03em] text-black">創ろう、</h1>
+            <h1 className="text-[clamp(4rem,11vw,9rem)] font-normal leading-[0.95] tracking-[-0.03em] text-black/25">共に、</h1>
+            <h1 className="text-[clamp(4rem,11vw,9rem)] font-normal leading-[0.95] tracking-[-0.03em] text-black">未来から。</h1>
           </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
-        <p className="text-xs tracking-widest uppercase text-gray-400 mb-4">Services</p>
-        <h2 className="text-3xl md:text-4xl font-light mb-4">
-          事業フェーズに合わせた、<br />3つの支援軸。
-        </h2>
-        <p className="text-sm text-gray-500 mb-16 max-w-lg">
-          0→1の種まきから、1→10の事業化まで、一貫して共に動きます。
-        </p>
-        <div className="grid md:grid-cols-3 gap-px bg-gray-200">
-          {services.map((s) => (
-            <div key={s.phase} className="bg-white p-8 hover:bg-gray-50 transition-colors">
-              <p className="text-4xl font-light text-gray-100 mb-4">{s.phase}</p>
-              <h3 className="text-base font-medium mb-3">{s.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-6">{s.body}</p>
-              <div className="flex flex-wrap gap-2">
-                {s.programs.map((p) => (
-                  <span key={p} className="text-xs border border-gray-200 px-2 py-1 text-gray-400">{p}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 text-right">
-          <Link href="/service" className="text-xs tracking-widest uppercase border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
-            サービス詳細 →
-          </Link>
-        </div>
-      </section>
-
-      {/* What We Do */}
-      <section className="bg-gray-50 py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-gray-400 mb-4">What We Do</p>
-          <h2 className="text-3xl md:text-4xl font-light mb-16 max-w-xl">
-            Co-Studioは、コンサルでも<br />投資会社でもありません。
-          </h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {differentiators.map((d, i) => (
-              <div key={d.title}>
-                <p className="text-6xl font-light text-gray-100 mb-4 leading-none">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="text-base font-medium mb-3">{d.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{d.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
-        <p className="text-xs tracking-widest uppercase text-gray-400 mb-4">Portfolio</p>
-        <h2 className="text-3xl md:text-4xl font-light mb-4">
-          出島スキームから生まれた、<br />7社の独立スタートアップ。
-        </h2>
-        <p className="text-sm text-gray-500 mb-16 max-w-lg">
-          大企業のリソースと、スタートアップのスピードが交わる場所で、事業は生まれます。
-        </p>
-        <div className="grid md:grid-cols-3 gap-8">
-          {portfolios.map((p) => (
-            <div key={p.name} className="border border-gray-100 p-8 hover:border-gray-300 transition-colors">
-              <p className="text-xs text-gray-400 mb-1">← {p.parent}</p>
-              <h3 className="text-xl font-light mb-3">{p.name}</h3>
-              <div className="flex flex-wrap gap-1 mb-4">
-                {p.tags.map((t) => (
-                  <span key={t} className="text-xs bg-gray-50 px-2 py-0.5 text-gray-400">{t}</span>
-                ))}
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed">{p.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Night DEZIMA */}
-      <section className="bg-black text-white py-24 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start md:items-center">
-          <div className="flex-1">
-            <p className="text-xs tracking-widest uppercase text-gray-500 mb-4">Community</p>
-            <h2 className="text-3xl md:text-4xl font-light mb-6">Night DEZIMA</h2>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-lg">
-              大企業の新規事業担当者が集まる、定期交流イベント。業種・会社を超えて、
-              同じ課題を抱えるイントレプレナーたちがつながります。<br /><br />
-              現在、<strong className="text-white">30社超の大企業担当者</strong>が参加。
-              「諦めない仕組み」を共に作るコミュニティです。
+          <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+            <p className="text-sm text-gray-500 max-w-sm leading-relaxed">
+              大企業の新規事業開発を「共に走る」オープンスタジオ。自らリスクを取り事業化の果実を共に目指します。
             </p>
+            <div className="flex gap-8">
+              {[{ n:"延べ60社+", l:"支援実績" },{ n:"4社+", l:"出島SU" },{ n:"7年", l:"の実績" }].map(s => (
+                <div key={s.l}>
+                  <p className="text-3xl font-normal text-black">{s.n}</p>
+                  <p className="text-xs text-black/30 mt-1">{s.l}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex-shrink-0">
-            <Link href="/contact" className="inline-block px-8 py-3 border border-white text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors">
-              コミュニティについて →
-            </Link>
+        </div>
+
+        <div className="relative z-10 border-t border-black/10 px-8 md:px-16 py-4 flex gap-4">
+          <Link href="/service" className="px-6 py-2.5 bg-black text-white text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-800 transition-colors">サービスを見る</Link>
+          <Link href="/contact" className="px-6 py-2.5 border border-black/30 text-black text-xs tracking-[0.2em] uppercase hover:bg-black/5 transition-colors">お問い合わせ</Link>
+        </div>
+      </section>
+
+      {/* 2. MISSION */}
+      <section className="bg-[#F5F3EE] py-20 px-8 md:px-16 border-t border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 mb-16 items-start">
+            <div>
+              <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-4">Our Mission</p>
+              <h2 className="text-3xl md:text-4xl font-normal leading-snug mb-6">共感を軸に拡がる<br />コミュニティの実現</h2>
+              <p className="text-sm text-gray-500 leading-relaxed max-w-md">
+                Co-Studioは「コンサルタント」でも「投資家」でもありません。大企業の中に眠る可能性を一緒に引き出し、リスクを共に取りながら事業として育てる——そういう存在です。
+              </p>
+            </div>
+            <div className="pt-2">
+              <blockquote className="border-l-2 border-black/20 pl-6">
+                <p className="text-lg font-normal leading-relaxed text-gray-700">
+                  「答えを売る」のではなく、<br />「共に問い、共に走る」。<br />それがCo-Studioのスタンスです。
+                </p>
+              </blockquote>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-px bg-black/10">
+            {[
+              { no:"01", title:"リスクを、共に取る",    body:"コンサルは成果物を納品して終わり。Co-Studioは株式参画を前提に、事業の成否を自分ごととして走り続けます。フィーだけで稼ぐビジネスモデルは持ちません。" },
+              { no:"02", title:"出島で、制約を超える",  body:"大企業の中では動けない。そう感じたら「外に出る」。Co-DEZIMAスキームで独立した出島スタートアップを設立し、ガバナンスの制約なく本気で事業を作ります。" },
+              { no:"03", title:"コミュニティで、繋がる",body:"一社の知見には限界がある。Night DEZIMAを通じ、業種を超えたイントレプレナー同士が繋がり、お互いの経験・ネットワーク・知見を持ち寄れる場を作ります。" },
+            ].map(c => (
+              <div key={c.no} className="bg-white/70 p-8">
+                <p className="text-[10px] tracking-[0.4em] text-gray-300 mb-4">{c.no}</p>
+                <h3 className="text-base font-medium mb-3">{c.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{c.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-px bg-black/10">
+            {[
+              { label:"一般的なコンサル・支援会社", points:["フィー収入が主。成果物を納品して終わり","社内論理・承認フローに縛られた提言","プロジェクト単位で関与が完結する"], dark:false },
+              { label:"Co-Studioの関与スタイル",    points:["株式参画で長期的に利害が一致","出島スキームで大企業の制約を突破","案件に深くコミットし、がっつり伴走する"], dark:true },
+            ].map(col => (
+              <div key={col.label} className={`p-8 ${col.dark ? "bg-[#111111] text-white" : "bg-white/70"}`}>
+                <p className={`text-[10px] tracking-[0.3em] uppercase mb-4 ${col.dark ? "text-white/30" : "text-gray-400"}`}>{col.label}</p>
+                <ul className="space-y-3">
+                  {col.points.map(p => (
+                    <li key={p} className={`text-sm flex gap-3 items-start ${col.dark ? "text-white/70" : "text-gray-600"}`}>
+                      <span className={`mt-1 w-1 h-1 rounded-full shrink-0 ${col.dark ? "bg-white/40" : "bg-black/20"}`} />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 max-w-6xl mx-auto text-center">
-        <p className="text-xs tracking-widest uppercase text-gray-400 mb-4">Contact</p>
-        <h2 className="text-3xl md:text-4xl font-light mb-6">まずは、話しましょう。</h2>
-        <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
-          新規事業の壁を前に、立ち止まっていませんか。<br />
-          Co-Studioでは、初回の壁打ちから中長期の共創まで、あなたの状況に合わせてご提案します。
-        </p>
-        <Link href="/contact" className="inline-block px-10 py-4 bg-black text-white text-xs tracking-widest uppercase hover:bg-gray-800 transition-colors">
-          お問い合わせ・壁打ちの申し込み
-        </Link>
+      {/* 3. CLIENTS */}
+      <section className="bg-[#F5F3EE] py-16 overflow-hidden border-y border-black/10">
+        <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 text-center mb-8">Clients — 延べ60社以上</p>
+        <div className="flex gap-14 whitespace-nowrap marquee mb-4">
+          {[...clients, ...clients].map((c, i) => (
+            <span key={i} className="text-base text-gray-400 shrink-0 font-medium">{c}</span>
+          ))}
+        </div>
+        <div className="flex gap-14 whitespace-nowrap marquee-rev">
+          {[...clients, ...clients].map((c, i) => (
+            <span key={i} className="text-base text-gray-300 shrink-0">{c}</span>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Co-DEZIMA */}
+      <section className="bg-[#F5F3EE] py-20 px-8 md:px-16 border-b border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-4">Co-DEZIMA</p>
+              <h2 className="text-3xl md:text-4xl font-normal leading-snug mb-6">大企業の「外」に、<br />本気の出島を作る。</h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                日本のイノベーションが失速する理由のひとつは、新規事業が「会社の中」にある限り、意思決定・採用・調達・スピードすべてが親会社の論理に縛られることです。
+              </p>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                Co-DEZIMAは、独立した株式会社として「出島スタートアップ」を設立するスキームです。Co-Studioが子会社に出資し、株式を持ちながら共同創業者として経営に参画。大企業の資産（技術・顧客・ブランド）と、スタートアップのスピード・柔軟性を両立させます。
+              </p>
+              <p className="text-sm text-gray-500 leading-relaxed">現在4社が稼働中・EXIT済み。調達総額は累計数億円規模に達しています。</p>
+              <div className="mt-8">
+                <Link href="/portfolio" className="inline-block px-7 py-3 border border-black text-xs tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-colors font-medium">ポートフォリオを見る →</Link>
+              </div>
+            </div>
+            <div className="space-y-px">
+              {[
+                { step:"01", title:"事業テーマの定義",  desc:"大企業内の埋もれた技術・アセットからテーマを絞り込む。SPRINTやBUSINESS LABでの0→1フェーズが前提となることも多い。" },
+                { step:"02", title:"出島法人の設立",    desc:"Co-Studioが設立する子会社に出資する形で独立法人を設立。代表者は大企業からの出向起業か、Co-Studioが招聘する人材。" },
+                { step:"03", title:"PoC・事業検証",     desc:"スタートアップとして自由に動きながら、市場検証・顧客開拓・資金調達を進める。Co-Studioがエコシステム構築・VC壁打ちを伴走。" },
+                { step:"04", title:"独立・スケール",    desc:"外部調達・黒字化・M&A・EXITなど各社の戦略に合わせて成長フェーズを設計。エナフォワードは2026年にEXIT完了。" },
+              ].map(s => (
+                <div key={s.step} className="flex gap-5 p-5 bg-white/70 border border-black/5">
+                  <span className="text-[10px] text-gray-300 font-medium shrink-0 mt-0.5 w-6">{s.step}</span>
+                  <div>
+                    <p className="text-sm font-medium mb-1">{s.title}</p>
+                    <p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PORTFOLIO */}
+      <section className="bg-[#111111] py-16 px-8 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <p className="text-[10px] tracking-[0.4em] uppercase text-white/30 mb-2">Portfolio</p>
+              <h2 className="text-2xl font-normal text-white">出島から生まれた独立SU</h2>
+            </div>
+            <Link href="/portfolio" className="text-xs text-white/40 border-b border-white/20 pb-0.5 hover:text-white transition-colors tracking-widest uppercase">一覧 →</Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5">
+            {portfolios.map((p) => (
+              <Link key={p.slug} href={"href" in p && p.href ? p.href : `/portfolio/${p.slug}`} className="group bg-[#111111] p-6 hover:bg-white/5 transition-colors">
+                <p className="text-[10px] text-white/20 mb-4">{p.year}</p>
+                <h3 className="text-base font-normal text-white mb-2 leading-tight">{p.name}</h3>
+                <p className="text-xs text-white/40 mb-4 leading-relaxed">{p.field}</p>
+                <span className="text-xs text-white/20 bg-white/5 px-2 py-0.5">{p.milestone}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. SERVICES */}
+      <section className="bg-[#F5F3EE] py-16 px-8 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-baseline gap-4 mb-10">
+            <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400">Services</p>
+            <div className="flex-1 h-px bg-black/10" />
+            <Link href="/service" className="text-xs text-gray-400 hover:text-black transition-colors tracking-widest uppercase">詳細 →</Link>
+          </div>
+          <div className="space-y-6">
+            {serviceGroups.map((g) => (
+              <div key={g.phase}>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-[10px] border border-black/15 text-gray-400 px-2 py-1 font-medium tracking-widest">{g.phase}</span>
+                  <span className="text-xs text-gray-400">{g.label}</span>
+                  <div className="flex-1 h-px bg-black/8" />
+                </div>
+                <div className="space-y-px">
+                  {g.items.map((s) => (
+                    <div key={s.name} className="px-5 py-4 bg-white/60 hover:bg-black/5 transition-colors">
+                      <p className="text-sm font-medium mb-0.5">{s.name}</p>
+                      <p className="text-xs text-gray-400">{s.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. NIGHT DEZIMA */}
+      <section className="py-20 px-8 md:px-16 overflow-hidden relative"
+        style={{background:"linear-gradient(135deg, #0a0a1a 0%, #111130 100%)"}}>
+        <div className="absolute inset-0 cross-grid opacity-10 pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="mb-12">
+            <p className="text-[10px] tracking-[0.4em] uppercase text-white/20 mb-4">Community</p>
+            <h2 className="text-4xl md:text-5xl font-normal text-white mb-6 leading-tight">Night DEZIMA</h2>
+            <p className="text-base text-white/50 max-w-lg leading-relaxed">大企業のイントレプレナーが業種を超えて集まる、定期交流イベント。</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <p className="text-sm text-white/40 leading-relaxed mb-6">
+                新規事業担当者が抱える悩みは、社内に話せる相手がいないことも多い。Night DEZIMAは、そんなイントレプレナーが「同じ境遇の仲間」と出会い、経験や知見を分かち合える場です。
+              </p>
+              <p className="text-sm text-white/40 leading-relaxed mb-6">
+                コンサルや投資家は来ない、売り込みもない。純粋に「事業を前に進めたい人」だけが集まる、クローズドな交流の場です。東京・福岡・大阪など全国各地で開催しており、参加企業同士の横連携から新たな事業機会が生まれることも少なくありません。
+              </p>
+              <div className="flex gap-4">
+                <Link href="/dezima" className="inline-block px-7 py-3 border border-white/20 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors">Night DEZIMAについて →</Link>
+                <Link href="/contact" className="inline-block px-7 py-3 bg-white/10 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/20 transition-colors">参加を申し込む</Link>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-px bg-white/5">
+              {[["30社+","参加企業"],["12回+","開催実績"],["全国","各地で開催"],["異業種","業種を超えた繋がり"],["クローズド","招待制の安心感"],["横連携","担当者間の協業も"]].map(([n,l]) => (
+                <div key={l} className="bg-black/30 px-4 py-5 text-center">
+                  <p className="text-xl font-normal text-white mb-1">{n}</p>
+                  <p className="text-[10px] text-white/20 leading-tight">{l}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. CONTACT CTA */}
+      <section className="bg-[#F5F3EE] py-16 px-8 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-[#111111] text-white p-10 md:p-14 md:flex items-center justify-between gap-10 relative overflow-hidden">
+            <div className="absolute right-8 top-1/2 -translate-y-1/2 text-[8rem] font-bold text-white/[0.04] select-none pointer-events-none leading-none">→</div>
+            <div className="relative z-10">
+              <p className="text-[10px] tracking-[0.4em] uppercase text-white/30 mb-4">Contact</p>
+              <h2 className="text-3xl md:text-4xl font-normal mb-4 leading-tight">まずは、話しましょう。</h2>
+              <p className="text-sm text-white/40 max-w-sm leading-relaxed">新規事業の壁を前に、立ち止まっていませんか。単発の壁打ちから、中長期の共創まで。</p>
+            </div>
+            <div className="relative z-10 mt-8 md:mt-0 shrink-0">
+              <Link href="/contact" className="block px-10 py-4 bg-white text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-100 transition-colors whitespace-nowrap text-center">
+                お問い合わせ・壁打ちの申し込み
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

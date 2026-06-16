@@ -12,6 +12,8 @@ export default function Footer() {
           {[
             { label: "HOME", href: "/" },
             { label: "SERVICE", href: "/service" },
+            { label: "NEWS", href: "/news" },
+            { label: "MEDIA", href: "/media" },
             { label: "ABOUT US", href: "/about" },
             { label: "CONTACT", href: "/contact" },
           ].map((l) => (
