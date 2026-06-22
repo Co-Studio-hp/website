@@ -4,6 +4,9 @@ import type { NextConfig } from "next";
 // ドメイン切替後、古いURLや外部からの被リンクの評価を新ページへ引き継ぐため。
 // Next.jsの permanent:true は 308（SEO上は301と同等にGoogleが扱う）。
 const legacyRedirects = [
+  // favicon.ico を新ロゴアイコンへ（古いブックマーク/クローラ対策）
+  { source: "/favicon.ico", destination: "/icon.png", permanent: true },
+
   // --- ブログ記事（/post/*）: 記事はnoteへ移行済みのため MEDIA ハブへ集約 ---
   { source: "/post/:slug*", destination: "/media", permanent: true },
   { source: "/blog", destination: "/media", permanent: true },
