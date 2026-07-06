@@ -27,6 +27,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
   }
 
+  // フリーメールは対象外（会社メールのみ受け付ける）
+  const FREE_MAIL_DOMAINS = [
+    "gmail.com", "yahoo.co.jp", "yahoo.com", "outlook.com", "outlook.jp", "hotmail.com",
+    "hotmail.co.jp", "live.jp", "live.com", "icloud.com", "me.com", "mac.com",
+    "aol.com", "protonmail.com", "proton.me", "mail.com", "gmx.com", "yandex.com",
+    "docomo.ne.jp", "ezweb.ne.jp", "au.com", "softbank.ne.jp", "i.softbank.jp",
+  ];
+  const domain = email.split("@")[1]?.toLowerCase() ?? "";
+  if (FREE_MAIL_DOMAINS.includes(domain)) {
+    return NextResponse.json({ ok: false, error: "free_mail" }, { status: 400 });
+  }
+
   const webhookUrl = process.env.SLACK_CONTACT_WEBHOOK_URL;
   if (!webhookUrl) {
     console.error("SLACK_CONTACT_WEBHOOK_URL is not set");

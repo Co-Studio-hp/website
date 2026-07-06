@@ -6,7 +6,7 @@ export default function WpDownloadForm() {
   const [company, setCompany] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error" | "free_mail">("idle");
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,7 +17,11 @@ export default function WpDownloadForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ company, name, email }),
       });
-      if (!res.ok) throw new Error("failed");
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        setStatus(body?.error === "free_mail" ? "free_mail" : "error");
+        return;
+      }
       setStatus("done");
     } catch {
       setStatus("error");
@@ -47,7 +51,7 @@ export default function WpDownloadForm() {
     <form onSubmit={submit} className="flex flex-col gap-4">
       <input className={input} placeholder="会社名 *" value={company} onChange={(e) => setCompany(e.target.value)} required />
       <input className={input} placeholder="お名前 *" value={name} onChange={(e) => setName(e.target.value)} required />
-      <input className={input} type="email" placeholder="メールアドレス *" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <input className={input} type="email" placeholder="会社のメールアドレス *" value={email} onChange={(e) => setEmail(e.target.value)} required />
       <button
         type="submit"
         disabled={status === "sending"}
@@ -57,6 +61,9 @@ export default function WpDownloadForm() {
       </button>
       {status === "error" && (
         <p className="text-xs text-red-400">送信に失敗しました。時間をおいて再度お試しください。</p>
+      )}
+      {status === "free_mail" && (
+        <p className="text-xs text-red-400">恐れ入りますが、会社のメールアドレスでお申し込みください。</p>
       )}
       <p className="text-[11px] text-white/30 leading-relaxed">
         ご入力いただいた情報は、資料のご案内およびCo-Studioからのご連絡にのみ使用します。
