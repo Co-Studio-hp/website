@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-end">
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">About Us</p>
-              <h1 className="text-5xl md:text-7xl font-normal leading-tight mb-8">
+              <h1 className="text-5xl md:text-7xl font-medium leading-tight mb-8">
                 共感を軸に<br />拡がる<br />コミュニティの実現
               </h1>
               <p className="text-gray-500 italic text-lg">"創ろう、共に、未来から。"</p>
@@ -57,11 +57,11 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-8 pt-6 border-t border-gray-800">
                 {[
                   { num: "2019", label: "年設立" },
-                  { num: "50社+", label: "支援実績" },
+                  { num: "延べ60社+", label: "支援実績" },
                   { num: "7年", label: "の実績" },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-normal text-white">{s.num}</p>
+                    <p className="text-2xl font-medium text-white">{s.num}</p>
                     <p className="text-xs text-gray-600 mt-1">{s.label}</p>
                   </div>
                 ))}
@@ -111,7 +111,7 @@ export default function AboutPage() {
                   <img src={m.photo} alt={m.name} className="w-full h-full object-cover" />
                 </div>
                 <p className="text-xs text-gray-400 mb-1">{m.role}</p>
-                <h3 className="text-xl font-normal mb-3">{m.name}</h3>
+                <h3 className="text-xl font-medium mb-3">{m.name}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed mb-4">{m.bio}</p>
                 <div className="flex flex-wrap gap-1">
                   {m.former.map((f) => (
@@ -141,7 +141,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="border-t border-gray-100 py-16 px-6 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-normal mb-4">一緒に、事業を作りませんか。</h2>
+        <h2 className="text-3xl font-medium mb-4">一緒に、事業を作りませんか。</h2>
         <p className="text-sm text-gray-500 mb-8 max-w-md mx-auto leading-relaxed">
           想いはあるのに、進められない。そのもどかしさに寄り添うことが、私たちの出発点です。
         </p>

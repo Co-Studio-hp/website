@@ -22,7 +22,6 @@ const links = [
   { label: "NEWS", href: "/news" },
   { label: "MEDIA", href: "/media" },
   { label: "ABOUT US", href: "/about" },
-  { label: "CONTACT", href: "/contact" },
 ];
 
 export default function Nav() {
@@ -56,6 +55,9 @@ export default function Nav() {
               )}
             </div>
           ))}
+          <Link href="/contact" className="ml-2 px-5 py-2 bg-black text-white text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-800 transition-colors whitespace-nowrap">
+            相談する
+          </Link>
         </nav>
         <button className="lg:hidden flex flex-col gap-1.5 p-2" onClick={() => setOpen(!open)}>
           <span className={`block w-6 h-px bg-black transition-all ${open ? "rotate-45 translate-y-2" : ""}`} />
@@ -71,6 +73,9 @@ export default function Nav() {
               {l.children && <div className="pl-4 flex flex-col gap-2 mt-1">{l.children.map((c) => (<Link key={c.href} href={c.href} onClick={() => setOpen(false)} className="text-xs text-gray-400 hover:text-black">{c.label}</Link>))}</div>}
             </div>
           ))}
+          <Link href="/contact" onClick={() => setOpen(false)} className="mt-2 px-5 py-3 bg-black text-white text-sm tracking-[0.2em] uppercase font-medium text-center">
+            相談する
+          </Link>
         </nav>
       )}
     </header>

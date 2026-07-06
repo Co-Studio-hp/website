@@ -119,8 +119,8 @@ export default function ResultsPage() {
     <>
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Results</p>
-        <h1 className="text-5xl md:text-6xl font-normal tracking-tight mb-6 leading-tight">
-          50社以上との<br />共創実績。
+        <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
+          延べ60社以上との<br />共創実績。
         </h1>
         <p className="text-sm text-gray-500 max-w-xl leading-relaxed">
           製薬・化学・食品・エネルギー・不動産・メディアなど多様な業種の企業と、新規事業の種まきから出島設立まで伴走してきました。
@@ -132,13 +132,13 @@ export default function ResultsPage() {
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200">
           {[
-            { num: "50社+", label: "支援企業数" },
+            { num: "延べ60社+", label: "支援企業数" },
             { num: "6", label: "SPRINTプログラム実施" },
             { num: "16+", label: "Business Lab / Living Lab" },
             { num: "7+", label: "Spot Assist" },
           ].map((s) => (
             <div key={s.label} className="bg-white p-8">
-              <p className="text-4xl font-normal mb-2">{s.num}</p>
+              <p className="text-4xl font-medium mb-2">{s.num}</p>
               <p className="text-xs text-gray-400">{s.label}</p>
             </div>
           ))}
@@ -148,7 +148,7 @@ export default function ResultsPage() {
       {/* SPRINT */}
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <div className="flex items-baseline gap-4 mb-10">
-          <h2 className="text-2xl font-normal">SPRINT</h2>
+          <h2 className="text-2xl font-medium">SPRINT</h2>
           <span className="text-xs text-gray-400">6ヶ月プログラム / 0→1フェーズ</span>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
@@ -168,7 +168,7 @@ export default function ResultsPage() {
       {/* 出島設立実績（事例） */}
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <div className="flex items-baseline gap-4 mb-10">
-          <h2 className="text-2xl font-normal">出島スタートアップ設立 実績</h2>
+          <h2 className="text-2xl font-medium">出島スタートアップ設立 実績</h2>
           <span className="text-xs text-gray-400">Co-Studioが共創し、設立した独立スタートアップ</span>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
@@ -230,7 +230,7 @@ export default function ResultsPage() {
       <section className="bg-gray-50 py-14 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-baseline gap-4 mb-10">
-            <h2 className="text-2xl font-normal">Business Lab / Living Lab</h2>
+            <h2 className="text-2xl font-medium">Business Lab / Living Lab</h2>
             <span className="text-xs text-gray-400">3〜6ヶ月 / 0→1フェーズ</span>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -250,7 +250,7 @@ export default function ResultsPage() {
       {/* Spot Assist */}
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <div className="flex items-baseline gap-4 mb-10">
-          <h2 className="text-2xl font-normal">Spot Assist</h2>
+          <h2 className="text-2xl font-medium">Spot Assist</h2>
           <span className="text-xs text-gray-400">単発壁打ち / 1時間〜</span>
         </div>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -268,7 +268,7 @@ export default function ResultsPage() {
 
       {/* CTA */}
       <section className="border-t border-gray-100 py-14 px-6 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-normal mb-4">貴社でも、一緒に動き始めましょう。</h2>
+        <h2 className="text-3xl font-medium mb-4">貴社でも、一緒に動き始めましょう。</h2>
         <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
           Spot Assistの1時間壁打ちから、SPRINTの6ヶ月プログラムまで。<br />
           まずは課題をお聞かせください。

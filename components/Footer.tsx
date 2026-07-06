@@ -5,13 +5,16 @@ export default function Footer() {
     <footer className="border-t border-gray-100 py-12 mt-24">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
-          <p className="text-sm font-light tracking-widest uppercase mb-1">Co-Studio株式会社</p>
+          <p className="text-sm font-medium tracking-widest uppercase mb-1">Co-Studio株式会社</p>
           <p className="text-xs text-gray-400">東京都中央区日本橋本町3丁目8-3 日本橋ライフサイエンスビルディング</p>
         </div>
-        <nav className="flex flex-col md:flex-row gap-4 md:gap-8">
+        <nav className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6">
           {[
             { label: "HOME", href: "/" },
             { label: "SERVICE", href: "/service" },
+            { label: "支援実績", href: "/results" },
+            { label: "PORTFOLIO", href: "/portfolio" },
+            { label: "NIGHT DEZIMA", href: "/dezima" },
             { label: "NEWS", href: "/news" },
             { label: "MEDIA", href: "/media" },
             { label: "ABOUT US", href: "/about" },

@@ -52,7 +52,7 @@ export default async function DezimaPage() {
         <div className="max-w-7xl mx-auto relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-xs tracking-[0.4em] uppercase text-white/30 mb-6">Co-Studio Community</p>
-            <h1 className="text-6xl md:text-8xl font-normal text-white mb-6 leading-tight">
+            <h1 className="text-6xl md:text-8xl font-medium text-white mb-6 leading-tight">
               Night<br />DEZIMA
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-10">
@@ -66,7 +66,7 @@ export default async function DezimaPage() {
                 { num: "全国", label: "東京・福岡など各地で開催" },
               ].map((s) => (
                 <div key={s.label}>
-                  <p className="text-4xl font-normal text-white">{s.num}</p>
+                  <p className="text-4xl font-medium text-white">{s.num}</p>
                   <p className="text-xs text-white/40 mt-1">{s.label}</p>
                 </div>
               ))}
@@ -95,7 +95,7 @@ export default async function DezimaPage() {
       <section className="bg-[#0a0a0a] text-white px-6 py-16">
         <div className="max-w-5xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-3 text-center">Movie</p>
-          <h2 className="text-2xl md:text-3xl font-normal mb-10 text-center">映像で見る Night DEZIMA</h2>
+          <h2 className="text-2xl md:text-3xl font-medium mb-10 text-center">映像で見る Night DEZIMA</h2>
           <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
             <iframe
               className="absolute inset-0 w-full h-full"
@@ -126,7 +126,7 @@ export default async function DezimaPage() {
             </a>
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">完全ガイド</p>
-              <h2 className="text-3xl font-normal mb-5 leading-snug">
+              <h2 className="text-3xl font-medium mb-5 leading-snug">
                 ナイトDEZIMA大解説。<br />
                 <span className="text-white/60 text-xl">30社以上のイントレプレナーが集う"夜会"の全貌</span>
               </h2>
@@ -153,7 +153,7 @@ export default async function DezimaPage() {
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">What is Night DEZIMA?</p>
-            <h2 className="text-4xl font-normal mb-8 leading-tight">
+            <h2 className="text-4xl font-medium mb-8 leading-tight">
               「できない理由」に<br />縛られない夜。
             </h2>
             <p className="text-sm text-gray-600 leading-relaxed mb-4">
@@ -200,7 +200,7 @@ export default async function DezimaPage() {
         <div className="flex justify-between items-end mb-10">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-2">Past Events</p>
-            <h2 className="text-2xl font-normal">開催記録</h2>
+            <h2 className="text-2xl font-medium">開催記録</h2>
           </div>
           <a
             href={NOTE_URL}
@@ -247,7 +247,7 @@ export default async function DezimaPage() {
       <section className="bg-black text-white py-14 px-6">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">こんな方へ</p>
-          <h2 className="text-3xl font-normal mb-10">あなたが「イントレプレナー」なら、<br />ここが居場所になる。</h2>
+          <h2 className="text-3xl font-medium mb-10">あなたが「イントレプレナー」なら、<br />ここが居場所になる。</h2>
           <div className="grid md:grid-cols-2 gap-3 max-w-2xl">
             {[
               "大企業で新規事業を推進しているが、孤独を感じている",
@@ -268,7 +268,7 @@ export default async function DezimaPage() {
 
       {/* CTA */}
       <section className="py-14 px-6 max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-normal mb-4">次回のNight DEZIMAに参加する</h2>
+        <h2 className="text-4xl font-medium mb-4">次回のNight DEZIMAに参加する</h2>
         <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
           参加希望の方はお問い合わせフォームよりご連絡ください。<br />
           次回開催の案内をお送りします。
