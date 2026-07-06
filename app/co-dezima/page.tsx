@@ -52,7 +52,6 @@ export default function CoDezimaPage() {
             playsInline
             className="w-full border border-white/10"
           />
-          <p className="text-[11px] text-white/25 mt-3 text-right">※ナレーションはAI音声です</p>
         </div>
       </section>
 

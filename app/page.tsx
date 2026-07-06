@@ -99,7 +99,6 @@ export default function Home() {
               controls
               className="w-full border border-white/10"
             />
-            <p className="text-[11px] text-white/25 mt-2 text-right">※ナレーションはAI音声です</p>
           </div>
           <div className="md:col-span-2">
             <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Co-DEZIMA</p>
