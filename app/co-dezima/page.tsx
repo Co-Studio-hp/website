@@ -76,6 +76,29 @@ export default function CoDezimaPage() {
         </div>
       </section>
 
+      {/* Shindan CTA */}
+      <section className="bg-[#111111] text-white py-16 px-6">
+        <div className="max-w-5xl mx-auto md:flex items-center justify-between gap-10">
+          <div>
+            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Self Check</p>
+            <h2 className="text-2xl md:text-3xl font-normal leading-snug mb-3">
+              あなたのテーマは、出島向きか？
+            </h2>
+            <p className="text-sm text-white/50 leading-relaxed max-w-md">
+              社内で育てるべきか、外で育てるべきか。10の質問で「出島適合度」を判定します。3分・登録不要。
+            </p>
+          </div>
+          <div className="mt-8 md:mt-0 shrink-0">
+            <Link
+              href="/shindan"
+              className="inline-block px-8 py-3.5 bg-white text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors whitespace-nowrap"
+            >
+              3分セルフ診断へ →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* WP Download */}
       <section className="bg-[#0a0a0a] text-white py-20 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
