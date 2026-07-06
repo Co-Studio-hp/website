@@ -30,7 +30,7 @@ export default function CoDezimaPage() {
       <section className="bg-[#0a0a0a] text-white min-h-[60vh] flex flex-col justify-center px-6 py-24 relative overflow-hidden">
         <div className="max-w-5xl mx-auto w-full relative z-10">
           <p className="text-xs tracking-[0.4em] uppercase text-white/30 mb-6">Co-DEZIMA</p>
-          <h1 className="text-4xl md:text-6xl font-normal leading-tight mb-8">
+          <h1 className="text-4xl md:text-6xl font-medium leading-tight mb-8">
             出島という、<br />新規事業の選択肢。
           </h1>
           <p className="text-base md:text-lg text-white/60 max-w-2xl leading-relaxed">
@@ -44,7 +44,7 @@ export default function CoDezimaPage() {
       <section className="bg-[#0a0a0a] text-white px-6 pb-20">
         <div className="max-w-5xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-3 text-center">Movie</p>
-          <h2 className="text-2xl md:text-3xl font-normal mb-10 text-center">3分でわかる Co-DEZIMA</h2>
+          <h2 className="text-2xl md:text-3xl font-medium mb-10 text-center">3分でわかる Co-DEZIMA</h2>
           <video
             src="/videos/dezima-intro.mp4"
             controls
@@ -59,7 +59,7 @@ export default function CoDezimaPage() {
       <section className="bg-[#F5F3EE] py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-4">Why DEZIMA</p>
-          <h2 className="text-3xl md:text-4xl font-normal leading-snug mb-12">なぜ、外に出すのか。</h2>
+          <h2 className="text-3xl md:text-4xl font-medium leading-snug mb-12">なぜ、外に出すのか。</h2>
           <div className="grid md:grid-cols-3 gap-px bg-black/10">
             {points.map((p, i) => (
               <div key={p.title} className="bg-[#F5F3EE] p-8">
@@ -81,7 +81,7 @@ export default function CoDezimaPage() {
         <div className="max-w-5xl mx-auto md:flex items-center justify-between gap-10">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Self Check</p>
-            <h2 className="text-2xl md:text-3xl font-normal leading-snug mb-3">
+            <h2 className="text-2xl md:text-3xl font-medium leading-snug mb-3">
               あなたのテーマは、出島向きか？
             </h2>
             <p className="text-sm text-white/50 leading-relaxed max-w-md">
@@ -104,7 +104,7 @@ export default function CoDezimaPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Whitepaper</p>
-            <h2 className="text-3xl md:text-4xl font-normal leading-snug mb-6">
+            <h2 className="text-3xl md:text-4xl font-medium leading-snug mb-6">
               出島入門<span className="text-white/40 text-xl md:text-2xl block mt-2">— 新規事業を外に出すという選択肢</span>
             </h2>
             <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-md">
@@ -123,7 +123,7 @@ export default function CoDezimaPage() {
 
       {/* CTA */}
       <section className="py-16 px-6 max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-normal mb-6">出島について、話してみませんか。</h2>
+        <h2 className="text-2xl md:text-3xl font-medium mb-6">出島について、話してみませんか。</h2>
         <p className="text-sm text-gray-500 mb-8 max-w-xl mx-auto leading-relaxed">
           「うちの事業案は出島向きか」という段階のご相談から承っています。
         </p>

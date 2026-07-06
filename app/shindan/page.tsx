@@ -12,7 +12,7 @@ export default function ShindanPage() {
     <section className="bg-[#0a0a0a] text-white min-h-screen px-6 py-24 md:py-28">
       <div className="max-w-3xl mx-auto w-full mb-14 text-center">
         <p className="text-xs tracking-[0.4em] uppercase text-white/30 mb-6">Self Check</p>
-        <h1 className="text-3xl md:text-4xl font-normal leading-tight mb-6">出島適合セルフ診断</h1>
+        <h1 className="text-3xl md:text-4xl font-medium leading-tight mb-6">出島適合セルフ診断</h1>
         <p className="text-sm md:text-base text-white/60 leading-relaxed max-w-xl mx-auto">
           そのテーマは、社内で育てるべきか。外で育てるべきか。
           10の質問で「出島適合度」を判定します。

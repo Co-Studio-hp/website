@@ -102,7 +102,7 @@ export default function Home() {
           </div>
           <div className="md:col-span-2">
             <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Co-DEZIMA</p>
-            <h2 className="text-2xl md:text-3xl font-normal leading-snug mb-4">
+            <h2 className="text-2xl md:text-3xl font-medium leading-snug mb-4">
               新規事業は、<br />社内でやるもの？
             </h2>
             <p className="text-sm text-white/50 leading-relaxed mb-8">
@@ -124,7 +124,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8 md:px-16 py-14 md:flex items-center justify-between gap-10">
           <div>
             <p className="text-[10px] tracking-[0.4em] uppercase text-white/30 mb-3">Self Check</p>
-            <h2 className="text-2xl md:text-3xl font-normal leading-snug mb-2">
+            <h2 className="text-2xl md:text-3xl font-medium leading-snug mb-2">
               あなたのテーマは、出島向きか？
             </h2>
             <p className="text-sm text-white/50 leading-relaxed max-w-md">
