@@ -21,7 +21,7 @@ export default async function AikomiPage() {
             <img src="/portfolio/aikomi.png" alt="Aikomi" className="h-9 w-auto object-contain" />
           </div>
           <p className="text-xs text-white/40 tracking-[0.3em] uppercase mb-4">大手製薬スピンアウト → 住友ファーマ出資 × Co-Studio経営参画（2023年〜）</p>
-          <h1 className="text-5xl md:text-7xl font-normal mb-6">Aikomi</h1>
+          <h1 className="text-5xl md:text-7xl font-medium mb-6">Aikomi</h1>
           <p className="text-lg text-white/70 max-w-xl leading-relaxed">
             AIを活用した認知症ケアで、一人ひとりの尊厳ある生を支える。
           </p>
@@ -38,7 +38,7 @@ export default async function AikomiPage() {
           ].map((item) => (
             <div key={item.label} className="bg-white p-6">
               <p className="text-xs text-gray-400 mb-2">{item.label}</p>
-              <p className="text-xl font-normal">{item.value}</p>
+              <p className="text-xl font-medium">{item.value}</p>
             </div>
           ))}
         </div>
@@ -47,7 +47,7 @@ export default async function AikomiPage() {
       <section className="px-6 max-w-7xl mx-auto pb-16">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-2xl font-normal mb-5">事業概要</h2>
+            <h2 className="text-2xl font-medium mb-5">事業概要</h2>
             <p className="text-sm text-gray-600 leading-relaxed mb-4">
               認知症には「有効薬がない」「相互性が損失する」「孤立する」という3つの未解決問題があります。AikomiはAIを用いたデジタルセラピーでこれらに向き合い、パーソンセンタードケアのアプローチで個人に最適化されたケアを提供します。
             </p>
@@ -59,7 +59,7 @@ export default async function AikomiPage() {
             </p>
           </div>
           <div>
-            <h2 className="text-2xl font-normal mb-5">Co-Studioの関与形態</h2>
+            <h2 className="text-2xl font-medium mb-5">Co-Studioの関与形態</h2>
             <div className="space-y-3">
               {[
                 { phase: "経緯", desc: "大手製薬企業スピンアウトのスタートアップに住友ファーマが出資。そのポートフォリオ支援の延長でCo-Studioが関与を開始。" },
@@ -74,7 +74,7 @@ export default async function AikomiPage() {
             </div>
             <div className="mt-5 p-5 bg-gray-50 border border-gray-100">
               <p className="text-xs text-gray-400 mb-2">資金調達</p>
-              <p className="text-2xl font-normal mb-1">約1億円</p>
+              <p className="text-2xl font-medium mb-1">約1億円</p>
               <p className="text-xs text-gray-500 mb-3">クラウドファンディング（Fundinno）にて調達</p>
               <a href="https://fundinno.com/projects/588" target="_blank" rel="noopener noreferrer"
                 className="text-xs text-gray-500 hover:text-black border-b border-gray-200 pb-0.5 transition-colors"
@@ -85,7 +85,7 @@ export default async function AikomiPage() {
       </section>
 
       <section className="py-12 px-6 max-w-7xl mx-auto">
-        <h2 className="text-2xl font-normal mb-6">プレスリリース・関連リンク</h2>
+        <h2 className="text-2xl font-medium mb-6">プレスリリース・関連リンク</h2>
         <div className="space-y-0">
           {pressReleases.map((p) => (
             <a key={p.url} href={p.url} target="_blank" rel="noopener noreferrer"

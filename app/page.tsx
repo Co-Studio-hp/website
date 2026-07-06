@@ -17,30 +17,30 @@ const serviceGroups = [
     phase: "0→1",
     label: "事業の種を見つけ、形にする",
     items: [
-      { name: "SPRINT",        price: "1,500万〜/3ヶ月",   desc: "近未来デザイン×Bizモデル×特許を一体開発。6ヶ月で事業の骨格をつくる。" },
-      { name: "BUSINESS LAB",  price: "500万/3ヶ月",       desc: "隔週セッション。ビジネスモデル・知財・近未来デザインの悩みを継続解決。" },
-      { name: "LIVING LAB",    price: "500万/3ヶ月",       desc: "PoCフィールドがない企業の検証設計から実施まで。" },
+      { name: "SPRINT",        desc: "近未来デザイン×Bizモデル×特許を一体開発。6ヶ月で事業の骨格をつくる。" },
+      { name: "BUSINESS LAB",  desc: "隔週セッション。ビジネスモデル・知財・近未来デザインの悩みを継続解決。" },
+      { name: "LIVING LAB",    desc: "PoCフィールドがない企業の検証設計から実施まで。" },
     ],
   },
   {
     phase: "1→10",
     label: "独立した会社として、共に育てる",
     items: [
-      { name: "Co-DEZIMA",     price: "100〜200万/月+株式", desc: "出島スタートアップを設立し、株式参画でCo-Studioが共に走る。" },
+      { name: "Co-DEZIMA",     desc: "出島スタートアップを設立し、株式参画でCo-Studioが共に走る。" },
     ],
   },
   {
     phase: "10→100",
     label: "スケールを加速させる",
     items: [
-      { name: "Growth Support", price: "応相談",             desc: "事業基盤が整った段階での戦略・組織・資金調達の加速支援。" },
+      { name: "Growth Support", desc: "事業基盤が整った段階での戦略・組織・資金調達の加速支援。" },
     ],
   },
   {
     phase: "Spot",
     label: "まず動く、試す",
     items: [
-      { name: "Spot Assist 他", price: "25〜50万/枚",         desc: "壁打ち・勉強会・イベント設計・アドベンチャーレース。" },
+      { name: "Spot Assist 他", desc: "壁打ち・勉強会・イベント設計・アドベンチャーレース。" },
     ],
   },
 ];
@@ -61,9 +61,9 @@ export default function Home() {
         <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-7xl mx-auto w-full py-28 relative z-10">
           <p className="text-xs tracking-[0.5em] uppercase text-black/30 mb-8">Co-Studio — Since 2019</p>
           <div className="mb-10">
-            <h1 className="text-[clamp(4rem,11vw,9rem)] font-normal leading-[0.95] tracking-[-0.03em] text-black">創ろう、</h1>
-            <h1 className="text-[clamp(4rem,11vw,9rem)] font-normal leading-[0.95] tracking-[-0.03em] text-black/25">共に、</h1>
-            <h1 className="text-[clamp(4rem,11vw,9rem)] font-normal leading-[0.95] tracking-[-0.03em] text-black">未来から。</h1>
+            <h1 className="text-[clamp(4rem,11vw,9rem)] font-medium leading-[0.95] tracking-[-0.03em] text-black">創ろう、</h1>
+            <h1 className="text-[clamp(4rem,11vw,9rem)] font-medium leading-[0.95] tracking-[-0.03em] text-black/25">共に、</h1>
+            <h1 className="text-[clamp(4rem,11vw,9rem)] font-medium leading-[0.95] tracking-[-0.03em] text-black">未来から。</h1>
           </div>
           <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
             <p className="text-sm text-gray-500 max-w-sm leading-relaxed">
@@ -72,7 +72,7 @@ export default function Home() {
             <div className="flex gap-8">
               {[{ n:"延べ60社+", l:"支援実績" },{ n:"4社+", l:"出島SU" },{ n:"7年", l:"の実績" }].map(s => (
                 <div key={s.l}>
-                  <p className="text-3xl font-normal text-black">{s.n}</p>
+                  <p className="text-3xl font-medium text-black">{s.n}</p>
                   <p className="text-xs text-black/30 mt-1">{s.l}</p>
                 </div>
               ))}
@@ -92,14 +92,14 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 mb-16 items-start">
             <div>
               <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-4">Our Mission</p>
-              <h2 className="text-3xl md:text-4xl font-normal leading-snug mb-6">共感を軸に拡がる<br />コミュニティの実現</h2>
+              <h2 className="text-3xl md:text-4xl font-medium leading-snug mb-6">共感を軸に拡がる<br />コミュニティの実現</h2>
               <p className="text-sm text-gray-500 leading-relaxed max-w-md">
                 Co-Studioは「コンサルタント」でも「投資家」でもありません。大企業の中に眠る可能性を一緒に引き出し、リスクを共に取りながら事業として育てる——そういう存在です。
               </p>
             </div>
             <div className="pt-2">
               <blockquote className="border-l-2 border-black/20 pl-6">
-                <p className="text-lg font-normal leading-relaxed text-gray-700">
+                <p className="text-lg font-medium leading-relaxed text-gray-700">
                   「答えを売る」のではなく、<br />「共に問い、共に走る」。<br />それがCo-Studioのスタンスです。
                 </p>
               </blockquote>
@@ -162,7 +162,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-4">Co-DEZIMA</p>
-              <h2 className="text-3xl md:text-4xl font-normal leading-snug mb-6">大企業の「外」に、<br />本気の出島を作る。</h2>
+              <h2 className="text-3xl md:text-4xl font-medium leading-snug mb-6">大企業の「外」に、<br />本気の出島を作る。</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 日本のイノベーションが失速する理由のひとつは、新規事業が「会社の中」にある限り、意思決定・採用・調達・スピードすべてが親会社の論理に縛られることです。
               </p>
@@ -200,7 +200,7 @@ export default function Home() {
           <div className="flex items-center justify-between mb-10">
             <div>
               <p className="text-[10px] tracking-[0.4em] uppercase text-white/30 mb-2">Portfolio</p>
-              <h2 className="text-2xl font-normal text-white">出島から生まれた独立SU</h2>
+              <h2 className="text-2xl font-medium text-white">出島から生まれた独立SU</h2>
             </div>
             <Link href="/portfolio" className="text-xs text-white/40 border-b border-white/20 pb-0.5 hover:text-white transition-colors tracking-widest uppercase">一覧 →</Link>
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
             {portfolios.map((p) => (
               <Link key={p.slug} href={"href" in p && p.href ? p.href : `/portfolio/${p.slug}`} className="group bg-[#111111] p-6 hover:bg-white/5 transition-colors">
                 <p className="text-[10px] text-white/20 mb-4">{p.year}</p>
-                <h3 className="text-base font-normal text-white mb-2 leading-tight">{p.name}</h3>
+                <h3 className="text-base font-medium text-white mb-2 leading-tight">{p.name}</h3>
                 <p className="text-xs text-white/40 mb-4 leading-relaxed">{p.field}</p>
                 <span className="text-xs text-white/20 bg-white/5 px-2 py-0.5">{p.milestone}</span>
               </Link>
@@ -254,7 +254,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="mb-12">
             <p className="text-[10px] tracking-[0.4em] uppercase text-white/20 mb-4">Community</p>
-            <h2 className="text-4xl md:text-5xl font-normal text-white mb-6 leading-tight">Night DEZIMA</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-6 leading-tight">Night DEZIMA</h2>
             <p className="text-base text-white/50 max-w-lg leading-relaxed">大企業のイントレプレナーが業種を超えて集まる、定期交流イベント。</p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -273,7 +273,7 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-px bg-white/5">
               {[["30社+","参加企業"],["12回+","開催実績"],["全国","各地で開催"],["異業種","業種を超えた繋がり"],["クローズド","招待制の安心感"],["横連携","担当者間の協業も"]].map(([n,l]) => (
                 <div key={l} className="bg-black/30 px-4 py-5 text-center">
-                  <p className="text-xl font-normal text-white mb-1">{n}</p>
+                  <p className="text-xl font-medium text-white mb-1">{n}</p>
                   <p className="text-[10px] text-white/20 leading-tight">{l}</p>
                 </div>
               ))}
@@ -289,7 +289,7 @@ export default function Home() {
             <div className="absolute right-8 top-1/2 -translate-y-1/2 text-[8rem] font-bold text-white/[0.04] select-none pointer-events-none leading-none">→</div>
             <div className="relative z-10">
               <p className="text-[10px] tracking-[0.4em] uppercase text-white/30 mb-4">Contact</p>
-              <h2 className="text-3xl md:text-4xl font-normal mb-4 leading-tight">まずは、話しましょう。</h2>
+              <h2 className="text-3xl md:text-4xl font-medium mb-4 leading-tight">まずは、話しましょう。</h2>
               <p className="text-sm text-white/40 max-w-sm leading-relaxed">新規事業の壁を前に、立ち止まっていませんか。単発の壁打ちから、中長期の共創まで。</p>
             </div>
             <div className="relative z-10 mt-8 md:mt-0 shrink-0">

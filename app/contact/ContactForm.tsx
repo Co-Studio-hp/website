@@ -36,7 +36,7 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="border border-gray-100 p-10 text-center">
-        <p className="text-2xl font-normal mb-3">送信しました。</p>
+        <p className="text-2xl font-medium mb-3">送信しました。</p>
         <p className="text-sm text-gray-500 leading-relaxed">
           お問い合わせありがとうございます。担当者より折り返しご連絡いたします。
         </p>
@@ -59,8 +59,8 @@ export default function ContactForm() {
             type="text"
             value={form.company}
             onChange={update("company")}
-            className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors"
-            placeholder="Co-Studio株式会社"
+            className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors placeholder:text-gray-300"
+            placeholder="例：株式会社◯◯"
           />
         </div>
         <div>
@@ -70,8 +70,8 @@ export default function ContactForm() {
             required
             value={form.name}
             onChange={update("name")}
-            className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors"
-            placeholder="澤田 真賢"
+            className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors placeholder:text-gray-300"
+            placeholder="例：山田 太郎"
           />
         </div>
       </div>
@@ -82,8 +82,8 @@ export default function ContactForm() {
           required
           value={form.email}
           onChange={update("email")}
-          className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors"
-          placeholder="example@co-studio.co.jp"
+          className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors placeholder:text-gray-300"
+          placeholder="例：taro.yamada@example.co.jp"
         />
       </div>
       <div>
@@ -93,8 +93,8 @@ export default function ContactForm() {
           required
           value={form.message}
           onChange={update("message")}
-          className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors resize-none"
-          placeholder="新規事業のアイデア検討から始めたいと考えています..."
+          className="w-full border-b border-gray-200 py-2 text-sm outline-none focus:border-black transition-colors resize-none placeholder:text-gray-300"
+          placeholder="例：新規事業のアイデア検討から始めたいと考えています…"
         />
       </div>
 

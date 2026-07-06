@@ -60,6 +60,11 @@ const legacyRedirects = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    // NEWS/MEDIAのサムネイルは PR TIMES / note / 旧Wix など複数の外部CDNから
+    // 取得するOGP画像のため、ホストを限定せずVercelの画像最適化を通す。
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
+  },
   async redirects() {
     return legacyRedirects;
   },

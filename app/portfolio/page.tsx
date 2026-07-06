@@ -77,7 +77,7 @@ export default function PortfolioPage() {
     <>
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Portfolio</p>
-        <h1 className="text-5xl md:text-6xl font-normal tracking-tight mb-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
           出島スキームから生まれた、<br />独立スタートアップ。
         </h1>
         <p className="text-sm text-gray-500 max-w-xl leading-relaxed">
@@ -98,7 +98,7 @@ export default function PortfolioPage() {
                 </div>
                 <div>
                   <p className="text-xs text-white/50 mb-2">{c.parent}</p>
-                  <h2 className="text-2xl font-normal mb-2">{c.name}</h2>
+                  <h2 className="text-2xl font-medium mb-2">{c.name}</h2>
                   <p className="text-xs text-white/60 leading-relaxed">{c.oneliner}</p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function PortfolioPage() {
       <section className="bg-gray-50 py-14 px-6">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Group Companies</p>
-          <h2 className="text-3xl font-normal mb-10">Co-Studioグループ事業</h2>
+          <h2 className="text-3xl font-medium mb-10">Co-Studioグループ事業</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {groupCompanies.map((c) => (
               <a key={c.name} href={c.url} target="_blank" rel="noopener noreferrer" className="group bg-white border border-gray-100 p-7 hover:border-black transition-colors block">
@@ -133,7 +133,7 @@ export default function PortfolioPage() {
                   </div>
                   <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 font-medium shrink-0">{c.category}</span>
                 </div>
-                <h3 className="text-lg font-normal mb-3 inline-flex items-center gap-1.5">{c.name}<span className="text-xs text-gray-300 group-hover:text-black transition-colors">↗</span></h3>
+                <h3 className="text-lg font-medium mb-3 inline-flex items-center gap-1.5">{c.name}<span className="text-xs text-gray-300 group-hover:text-black transition-colors">↗</span></h3>
                 <div className="flex flex-wrap gap-1 mb-4">
                   {c.tags.map((t) => (
                     <span key={t} className="text-xs border border-gray-100 px-2 py-0.5 text-gray-400">{t}</span>
@@ -148,7 +148,7 @@ export default function PortfolioPage() {
 
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-normal mb-4">出島スキームに興味がありますか？</h2>
+          <h2 className="text-3xl font-medium mb-4">出島スキームに興味がありますか？</h2>
           <p className="text-sm text-gray-500 mb-8 max-w-md mx-auto leading-relaxed">
             大企業の担当者として、社外での事業化を検討している方へ。Co-Studioがともに設計します。
           </p>

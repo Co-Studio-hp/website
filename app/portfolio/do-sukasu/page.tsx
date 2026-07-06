@@ -50,7 +50,7 @@ export default async function DoSukasuPage() {
             <img src="/portfolio/dosukasu.png" alt="do.Sukasu" className="h-9 w-auto object-contain" />
           </div>
           <p className="text-xs text-white/40 tracking-[0.3em] uppercase mb-4">住友ファーマ × Co-Studio → スピンアウト</p>
-          <h1 className="text-5xl md:text-7xl font-normal mb-6">do.Sukasu</h1>
+          <h1 className="text-5xl md:text-7xl font-medium mb-6">do.Sukasu</h1>
           <p className="text-lg text-white/70 max-w-xl leading-relaxed">
             視空間認知能力の評価・トレーニングで、社会のあらゆる「動き」を最適化する。
           </p>
@@ -67,7 +67,7 @@ export default async function DoSukasuPage() {
           ].map((item) => (
             <div key={item.label} className="bg-white p-6">
               <p className="text-xs text-gray-400 mb-2">{item.label}</p>
-              <p className="text-xl font-normal">{item.value}</p>
+              <p className="text-xl font-medium">{item.value}</p>
             </div>
           ))}
         </div>
@@ -76,7 +76,7 @@ export default async function DoSukasuPage() {
       <section className="px-6 max-w-7xl mx-auto pb-16">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-2xl font-normal mb-5">事業概要</h2>
+            <h2 className="text-2xl font-medium mb-5">事業概要</h2>
             <p className="text-sm text-gray-600 leading-relaxed mb-4">
               視空間認知能力（空間の中で動くものを正確に把握する力）の評価・トレーニングを通じて社会課題を解決するスタートアップ。住友ファーマとのSPRINTプログラムで、視空間認知能力を評価するIndexを共同開発し、スピンアウトとして独立。
             </p>
@@ -88,7 +88,7 @@ export default async function DoSukasuPage() {
             </p>
           </div>
           <div>
-            <h2 className="text-2xl font-normal mb-5">Co-Studioの関与</h2>
+            <h2 className="text-2xl font-medium mb-5">Co-Studioの関与</h2>
             <div className="space-y-3">
               {[
                 { phase: "0→1", desc: "住友ファーマとのSPRINTで視空間認知能力IndexをIndexを共同設計。近未来デザイン・ビジネスモデル・特許を一体開発。" },
@@ -123,7 +123,7 @@ export default async function DoSukasuPage() {
 
       <section className="bg-gray-50 py-12 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-normal mb-8">成長の軌跡</h2>
+          <h2 className="text-2xl font-medium mb-8">成長の軌跡</h2>
           <div className="space-y-0">
             {timeline.map((t, i) => (
               <div key={t.year} className="flex gap-5 pb-6">
@@ -142,7 +142,7 @@ export default async function DoSukasuPage() {
       </section>
 
       <section className="py-12 px-6 max-w-7xl mx-auto">
-        <h2 className="text-2xl font-normal mb-6">プレスリリース</h2>
+        <h2 className="text-2xl font-medium mb-6">プレスリリース</h2>
         <div className="space-y-0">
           {pressReleases.map((p) => (
             <a key={p.url} href={p.url} target="_blank" rel="noopener noreferrer"

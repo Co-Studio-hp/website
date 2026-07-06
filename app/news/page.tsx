@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getOgImages } from "@/lib/og";
 import { getPrtimesReleases, majorReleases, PR_COMPANIES } from "@/lib/prtimes";
 import NewsList from "./NewsList";
@@ -30,7 +31,7 @@ export default async function NewsPage() {
     <>
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">News</p>
-        <h1 className="text-5xl md:text-6xl font-normal tracking-tight mb-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
           ニュースリリース。
         </h1>
         <p className="text-sm text-gray-500 max-w-2xl leading-relaxed">
@@ -45,7 +46,7 @@ export default async function NewsPage() {
       {featured.length > 0 && (
         <section className="px-6 max-w-7xl mx-auto pb-16">
           <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-2">Pick Up</p>
-          <h2 className="text-2xl font-normal mb-8">資金調達・設立・提携などの主要ニュース</h2>
+          <h2 className="text-2xl font-medium mb-8">資金調達・設立・提携などの主要ニュース</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {featured.map((r) => (
               <a
@@ -55,12 +56,15 @@ export default async function NewsPage() {
                 rel="noopener noreferrer"
                 className="group block border border-gray-100 hover:border-black transition-colors overflow-hidden"
               >
-                <div className="relative">
-                  {ogMap[r.url] ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={ogMap[r.url] as string} alt="" className="w-full aspect-[16/9] object-cover bg-gray-100" loading="lazy" />
-                  ) : (
-                    <div className="w-full aspect-[16/9] bg-gray-100" />
+                <div className="relative aspect-[16/9] bg-gray-100">
+                  {ogMap[r.url] && (
+                    <Image
+                      src={ogMap[r.url] as string}
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
                   )}
                   <span className={`absolute top-3 left-3 text-xs px-2 py-1 font-medium ${categoryColor[r.category] ?? "bg-black text-white"}`}>
                     {r.category}
@@ -92,7 +96,7 @@ export default async function NewsPage() {
       </section>
 
       <section className="border-t border-gray-100 py-16 px-6 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-normal mb-4">Co-Studioと一緒に、事業を作りませんか。</h2>
+        <h2 className="text-3xl font-medium mb-4">Co-Studioと一緒に、事業を作りませんか。</h2>
         <p className="text-sm text-gray-500 mb-8 max-w-md mx-auto leading-relaxed">
           新規事業の壁打ちから、出島による事業化まで。まずはお気軽にご相談ください。
         </p>

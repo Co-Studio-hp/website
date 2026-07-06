@@ -28,7 +28,7 @@ export default async function MediaPage() {
     <>
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Media</p>
-        <h1 className="text-5xl md:text-6xl font-normal tracking-tight mb-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
           Co-Studioの<br />活動記録。
         </h1>
         <p className="text-sm text-gray-500 max-w-xl leading-relaxed">
@@ -133,7 +133,7 @@ export default async function MediaPage() {
         <div className="border border-gray-100 p-10 md:p-16 flex flex-col md:flex-row gap-8 items-center justify-between">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3">Official Note</p>
-            <h2 className="text-2xl font-normal mb-2">note.com/co_studio</h2>
+            <h2 className="text-2xl font-medium mb-2">note.com/co_studio</h2>
             <p className="text-sm text-gray-500">イベントレポート・コラム・共同プロジェクト記事を定期発信中。</p>
           </div>
           <a

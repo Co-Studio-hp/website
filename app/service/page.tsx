@@ -219,7 +219,7 @@ export default async function ServicePage() {
       {/* Hero */}
       <section className="py-14 px-6 max-w-7xl mx-auto">
         <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Services</p>
-        <h1 className="text-5xl md:text-6xl font-normal tracking-tight mb-6">
+        <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6">
           事業フェーズと課題に合わせて<br />選べる、多様なプログラム。
         </h1>
         <p className="text-sm text-gray-500 max-w-xl leading-relaxed">
@@ -239,7 +239,7 @@ export default async function ServicePage() {
               { phase: "Spot", desc: "今すぐ相談・単発", services: "Spot Assist / 勉強会 / イベント設計 / アドベンチャーレース" },
             ].map((item) => (
               <div key={item.phase} className="bg-white p-8">
-                <p className="text-3xl font-normal mb-2">{item.phase}</p>
+                <p className="text-3xl font-medium mb-2">{item.phase}</p>
                 <p className="text-sm text-gray-500 mb-3">{item.desc}</p>
                 <p className="text-xs text-gray-400 border-t border-gray-100 pt-3">{item.services}</p>
               </div>
@@ -259,7 +259,7 @@ export default async function ServicePage() {
             <div className="grid md:grid-cols-2 gap-10 items-start">
               <div>
                 <span className="text-xs border border-gray-200 px-2 py-1 text-gray-400 mr-3">{s.label}</span>
-                <h2 className="text-3xl md:text-4xl font-normal mt-6 mb-4">{s.name}</h2>
+                <h2 className="text-3xl md:text-4xl font-medium mt-6 mb-4">{s.name}</h2>
                 <p className="text-base text-gray-600 mb-6 leading-relaxed">{s.tagline}</p>
                 <p className="text-sm text-gray-500 leading-relaxed mb-8">{s.description}</p>
                 <div>
@@ -357,7 +357,7 @@ export default async function ServicePage() {
       <section className="bg-gray-50 py-14 px-6">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Who We Work With</p>
-          <h2 className="text-3xl font-normal mb-6">
+          <h2 className="text-3xl font-medium mb-6">
             Co-Studioが最も力を発揮できる、<br />担当者・企業の状況。
           </h2>
           <ul className="grid md:grid-cols-2 gap-4">
@@ -390,7 +390,7 @@ export default async function ServicePage() {
 
       {/* CTA */}
       <section className="border-t border-gray-100 py-14 px-6 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-normal mb-4">どのサービスか迷ったら、まず話しましょう。</h2>
+        <h2 className="text-3xl font-medium mb-4">どのサービスか迷ったら、まず話しましょう。</h2>
         <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
           課題の状況をお聞きした上で、最適なプログラムをご提案します。<br />
           Spot Assistからでも、中長期の共創からでも、入口は自由です。

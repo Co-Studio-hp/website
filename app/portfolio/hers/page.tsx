@@ -29,7 +29,7 @@ export default async function HersPage() {
             <img src="/portfolio/hers.png" alt="Hers HeAlth Technologies" className="h-10 w-auto object-contain" />
           </div>
           <p className="text-xs text-white/40 tracking-[0.3em] uppercase mb-4">旭化成ファーマ × Co-Studio → Co-DEZIMA第3号</p>
-          <h1 className="text-4xl md:text-6xl font-normal mb-6 leading-tight">Hers HeAlth<br />Technologies</h1>
+          <h1 className="text-4xl md:text-6xl font-medium mb-6 leading-tight">Hers HeAlth<br />Technologies</h1>
           <p className="text-lg text-white/70 max-w-xl leading-relaxed">
             My Life. 私らしい人生を。女性の健康と自立を、骨から支える。
           </p>
@@ -46,7 +46,7 @@ export default async function HersPage() {
           ].map((item) => (
             <div key={item.label} className="bg-white p-6">
               <p className="text-xs text-gray-400 mb-2">{item.label}</p>
-              <p className="text-xl font-normal">{item.value}</p>
+              <p className="text-xl font-medium">{item.value}</p>
             </div>
           ))}
         </div>
@@ -55,7 +55,7 @@ export default async function HersPage() {
       <section className="px-6 max-w-7xl mx-auto pb-16">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-2xl font-normal mb-5">事業概要</h2>
+            <h2 className="text-2xl font-medium mb-5">事業概要</h2>
             <p className="text-sm text-gray-600 leading-relaxed mb-4">
               女性の健康と自立を支える「骨ケア」サービスを展開するヘルステック企業。更年期女性の健康課題（転倒・骨折リスク、姿勢悪化、体型変化）に向き合い、旭化成ファーマと連携して事業を創出。
             </p>
@@ -67,7 +67,7 @@ export default async function HersPage() {
             </p>
           </div>
           <div>
-            <h2 className="text-2xl font-normal mb-5">Co-Studioとの関与経緯</h2>
+            <h2 className="text-2xl font-medium mb-5">Co-Studioとの関与経緯</h2>
             <div className="space-y-3">
               {[
                 { phase: "2024年〜", desc: "旭化成ファーマ内で事業の出口を模索している状況でCo-Studioと接触。子会社・出向起業・JV・出島など複数の選択肢を比較検討する中で伴走開始。" },
@@ -101,7 +101,7 @@ export default async function HersPage() {
       </section>
 
       <section className="py-12 px-6 max-w-7xl mx-auto">
-        <h2 className="text-2xl font-normal mb-6">プレスリリース・ニュース</h2>
+        <h2 className="text-2xl font-medium mb-6">プレスリリース・ニュース</h2>
         <div className="space-y-0">
           {pressReleases.map((p) => (
             <a key={p.url} href={p.url} target="_blank" rel="noopener noreferrer"
