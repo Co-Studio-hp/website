@@ -9,6 +9,7 @@ const links = [
   { label: "HOME", href: "/" },
   { label: "SERVICE", href: "/service", children: [
     { label: "サービス概要", href: "/service" },
+    { label: "Co-DEZIMA（出島）", href: "/co-dezima" },
     { label: "支援実績", href: "/results" },
   ]},
   { label: "PORTFOLIO", href: "/portfolio", children: [

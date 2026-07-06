@@ -86,6 +86,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 1.5 Co-DEZIMA TEASER */}
+      <section className="bg-[#0a0a0a] text-white">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 py-16 grid md:grid-cols-5 gap-10 items-center">
+          <div className="md:col-span-3">
+            <video
+              src="/videos/dezima-teaser.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              className="w-full border border-white/10"
+            />
+            <p className="text-[11px] text-white/25 mt-2 text-right">※ナレーションはAI音声です</p>
+          </div>
+          <div className="md:col-span-2">
+            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Co-DEZIMA</p>
+            <h2 className="text-2xl md:text-3xl font-normal leading-snug mb-4">
+              新規事業は、<br />社内でやるもの？
+            </h2>
+            <p className="text-sm text-white/50 leading-relaxed mb-8">
+              新規事業を独立したスタートアップとして社外に切り出す「出島」。
+              Co-Studioの事業共創スキームを45秒でご覧ください。
+            </p>
+            <Link
+              href="/co-dezima"
+              className="inline-block px-6 py-2.5 border border-white/40 text-white text-xs tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-colors"
+            >
+              出島について詳しく →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 2. MISSION */}
       <section className="bg-[#F5F3EE] py-20 px-8 md:px-16 border-t border-black/10">
         <div className="max-w-7xl mx-auto">
