@@ -467,6 +467,7 @@ function LeadForm({
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
 
   const submit = async (e: React.FormEvent) => {
@@ -476,7 +477,7 @@ function LeadForm({
       const res = await fetch("/api/shindan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ company, name, role, email, verdict, total, scores, answers }),
+        body: JSON.stringify({ company, name, role, email, message, verdict, total, scores, answers }),
       });
       if (!res.ok) throw new Error("failed");
       setStatus("done");
@@ -504,7 +505,7 @@ function LeadForm({
     <form id="lead-form" onSubmit={submit} className="border border-white/15 p-6 md:p-8 scroll-mt-24">
       <p className="text-sm text-white/70 mb-1">{ctaLabel}</p>
       <p className="text-xs text-white/40 mb-6 leading-relaxed">
-        診断結果をふまえて、Co-Studioからご連絡します。（メールのみ必須）
+        診断結果をふまえて、Co-Studioからご連絡します。
         <br />
         送信により
         <a href="/privacy" className="underline underline-offset-2 text-white/30 hover:text-white/60 transition-colors">
@@ -514,8 +515,8 @@ function LeadForm({
       </p>
       <div className="flex flex-col gap-3">
         <div className="grid sm:grid-cols-2 gap-3">
-          <input className={input} placeholder="会社名" value={company} onChange={(e) => setCompany(e.target.value)} />
-          <input className={input} placeholder="お名前" value={name} onChange={(e) => setName(e.target.value)} />
+          <input className={input} placeholder="会社名 *" value={company} onChange={(e) => setCompany(e.target.value)} required />
+          <input className={input} placeholder="お名前 *" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
         <div className="grid sm:grid-cols-2 gap-3">
           <input className={input} placeholder="役職" value={role} onChange={(e) => setRole(e.target.value)} />
@@ -528,6 +529,13 @@ function LeadForm({
             required
           />
         </div>
+        <textarea
+          className={`${input} resize-none`}
+          rows={4}
+          placeholder="お悩み・ご相談内容（任意）：いま検討中のテーマや、社内で引っかかっている点などをご自由にどうぞ"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
         <button
           type="submit"
           disabled={status === "sending"}

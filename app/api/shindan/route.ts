@@ -15,6 +15,7 @@ type ShindanPayload = {
   name?: string;
   role?: string;
   email?: string;
+  message?: string;
   verdict?: "A" | "B" | "C";
   total?: number;
   scores?: Partial<Scores>;
@@ -39,10 +40,11 @@ export async function POST(request: Request) {
   const company = (data.company ?? "").trim();
   const name = (data.name ?? "").trim();
   const role = (data.role ?? "").trim();
+  const message = (data.message ?? "").trim();
 
-  // 必須はメールのみ（自己選抜装置なので体験を軽くする）
-  if (!email) {
-    return NextResponse.json({ ok: false, error: "missing_email" }, { status: 400 });
+  // 会社名・氏名・メールを必須にする（お悩み・役職は任意）
+  if (!email || !company || !name) {
+    return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
@@ -83,6 +85,14 @@ export async function POST(request: Request) {
           { type: "mrkdwn", text: `*メール:*\n${email}` },
         ],
       },
+      ...(message
+        ? [
+            {
+              type: "section",
+              text: { type: "mrkdwn", text: `*お悩み・ご相談内容:*\n${message}` },
+            },
+          ]
+        : []),
       {
         type: "context",
         elements: [{ type: "mrkdwn", text: "co-studio.co.jp /shindan 出島適合セルフ診断" }],
