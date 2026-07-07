@@ -388,12 +388,61 @@ function Result({
       {/* Lead form */}
       <LeadForm verdict={verdict} total={total} scores={scores} answers={answers} ctaLabel={c.primary.label} />
 
+      {/* Share */}
+      <ShareRow verdict={verdict} total={total} />
+
       <button
         onClick={onRestart}
         className="mt-8 mx-auto block text-xs text-white/40 hover:text-white/80 transition-colors tracking-widest uppercase"
       >
         ↻ もう一度診断する
       </button>
+    </div>
+  );
+}
+
+const SHINDAN_URL = "https://www.co-studio.co.jp/shindan";
+
+function ShareRow({ verdict, total }: { verdict: "A" | "B" | "C"; total: number }) {
+  const [copied, setCopied] = useState(false);
+
+  const shareText = `出島適合セルフ診断をやってみた。私のテーマの判定は ${verdict}（${total}/26点）。あなたの新規事業テーマは「出島向き」か？ 10問・3分・登録不要。`;
+  const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(SHINDAN_URL)}`;
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(SHINDAN_URL);
+      setCopied(true);
+      track("shindan_share", { channel: "copy" });
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // クリップボード不許可環境では何もしない
+    }
+  };
+
+  return (
+    <div className="mt-10 pt-8 border-t border-white/10 text-center">
+      <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mb-4">Share</p>
+      <div className="flex flex-col sm:flex-row justify-center gap-3">
+        <a
+          href={xUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => track("shindan_share", { channel: "x" })}
+          className="px-7 py-2.5 border border-white/25 text-white/80 text-xs tracking-[0.15em] hover:bg-white/10 transition-colors"
+        >
+          Xで結果をシェア
+        </a>
+        <button
+          onClick={copyLink}
+          className="px-7 py-2.5 border border-white/25 text-white/80 text-xs tracking-[0.15em] hover:bg-white/10 transition-colors"
+        >
+          {copied ? "コピーしました ✓" : "診断のリンクをコピー"}
+        </button>
+      </div>
+      <p className="text-[11px] text-white/25 mt-3 leading-relaxed">
+        シェアに含まれるのは判定と点数、診断ページへのリンクのみです。ご入力内容は含まれません。
+      </p>
     </div>
   );
 }

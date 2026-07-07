@@ -22,16 +22,11 @@ const sections: { title: string; body: React.ReactNode }[] = [
   {
     title: "2. 取得する情報",
     body: (
-      <>
-        <p className="text-sm text-gray-600 leading-loose mb-4">
-          当社は、当社ウェブサイト上の以下のフォームを通じて、次の情報を取得します。
-        </p>
-        <ul className="list-disc pl-5 text-sm text-gray-600 leading-loose mb-4 space-y-1">
-          <li>お問い合わせフォーム：会社名、氏名、役職、メールアドレス、お問い合わせ内容</li>
-          <li>資料ダウンロードフォーム：会社名、氏名、役職、メールアドレス</li>
-          <li>セルフ診断フォーム：会社名、氏名、役職、メールアドレス、および診断の回答内容</li>
-        </ul>
-      </>
+      <p className="text-sm text-gray-600 leading-loose mb-4">
+        当社は、当社ウェブサイト上のお問い合わせ・資料請求等の各フォームを通じて、会社名、氏名、役職、
+        メールアドレスその他ユーザーにご入力いただく情報を取得します。また、当社ウェブサイトの
+        利用状況に関する情報（アクセスログ等）を取得することがあります。
+      </p>
     ),
   },
   {
@@ -59,26 +54,28 @@ const sections: { title: string; body: React.ReactNode }[] = [
     ),
   },
   {
-    title: "5. 外部サービスの利用",
+    title: "5. 委託・外部サービスの利用",
     body: (
-      <>
-        <p className="text-sm text-gray-600 leading-loose mb-4">
-          当社は、当社ウェブサイトの運営にあたり、以下の外部サービスを利用しています。
-        </p>
-        <ul className="list-disc pl-5 text-sm text-gray-600 leading-loose mb-4 space-y-1">
-          <li>
-            Slack：各フォームからの送信内容を社内に通知するために利用しています。
-          </li>
-          <li>
-            Vercel：ウェブサイトのホスティングおよびアクセス解析（Vercel Web Analytics）に利用しています。
-            当該アクセス解析は個人を特定しない形で行われ、Cookieには依存しません。
-          </li>
-        </ul>
-      </>
+      <p className="text-sm text-gray-600 leading-loose mb-4">
+        当社は、ウェブサイトの運営、フォーム送信内容の管理、アクセス解析等のために、
+        個人情報の取り扱いの全部または一部を外部サービスに委託することがあります。
+        この場合、当社は委託先を適切に選定し、必要な範囲でのみ情報を取り扱わせます。
+      </p>
     ),
   },
   {
-    title: "6. 安全管理措置",
+    title: "6. Cookie・アクセス解析",
+    body: (
+      <p className="text-sm text-gray-600 leading-loose mb-4">
+        当社ウェブサイトでは、サービスの改善のためにアクセス解析ツールを利用することがあります。
+        アクセス解析では、Cookieまたはこれに類する技術により、個人を特定しない形で
+        ウェブサイトの利用状況を収集することがあります。ユーザーは、ブラウザの設定により
+        Cookieの受け入れを拒否することができます。
+      </p>
+    ),
+  },
+  {
+    title: "7. 安全管理措置",
     body: (
       <p className="text-sm text-gray-600 leading-loose mb-4">
         当社は、取得した個人情報の漏えい、滅失または毀損の防止その他個人情報の安全管理のために、
@@ -87,7 +84,7 @@ const sections: { title: string; body: React.ReactNode }[] = [
     ),
   },
   {
-    title: "7. 開示・訂正・削除の請求",
+    title: "8. 開示・訂正・削除の請求",
     body: (
       <p className="text-sm text-gray-600 leading-loose mb-4">
         ユーザーは、当社が保有するご自身の個人情報について、開示・訂正・削除を請求することができます。
@@ -102,7 +99,7 @@ const sections: { title: string; body: React.ReactNode }[] = [
     ),
   },
   {
-    title: "8. 本ポリシーの変更",
+    title: "9. 本ポリシーの変更",
     body: (
       <p className="text-sm text-gray-600 leading-loose mb-4">
         当社は、法令の改正や事業内容の変更に応じて、本ポリシーを改定することがあります。
