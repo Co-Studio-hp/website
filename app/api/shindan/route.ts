@@ -28,6 +28,14 @@ const VERDICT_LABEL: Record<string, string> = {
   C: "C（情報収集フェーズ）",
 };
 
+// 通知の見出しは「診断の回答」ではなく「フォーム送信の目的」で出す
+// （このAPIが呼ばれる＝結果画面のリードフォームを送信した人だけ。診断のみの完了者は通知されない）
+const PURPOSE_HEADER: Record<string, string> = {
+  A: "🤝 個別相談の申込",
+  B: "🔍 出島適合診断サービスの問い合わせ",
+  C: "📩 イベント案内の希望",
+};
+
 export async function POST(request: Request) {
   let data: ShindanPayload;
   try {
@@ -68,12 +76,13 @@ export async function POST(request: Request) {
     ? `${name}${role ? `（${role}）` : ""}`
     : role || "（氏名未入力）";
 
+  const header = PURPOSE_HEADER[verdict] ?? "🧭 セルフ診断からのお問い合わせ";
   const slackBody = {
-    text: `🧭 出島セルフ診断 新規回答（${VERDICT_LABEL[verdict] ?? verdict} / ${total}点）`,
+    text: `${header}：${name}様（${company}）/ セルフ診断${VERDICT_LABEL[verdict] ?? verdict}・${total}点`,
     blocks: [
       {
         type: "header",
-        text: { type: "plain_text", text: "🧭 出島セルフ診断 新規回答", emoji: true },
+        text: { type: "plain_text", text: header, emoji: true },
       },
       {
         type: "section",

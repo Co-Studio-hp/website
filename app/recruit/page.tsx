@@ -25,18 +25,22 @@ const values = [
   },
 ];
 
+const INTERN_URL = "https://recruit.linklop.com/jobs/15ddf57d-a99a-4f0a-a73a-1d05052ae724";
+
 const positions = [
   {
-    name: "事業共創プロデューサー",
-    type: "正社員 / 業務委託",
-    desc: "大企業の新規事業テーマの発掘から出島設立までを伴走する中核ロール。SPRINT・BUSINESS LABなどのプログラム設計・ファシリテーションを担います。",
-    want: ["新規事業開発・事業企画の経験", "大企業とスタートアップ双方の言語がわかる方", "0→1の混沌を楽しめる方"],
+    name: "インターン",
+    type: "常時募集",
+    desc: "大手企業の新規事業開発支援の現場に入るサポートロール。クライアントミーティングへの参加、資料作成、顧客調査、イベント企画まで、0→1のプロセスを間近で経験できます。",
+    want: ["新規事業開発に興味がある方", "多様な業務に柔軟に向き合える方", "オープンなコミュニケーションができる方"],
+    cta: { label: "募集ページを見る（Linklop） ↗", href: INTERN_URL, external: true },
   },
   {
-    name: "出島スタートアップ経営人材",
-    type: "共同創業 / 出向起業",
-    desc: "設立する出島スタートアップの経営メンバー候補。テーマとの出会い次第で、代表・COO・事業責任者など関わり方を設計します。",
-    want: ["事業を「やり切りたい」という意思", "スタートアップまたは新規事業の実務経験", "出向起業・カーブアウトへの関心"],
+    name: "出島スタートアップ CXO・プロ人材",
+    type: "登録制 / プロジェクト参画",
+    desc: "大企業との共創から出島スタートアップが生まれる際に、CXO・経営メンバーとして参画いただく外部プロフェッショナル。Night DEZIMAなどの共創の場から、次の出島は生まれます。ご登録いただいた方には、テーマが立ち上がったタイミングでご案内します。",
+    want: ["スタートアップ経営・事業責任者の経験", "出向起業・カーブアウトへの関心", "「やり切りたい」テーマを探している方"],
+    cta: { label: "興味があることを知らせる →", href: "/contact", external: false },
   },
 ];
 
@@ -79,14 +83,14 @@ export default function RecruitPage() {
           <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Open Positions</p>
           <div className="grid md:grid-cols-2 gap-6">
             {positions.map((p) => (
-              <div key={p.name} className="bg-white border border-gray-100 p-8">
+              <div key={p.name} className="bg-white border border-gray-100 p-8 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-4">
                   <h2 className="text-xl font-medium">{p.name}</h2>
                   <span className="text-xs text-gray-400 shrink-0">{p.type}</span>
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed mb-5">{p.desc}</p>
                 <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-2">こんな方に</p>
-                <ul className="space-y-1.5">
+                <ul className="space-y-1.5 mb-6">
                   {p.want.map((w) => (
                     <li key={w} className="text-xs text-gray-500 leading-relaxed flex gap-2">
                       <span className="mt-1.5 w-1 h-1 rounded-full bg-black/20 shrink-0" />
@@ -94,11 +98,32 @@ export default function RecruitPage() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto">
+                  {p.cta.external ? (
+                    <a
+                      href={p.cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-7 py-3 bg-black text-white text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-800 transition-colors"
+                    >
+                      {p.cta.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={p.cta.href}
+                      className="inline-block px-7 py-3 border border-black/30 text-black text-xs tracking-[0.2em] uppercase hover:bg-black/5 transition-colors"
+                    >
+                      {p.cta.label}
+                    </Link>
+                  )}
+                </div>
               </div>
             ))}
           </div>
           <p className="text-xs text-gray-400 mt-8 leading-relaxed">
-            上記に当てはまらなくても、出島・事業共創に関心のある方はお気軽にご連絡ください。
+            上記に当てはまらなくても、出島・事業共創に関心のある方は
+            <Link href="/contact" className="underline underline-offset-2 hover:text-black transition-colors">お問い合わせフォーム</Link>
+            からお気軽にご連絡ください。
           </p>
         </div>
       </section>
