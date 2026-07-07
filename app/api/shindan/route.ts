@@ -55,9 +55,9 @@ export async function POST(request: Request) {
     `テーマ ${s.theme ?? "-"}/6｜人 ${s.person ?? "-"}/4｜資金 ${s.money ?? "-"}/4｜` +
     `決裁 ${s.sponsor ?? "-"}/4｜実務 ${s.ops ?? "-"}/8`;
 
-  const webhookUrl = process.env.SLACK_CONTACT_WEBHOOK_URL;
+  const webhookUrl = process.env.SLACK_HP_WEBHOOK_URL ?? process.env.SLACK_CONTACT_WEBHOOK_URL;
   if (!webhookUrl) {
-    console.error("SLACK_CONTACT_WEBHOOK_URL is not set");
+    console.error("SLACK_HP_WEBHOOK_URL / SLACK_CONTACT_WEBHOOK_URL is not set");
     // 通知が飛ばなくても診断体験は成立させる
     return NextResponse.json({ ok: true, notified: false });
   }

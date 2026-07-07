@@ -15,6 +15,7 @@ export default function Footer() {
             { label: "支援実績", href: "/results" },
             { label: "PORTFOLIO", href: "/portfolio" },
             { label: "NIGHT DEZIMA", href: "/dezima" },
+            { label: "セルフ診断", href: "/shindan" },
             { label: "NEWS", href: "/news" },
             { label: "MEDIA", href: "/media" },
             { label: "ABOUT US", href: "/about" },

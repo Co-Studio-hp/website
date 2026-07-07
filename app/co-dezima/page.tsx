@@ -47,6 +47,7 @@ export default function CoDezimaPage() {
           <h2 className="text-2xl md:text-3xl font-medium mb-10 text-center">3分でわかる Co-DEZIMA</h2>
           <video
             src="/videos/dezima-intro.mp4"
+            poster="/videos/dezima-intro-poster.jpg"
             controls
             preload="metadata"
             playsInline
@@ -99,23 +100,33 @@ export default function CoDezimaPage() {
         </div>
       </section>
 
-      {/* WP Download */}
-      <section className="bg-[#0a0a0a] text-white py-20 px-6">
+      {/* 資料ダウンロード（2点セット） */}
+      <section id="download" className="bg-[#0a0a0a] text-white py-20 px-6 scroll-mt-16">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Whitepaper</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Download</p>
             <h2 className="text-3xl md:text-4xl font-medium leading-snug mb-6">
-              出島入門<span className="text-white/40 text-xl md:text-2xl block mt-2">— 新規事業を外に出すという選択肢</span>
+              出島の資料<span className="text-white/40 text-xl md:text-2xl block mt-2">— 2点セットを無料でダウンロード</span>
             </h2>
-            <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-md">
-              実案件の設立プロセスから体系化した「Co-DEZIMAプレイブック」の抜粋版（全19ページ）を無料でご覧いただけます。
-              出島の考え方、スキームの全体像、実例までを1冊にまとめました。
+            <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-md">
+              「まず自分が理解する」から「社内に説明する」まで。フォーム送信で2点ともその場でご覧いただけます。
             </p>
-            <ul className="text-sm text-white/50 leading-loose list-disc list-inside">
-              <li>新規事業が社内で進まない構造的理由</li>
-              <li>Co-DEZIMAスキームの仕組みと3つのポイント</li>
-              <li>実例ポートフォリオと設立実績</li>
-            </ul>
+            <div className="space-y-px">
+              <div className="bg-white/5 border border-white/10 p-5">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mb-1.5">01 — まず知る</p>
+                <p className="text-sm font-medium mb-1">出島入門（全19ページ）</p>
+                <p className="text-xs text-white/50 leading-relaxed">
+                  実案件から体系化したプレイブックの抜粋版。社内で進まない構造的理由、スキームの全体像、実例まで。
+                </p>
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mb-1.5">02 — 社内で共有する</p>
+                <p className="text-sm font-medium mb-1">社内説得キット「出島という選択肢」（全12ページ）</p>
+                <p className="text-xs text-white/50 leading-relaxed">
+                  役員・関係部門への説明にそのまま使える汎用資料。経産省ガイダンス準拠の整理で「第3の出口」を提示。
+                </p>
+              </div>
+            </div>
           </div>
           <WpDownloadForm />
         </div>

@@ -29,3 +29,29 @@ body {
     linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+/* ---- Scroll reveal（ScrollFxがJSでclass付与。JS無効環境では発火せずそのまま表示） ---- */
+@media (prefers-reduced-motion: no-preference) {
+  section.fx {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  section.fx.fx-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* 初期表示（ヒーロー）のスタッガー入場 */
+  @keyframes fxUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .fx-up  { animation: fxUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .fx-d1  { animation-delay: 0.05s; }
+  .fx-d2  { animation-delay: 0.18s; }
+  .fx-d3  { animation-delay: 0.31s; }
+  .fx-d4  { animation-delay: 0.5s; }
+}

@@ -282,23 +282,23 @@ const VERDICT_CONTENT = {
       "組成の前提（テーマ・人・資金・決裁）が揃いつつあります。次の論点は「どう出すか」——資本構成・親会社の関与設計・出口の設計です。Co-Studioは出島の設立・運営を実際に4社で行ってきました。スキーム設計の個別相談へどうぞ。",
     primary: { label: "個別相談を申し込む", kind: "form" as const },
     sub: null,
-    kit: false,
+
   },
   B: {
     badge: "可能性あり——検証が必要です",
     body:
       "テーマには出島の素質がありますが、前提のいくつかが未確定です。Co-Studioでは、テーマ2〜3件を6週間で評価する「出島適合診断」を提供しています。社内説明に使える外部評価レポートの形でお返しします。",
     primary: { label: "診断サービスについて問い合わせる", kind: "form" as const },
-    sub: { label: "まずは資料を読む", href: "/co-dezima" },
-    kit: true,
+    sub: { label: "社内説明用の資料を受け取る", href: "/co-dezima#download" },
+
   },
   C: {
     badge: "まずは情報収集から",
     body:
       "いま無理に外へ出す段階ではありません。まずは「出島とはどんな選択肢か」を知るところから。プレイブック抜粋版（無料）と、月次イベント「ナイトDEZIMA」をご案内します。",
-    primary: { label: "プレイブック抜粋版を読む", kind: "link" as const, href: "/co-dezima" },
+    primary: { label: "プレイブック抜粋版を読む", kind: "link" as const, href: "/co-dezima#download" },
     sub: { label: "イベント案内を受け取る", href: "#lead-form" },
-    kit: true,
+
   },
 };
 
@@ -378,27 +378,8 @@ function Result({
         )}
       </div>
 
-      {/* 社内説得キット（B/C判定のみ）：役員・関係部門への説明用PDF */}
-      {c.kit && (
-        <div className="border border-white/15 bg-white/5 p-6 md:p-7 mb-8 md:flex items-center gap-6">
-          <div className="flex-1">
-            <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mb-2">Bonus</p>
-            <p className="text-sm text-white/80 font-medium mb-1">社内説得キット「出島という選択肢」（PDF・12枚）</p>
-            <p className="text-xs text-white/50 leading-relaxed">
-              役員・関係部門への説明にそのまま使える汎用資料です。下のフォームを送信いただくと、その場でダウンロードできます。
-            </p>
-          </div>
-          <a
-            href="#lead-form"
-            className="inline-block mt-4 md:mt-0 px-6 py-3 border border-white/30 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors whitespace-nowrap shrink-0"
-          >
-            フォームへ ↓
-          </a>
-        </div>
-      )}
-
       {/* Lead form */}
-      <LeadForm verdict={verdict} total={total} scores={scores} answers={answers} ctaLabel={c.primary.label} showKit={c.kit} />
+      <LeadForm verdict={verdict} total={total} scores={scores} answers={answers} ctaLabel={c.primary.label} />
 
       <button
         onClick={onRestart}
@@ -416,14 +397,12 @@ function LeadForm({
   scores,
   answers,
   ctaLabel,
-  showKit = false,
 }: {
   verdict: "A" | "B" | "C";
   total: number;
   scores: Scores;
   answers: number[];
   ctaLabel: string;
-  showKit?: boolean;
 }) {
   const [company, setCompany] = useState("");
   const [name, setName] = useState("");
@@ -456,16 +435,6 @@ function LeadForm({
         <p className="text-sm text-white/70 leading-relaxed">
           ありがとうございます。診断結果とあわせて、担当より数営業日以内にご連絡します。
         </p>
-        {showKit && (
-          <a
-            href="/wp/dezima-settoku-kit.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-6 px-8 py-3.5 bg-white text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors"
-          >
-            社内説得キットをダウンロード（PDF） ↓
-          </a>
-        )}
       </div>
     );
   }
@@ -475,7 +444,6 @@ function LeadForm({
       <p className="text-sm text-white/70 mb-1">{ctaLabel}</p>
       <p className="text-xs text-white/40 mb-6 leading-relaxed">
         診断結果をふまえて、Co-Studioからご連絡します。（メールのみ必須）
-        {showKit && "　送信後に「社内説得キット」（PDF・12枚）をダウンロードいただけます。"}
       </p>
       <div className="flex flex-col gap-3">
         <div className="grid sm:grid-cols-2 gap-3">

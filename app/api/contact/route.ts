@@ -30,10 +30,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
   }
 
-  const webhookUrl = process.env.SLACK_CONTACT_WEBHOOK_URL;
+  const webhookUrl = process.env.SLACK_HP_WEBHOOK_URL ?? process.env.SLACK_CONTACT_WEBHOOK_URL;
   if (!webhookUrl) {
     // Webhook未設定。設定するまで通知は飛ばないが、フォーム自体は壊さない。
-    console.error("SLACK_CONTACT_WEBHOOK_URL is not set");
+    console.error("SLACK_HP_WEBHOOK_URL / SLACK_CONTACT_WEBHOOK_URL is not set");
     return NextResponse.json({ ok: false, error: "not_configured" }, { status: 500 });
   }
 

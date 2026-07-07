@@ -31,15 +31,25 @@ export default function WpDownloadForm() {
   if (status === "done") {
     return (
       <div className="border border-white/20 p-8 text-center">
-        <p className="text-sm text-white/70 mb-6">ありがとうございます。下のボタンから資料をご覧いただけます。</p>
-        <a
-          href="/wp/dezima-nyumon.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-3.5 bg-white text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors"
-        >
-          出島入門（PDF）を開く →
-        </a>
+        <p className="text-sm text-white/70 mb-6">ありがとうございます。下のボタンから2点ともご覧いただけます。</p>
+        <div className="flex flex-col gap-3 items-center">
+          <a
+            href="/wp/dezima-nyumon.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block w-full max-w-xs px-8 py-3.5 bg-white text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors"
+          >
+            出島入門（PDF） →
+          </a>
+          <a
+            href="/wp/dezima-settoku-kit.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block w-full max-w-xs px-8 py-3.5 border border-white/40 text-white text-xs tracking-[0.2em] uppercase font-medium hover:bg-white/10 transition-colors"
+          >
+            社内説得キット（PDF） →
+          </a>
+        </div>
       </div>
     );
   }

@@ -19,6 +19,7 @@ const links = [
     { label: "Hers HeAlth", href: "/portfolio/hers" },
   ]},
   { label: "NIGHT DEZIMA", href: "/dezima" },
+  { label: "セルフ診断", href: "/shindan" },
   { label: "NEWS", href: "/news" },
   { label: "MEDIA", href: "/media" },
   { label: "ABOUT US", href: "/about" },
