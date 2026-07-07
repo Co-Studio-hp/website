@@ -6,6 +6,7 @@ type ContactPayload = {
   company?: string;
   name?: string;
   email?: string;
+  category?: string;
   message?: string;
 };
 
@@ -20,6 +21,7 @@ export async function POST(request: Request) {
   const company = (data.company ?? "").trim();
   const name = (data.name ?? "").trim();
   const email = (data.email ?? "").trim();
+  const category = (data.category ?? "").trim();
   const message = (data.message ?? "").trim();
 
   // 必須項目の簡易バリデーション
@@ -39,11 +41,15 @@ export async function POST(request: Request) {
 
   // Slack通知（Block Kit）
   const slackBody = {
-    text: `📩 HPからお問い合わせがありました（${name}様 / ${company || "会社名未記入"}）`,
+    text: `📩 HPお問い合わせ${category ? `【${category}】` : ""}（${name}様 / ${company || "会社名未記入"}）`,
     blocks: [
       {
         type: "header",
-        text: { type: "plain_text", text: "📩 HPお問い合わせ", emoji: true },
+        text: {
+          type: "plain_text",
+          text: `📩 HPお問い合わせ${category ? `【${category}】` : ""}`,
+          emoji: true,
+        },
       },
       {
         type: "section",
@@ -51,6 +57,7 @@ export async function POST(request: Request) {
           { type: "mrkdwn", text: `*会社名:*\n${company || "（未記入）"}` },
           { type: "mrkdwn", text: `*お名前:*\n${name}` },
           { type: "mrkdwn", text: `*メール:*\n${email}` },
+          { type: "mrkdwn", text: `*種別:*\n${category || "（未選択）"}` },
         ],
       },
       {

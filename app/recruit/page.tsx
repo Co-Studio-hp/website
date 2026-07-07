@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-// ドラフト段階のためnoindex・ナビ/フッター/サイトマップ未掲載。
-// 公開判断が出たら robots を外し、導線を追加する。
 export const metadata: Metadata = {
   title: "RECRUIT | Co-Studio株式会社",
   description:
-    "Co-Studioは、大企業と共に出島スタートアップを立ち上げる仲間を探しています。支援者ではなく、共同創業者として。",
-  robots: { index: false, follow: false },
+    "Co-Studioは、大企業と共に出島スタートアップを立ち上げる仲間を探しています。インターン（常時募集）と、出島のCXO・プロ人材の登録を受け付けています。",
 };
 
 const values = [
@@ -25,22 +22,20 @@ const values = [
   },
 ];
 
-const INTERN_URL = "https://recruit.linklop.com/jobs/15ddf57d-a99a-4f0a-a73a-1d05052ae724";
-
 const positions = [
   {
     name: "インターン",
     type: "常時募集",
     desc: "大手企業の新規事業開発支援の現場に入るサポートロール。クライアントミーティングへの参加、資料作成、顧客調査、イベント企画まで、0→1のプロセスを間近で経験できます。",
     want: ["新規事業開発に興味がある方", "多様な業務に柔軟に向き合える方", "オープンなコミュニケーションができる方"],
-    cta: { label: "募集ページを見る（Linklop） ↗", href: INTERN_URL, external: true },
+    cta: { label: "インターンに応募・相談する →", href: "/contact?topic=intern", primary: true },
   },
   {
     name: "出島スタートアップ CXO・プロ人材",
     type: "登録制 / プロジェクト参画",
     desc: "大企業との共創から出島スタートアップが生まれる際に、CXO・経営メンバーとして参画いただく外部プロフェッショナル。Night DEZIMAなどの共創の場から、次の出島は生まれます。ご登録いただいた方には、テーマが立ち上がったタイミングでご案内します。",
     want: ["スタートアップ経営・事業責任者の経験", "出向起業・カーブアウトへの関心", "「やり切りたい」テーマを探している方"],
-    cta: { label: "興味があることを知らせる →", href: "/contact", external: false },
+    cta: { label: "CXO・プロ人材として登録する →", href: "/contact?topic=cxo", primary: false },
   },
 ];
 
@@ -99,23 +94,16 @@ export default function RecruitPage() {
                   ))}
                 </ul>
                 <div className="mt-auto">
-                  {p.cta.external ? (
-                    <a
-                      href={p.cta.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-7 py-3 bg-black text-white text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-800 transition-colors"
-                    >
-                      {p.cta.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={p.cta.href}
-                      className="inline-block px-7 py-3 border border-black/30 text-black text-xs tracking-[0.2em] uppercase hover:bg-black/5 transition-colors"
-                    >
-                      {p.cta.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={p.cta.href}
+                    className={`inline-block px-7 py-3 text-xs tracking-[0.2em] uppercase font-medium transition-colors ${
+                      p.cta.primary
+                        ? "bg-black text-white hover:bg-gray-800"
+                        : "border border-black/30 text-black hover:bg-black/5"
+                    }`}
+                  >
+                    {p.cta.label}
+                  </Link>
                 </div>
               </div>
             ))}

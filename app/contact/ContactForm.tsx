@@ -6,8 +6,22 @@ import { sendGAEvent } from "@next/third-parties/google";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export default function ContactForm() {
+// 問い合わせの入口を種別で取り、Slack通知とGA4イベントに載せる
+export const CONTACT_CATEGORIES = [
+  "新規事業・出島のご相談",
+  "サービスについて（SPRINT・Lab等）",
+  "Night DEZIMA・イベント",
+  "採用：インターン",
+  "採用：CXO・プロ人材",
+  "取材・提携・その他",
+] as const;
+
+export default function ContactForm({ defaultCategory }: { defaultCategory?: string }) {
   const [status, setStatus] = useState<Status>("idle");
+  const [category, setCategory] = useState<string>(
+    defaultCategory && (CONTACT_CATEGORIES as readonly string[]).includes(defaultCategory) ? defaultCategory : ""
+  );
+  const [categoryError, setCategoryError] = useState(false);
   const [form, setForm] = useState({ company: "", name: "", email: "", message: "" });
 
   const update = (key: keyof typeof form) => (
@@ -17,18 +31,22 @@ export default function ContactForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (status === "sending") return;
+    if (!category) {
+      setCategoryError(true);
+      return;
+    }
     setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, category }),
       });
       if (res.ok) {
         setStatus("success");
         setForm({ company: "", name: "", email: "", message: "" });
-        track("contact_submit");
-        sendGAEvent("event", "contact_submit", {});
+        track("contact_submit", { category });
+        sendGAEvent("event", "contact_submit", { category });
       } else {
         setStatus("error");
       }
@@ -56,6 +74,28 @@ export default function ContactForm() {
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit}>
+      <div>
+        <label className="block text-xs text-gray-400 mb-3">ご相談の種類 <span className="text-red-400">*</span></label>
+        <div className="flex flex-wrap gap-2">
+          {CONTACT_CATEGORIES.map((c) => (
+            <button
+              key={c}
+              type="button"
+              onClick={() => { setCategory(c); setCategoryError(false); }}
+              className={`text-xs px-4 py-2.5 border transition-colors ${
+                category === c
+                  ? "bg-black text-white border-black"
+                  : "border-gray-200 text-gray-500 hover:border-black hover:text-black"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+        {categoryError && (
+          <p className="text-xs text-red-500 mt-2">ご相談の種類を選択してください。</p>
+        )}
+      </div>
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label className="block text-xs text-gray-400 mb-2">会社名</label>

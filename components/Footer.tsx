@@ -19,6 +19,7 @@ export default function Footer() {
             { label: "NEWS", href: "/news" },
             { label: "MEDIA", href: "/media" },
             { label: "ABOUT US", href: "/about" },
+            { label: "RECRUIT", href: "/recruit" },
             { label: "CONTACT", href: "/contact" },
           ].map((l) => (
             <Link key={l.href} href={l.href} className="text-xs tracking-widest uppercase text-gray-400 hover:text-black transition-colors">
