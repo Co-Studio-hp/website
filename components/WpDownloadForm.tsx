@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 export default function WpDownloadForm() {
   const [company, setCompany] = useState("");
@@ -23,6 +24,7 @@ export default function WpDownloadForm() {
         return;
       }
       setStatus("done");
+      track("wp_download_submit");
     } catch {
       setStatus("error");
     }
@@ -76,7 +78,11 @@ export default function WpDownloadForm() {
         <p className="text-xs text-red-400">恐れ入りますが、会社のメールアドレスでお申し込みください。</p>
       )}
       <p className="text-[11px] text-white/30 leading-relaxed">
-        ご入力いただいた情報は、資料のご案内およびCo-Studioからのご連絡にのみ使用します。
+        ご入力いただいた情報は、資料のご案内およびCo-Studioからのご連絡にのみ使用します。詳しくは
+        <a href="/privacy" className="underline underline-offset-2 hover:text-white/60 transition-colors">
+          プライバシーポリシー
+        </a>
+        をご覧ください。
       </p>
     </form>
   );

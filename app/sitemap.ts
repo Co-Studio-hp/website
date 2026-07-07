@@ -16,6 +16,7 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/media",                priority: 0.7, changeFrequency: "daily" },
   { path: "/about",                priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact",              priority: 0.9, changeFrequency: "yearly" },
+  { path: "/privacy",              priority: 0.3, changeFrequency: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

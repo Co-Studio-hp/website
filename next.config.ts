@@ -54,9 +54,11 @@ const legacyRedirects = [
   { source: "/home", destination: "/", permanent: true },
   { source: "/%E8%A4%87%E8%A3%BD-home", destination: "/", permanent: true }, // /複製-home
 
-  // --- 規約・ポリシー（新サイトに未設置のため暫定でトップへ） ---
+  // --- 規約・ポリシー ---
+  // 利用規約は新サイトに未設置のため暫定でトップへ
   { source: "/terms-of-use", destination: "/", permanent: true },
-  { source: "/privacy-policy", destination: "/", permanent: true },
+  // 旧プライバシーポリシー → 新設の /privacy へ
+  { source: "/privacy-policy", destination: "/privacy", permanent: true },
 ];
 
 const nextConfig: NextConfig = {

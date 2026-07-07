@@ -205,6 +205,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2.5 SCENE — 共創の現場 */}
+      <section className="bg-[#F5F3EE] border-t border-black/10">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 py-16">
+          <div className="flex items-baseline gap-4 mb-8">
+            <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400">Scene</p>
+            <div className="flex-1 h-px bg-black/10" />
+          </div>
+          <div className="relative overflow-hidden border border-black/10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/dezima/group-scene.jpg"
+              alt="Night DEZIMAに集まったイントレプレナーたちの集合写真"
+              loading="lazy"
+              className="w-full h-auto object-cover md:aspect-[21/9] md:object-[center_62%]"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent px-6 md:px-10 pt-20 pb-6 md:pb-8 pointer-events-none">
+              <p className="text-lg md:text-xl font-medium text-white tracking-wide">共創の現場から</p>
+              <p className="text-xs text-white/60 mt-1">業種を超えたイントレプレナーが集まる、Co-Studioの共創コミュニティ</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. CLIENTS */}
       <section className="bg-[#F5F3EE] py-16 overflow-hidden border-y border-black/10">
         <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 text-center mb-8">Clients — 延べ60社以上</p>

@@ -27,8 +27,11 @@ export default function Footer() {
           ))}
         </nav>
       </div>
-      <div className="max-w-6xl mx-auto px-6 mt-8 pt-8 border-t border-gray-100">
+      <div className="max-w-6xl mx-auto px-6 mt-8 pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
         <p className="text-xs text-gray-300">© 2019-{new Date().getFullYear()} Co-Studio Inc. All Rights Reserved.</p>
+        <Link href="/privacy" className="text-xs text-gray-400 hover:text-black transition-colors">
+          プライバシーポリシー
+        </Link>
       </div>
     </footer>
   );

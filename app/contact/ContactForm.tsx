@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -25,6 +26,7 @@ export default function ContactForm() {
       if (res.ok) {
         setStatus("success");
         setForm({ company: "", name: "", email: "", message: "" });
+        track("contact_submit");
       } else {
         setStatus("error");
       }
@@ -111,6 +113,14 @@ export default function ContactForm() {
       >
         {status === "sending" ? "送信中..." : "送信する"}
       </button>
+
+      <p className="text-xs text-gray-400 leading-relaxed">
+        送信により
+        <a href="/privacy" className="underline underline-offset-2 hover:text-gray-600 transition-colors">
+          プライバシーポリシー
+        </a>
+        に同意したものとします。
+      </p>
     </form>
   );
 }

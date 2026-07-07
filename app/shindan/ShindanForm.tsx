@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 type Category = "theme" | "person" | "money" | "sponsor" | "ops";
 
@@ -318,6 +319,12 @@ function Result({
   const c = VERDICT_CONTENT[verdict];
   const gaps = (["person", "money", "sponsor"] as const).filter((k) => scores[k] === 0);
 
+  // 診断完了イベント（結果表示時に1回だけ）
+  useEffect(() => {
+    track("shindan_complete", { verdict, total });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="max-w-2xl mx-auto w-full">
       {/* Verdict */}
@@ -421,6 +428,7 @@ function LeadForm({
       });
       if (!res.ok) throw new Error("failed");
       setStatus("done");
+      track("shindan_lead_submit", { verdict });
     } catch {
       setStatus("error");
     }
@@ -444,6 +452,12 @@ function LeadForm({
       <p className="text-sm text-white/70 mb-1">{ctaLabel}</p>
       <p className="text-xs text-white/40 mb-6 leading-relaxed">
         診断結果をふまえて、Co-Studioからご連絡します。（メールのみ必須）
+        <br />
+        送信により
+        <a href="/privacy" className="underline underline-offset-2 text-white/30 hover:text-white/60 transition-colors">
+          プライバシーポリシー
+        </a>
+        に同意したものとします。
       </p>
       <div className="flex flex-col gap-3">
         <div className="grid sm:grid-cols-2 gap-3">
