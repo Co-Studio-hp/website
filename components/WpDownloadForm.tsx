@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { track } from "@vercel/analytics";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function WpDownloadForm() {
   const [company, setCompany] = useState("");
@@ -25,6 +26,7 @@ export default function WpDownloadForm() {
       }
       setStatus("done");
       track("wp_download_submit");
+      sendGAEvent("event", "wp_download_submit", {});
     } catch {
       setStatus("error");
     }

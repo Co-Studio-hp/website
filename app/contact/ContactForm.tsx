@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { track } from "@vercel/analytics";
+import { sendGAEvent } from "@next/third-parties/google";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -27,6 +28,7 @@ export default function ContactForm() {
         setStatus("success");
         setForm({ company: "", name: "", email: "", message: "" });
         track("contact_submit");
+        sendGAEvent("event", "contact_submit", {});
       } else {
         setStatus("error");
       }

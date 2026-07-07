@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
+import { sendGAEvent } from "@next/third-parties/google";
 
 type Category = "theme" | "person" | "money" | "sponsor" | "ops";
 
@@ -322,6 +323,7 @@ function Result({
   // 診断完了イベント（結果表示時に1回だけ）
   useEffect(() => {
     track("shindan_complete", { verdict, total });
+    sendGAEvent("event", "shindan_complete", { verdict, total });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -414,6 +416,7 @@ function ShareRow({ verdict, total }: { verdict: "A" | "B" | "C"; total: number 
       await navigator.clipboard.writeText(SHINDAN_URL);
       setCopied(true);
       track("shindan_share", { channel: "copy" });
+      sendGAEvent("event", "shindan_share", { channel: "copy" });
       setTimeout(() => setCopied(false), 2000);
     } catch {
       // クリップボード不許可環境では何もしない
@@ -428,7 +431,7 @@ function ShareRow({ verdict, total }: { verdict: "A" | "B" | "C"; total: number 
           href={xUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => track("shindan_share", { channel: "x" })}
+          onClick={() => { track("shindan_share", { channel: "x" }); sendGAEvent("event", "shindan_share", { channel: "x" }); }}
           className="px-7 py-2.5 border border-white/25 text-white/80 text-xs tracking-[0.15em] hover:bg-white/10 transition-colors"
         >
           Xで結果をシェア
@@ -478,6 +481,7 @@ function LeadForm({
       if (!res.ok) throw new Error("failed");
       setStatus("done");
       track("shindan_lead_submit", { verdict });
+      sendGAEvent("event", "shindan_lead_submit", { verdict });
     } catch {
       setStatus("error");
     }
