@@ -24,11 +24,24 @@ export default function ScrollFx() {
       { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
 
+    // stagger用CSSを有効化（JS到達済みの印。no-JS環境では初期非表示にならない）
+    document.documentElement.classList.add("fx-ready");
+
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main section"));
     for (const s of sections) {
       if (s.getBoundingClientRect().top < window.innerHeight * 0.9) continue;
       s.classList.add("fx");
       io.observe(s);
+    }
+
+    // カードグリッド等の子要素を時間差で入場させる
+    const staggers = Array.from(document.querySelectorAll<HTMLElement>(".fx-stagger"));
+    for (const g of staggers) {
+      if (g.getBoundingClientRect().top < window.innerHeight * 0.9) {
+        g.classList.add("fx-in");
+        continue;
+      }
+      io.observe(g);
     }
 
     return () => io.disconnect();

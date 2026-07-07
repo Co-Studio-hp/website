@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CountUp from "@/components/CountUp";
 
 const portfolios = [
   { slug: "do-sukasu",  name: "do.Sukasu",               year: "2020", field: "ヘルスケア / 教育 / 自動車", milestone: "シリーズA調達中" },
@@ -70,9 +71,15 @@ export default function Home() {
               大企業の新規事業開発を「共に走る」オープンスタジオ。自らリスクを取り事業化の果実を共に目指します。
             </p>
             <div className="flex gap-8">
-              {[{ n:"延べ60社+", l:"支援実績" },{ n:"4社+", l:"出島SU" },{ n:"7年", l:"の実績" }].map(s => (
+              {[
+                { prefix: "延べ", end: 60, suffix: "社+", l: "支援実績" },
+                { prefix: "", end: 4, suffix: "社+", l: "出島SU" },
+                { prefix: "", end: 7, suffix: "年", l: "の実績" },
+              ].map(s => (
                 <div key={s.l}>
-                  <p className="text-3xl font-medium text-black">{s.n}</p>
+                  <p className="text-3xl font-medium text-black">
+                    <CountUp prefix={s.prefix} end={s.end} suffix={s.suffix} />
+                  </p>
                   <p className="text-xs text-black/30 mt-1">{s.l}</p>
                 </div>
               ))}
@@ -163,7 +170,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px bg-black/10">
+          <div className="grid md:grid-cols-3 gap-px bg-black/10 fx-stagger">
             {[
               { no:"01", title:"リスクを、共に取る",    body:"コンサルは成果物を納品して終わり。Co-Studioは株式参画を前提に、事業の成否を自分ごととして走り続けます。フィーだけで稼ぐビジネスモデルは持ちません。" },
               { no:"02", title:"出島で、制約を超える",  body:"大企業の中では動けない。そう感じたら「外に出る」。Co-DEZIMAスキームで独立した出島スタートアップを設立し、ガバナンスの制約なく本気で事業を作ります。" },
@@ -177,7 +184,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-12 grid md:grid-cols-2 gap-px bg-black/10">
+          <div className="mt-12 grid md:grid-cols-2 gap-px bg-black/10 fx-stagger">
             {[
               { label:"一般的なコンサル・支援会社", points:["フィー収入が主。成果物を納品して終わり","社内論理・承認フローに縛られた提言","プロジェクト単位で関与が完結する"], dark:false },
               { label:"Co-Studioの関与スタイル",    points:["株式参画で長期的に利害が一致","出島スキームで大企業の制約を突破","案件に深くコミットし、がっつり伴走する"], dark:true },
@@ -261,7 +268,7 @@ export default function Home() {
             </div>
             <Link href="/portfolio" className="text-xs text-white/40 border-b border-white/20 pb-0.5 hover:text-white transition-colors tracking-widest uppercase">一覧 →</Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 fx-stagger">
             {portfolios.map((p) => (
               <Link key={p.slug} href={"href" in p && p.href ? p.href : `/portfolio/${p.slug}`} className="group bg-[#111111] p-6 hover:bg-white/5 transition-colors">
                 <p className="text-[10px] text-white/20 mb-4">{p.year}</p>
@@ -327,7 +334,7 @@ export default function Home() {
                 <Link href="/contact" className="inline-block px-7 py-3 bg-white/10 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/20 transition-colors">参加を申し込む</Link>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-px bg-white/5">
+            <div className="grid grid-cols-3 gap-px bg-white/5 fx-stagger">
               {[["30社+","参加企業"],["12回+","開催実績"],["全国","各地で開催"],["異業種","業種を超えた繋がり"],["クローズド","招待制の安心感"],["横連携","担当者間の協業も"]].map(([n,l]) => (
                 <div key={l} className="bg-black/30 px-4 py-5 text-center">
                   <p className="text-xl font-medium text-white mb-1">{n}</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "支援実績 | Co-Studio株式会社",
@@ -130,15 +131,17 @@ export default function ResultsPage() {
 
       {/* Stats */}
       <section className="bg-gray-50 py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200 fx-stagger">
           {[
-            { num: "延べ60社+", label: "支援企業数" },
-            { num: "6", label: "SPRINTプログラム実施" },
-            { num: "16+", label: "Business Lab / Living Lab" },
-            { num: "7+", label: "Spot Assist" },
+            { prefix: "延べ", end: 60, suffix: "社+", label: "支援企業数" },
+            { prefix: "", end: 6, suffix: "", label: "SPRINTプログラム実施" },
+            { prefix: "", end: 16, suffix: "+", label: "Business Lab / Living Lab" },
+            { prefix: "", end: 7, suffix: "+", label: "Spot Assist" },
           ].map((s) => (
             <div key={s.label} className="bg-white p-8">
-              <p className="text-4xl font-medium mb-2">{s.num}</p>
+              <p className="text-4xl font-medium mb-2">
+                <CountUp prefix={s.prefix} end={s.end} suffix={s.suffix} />
+              </p>
               <p className="text-xs text-gray-400">{s.label}</p>
             </div>
           ))}

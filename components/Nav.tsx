@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
   { label: "HOME", href: "/" },
@@ -29,9 +29,26 @@ export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState<string | null>(null);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // 下スクロールで隠れ、上スクロールですぐ戻る（読むときは消え、探すときは現れる）
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 8);
+      setHidden(y > 160 && y > last && !open);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-black/10" style={{background:"#F5F3EE"}}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-black/10 transition-all duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"} ${scrolled ? "shadow-[0_4px_24px_rgba(0,0,0,0.06)]" : ""}`}
+      style={{background:"#F5F3EE"}}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="shrink-0">
           <Image src="/costudio-logo.png" alt="Co STUDIO" width={140} height={28} className="h-7 w-auto object-contain" priority />

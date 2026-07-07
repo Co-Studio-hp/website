@@ -61,7 +61,7 @@ export default function CoDezimaPage() {
         <div className="max-w-7xl mx-auto">
           <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-4">Why DEZIMA</p>
           <h2 className="text-3xl md:text-4xl font-medium leading-snug mb-12">なぜ、外に出すのか。</h2>
-          <div className="grid md:grid-cols-3 gap-px bg-black/10">
+          <div className="grid md:grid-cols-3 gap-px bg-black/10 fx-stagger">
             {points.map((p, i) => (
               <div key={p.title} className="bg-[#F5F3EE] p-8">
                 <p className="text-xs text-black/30 mb-4">0{i + 1}</p>

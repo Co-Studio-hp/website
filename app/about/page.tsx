@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "ABOUT US | Co-Studio株式会社",
@@ -55,16 +56,18 @@ export default function AboutPage() {
                 Co-Studioは、大企業とスタートアップ、異なる業種と価値観をつなぎ、新しい事業と社会的価値を共に生み出します。
               </p>
               <div className="flex flex-wrap gap-8 pt-6 border-t border-gray-800">
-                {[
-                  { num: "2019", label: "年設立" },
-                  { num: "延べ60社+", label: "支援実績" },
-                  { num: "7年", label: "の実績" },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <p className="text-2xl font-medium text-white">{s.num}</p>
-                    <p className="text-xs text-gray-600 mt-1">{s.label}</p>
-                  </div>
-                ))}
+                <div>
+                  <p className="text-2xl font-medium text-white">2019</p>
+                  <p className="text-xs text-gray-600 mt-1">年設立</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-medium text-white"><CountUp prefix="延べ" end={60} suffix="社+" /></p>
+                  <p className="text-xs text-gray-600 mt-1">支援実績</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-medium text-white"><CountUp end={7} suffix="年" /></p>
+                  <p className="text-xs text-gray-600 mt-1">の実績</p>
+                </div>
               </div>
             </div>
           </div>
