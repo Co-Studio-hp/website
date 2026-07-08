@@ -23,6 +23,7 @@ const links = [
   { label: "NEWS", href: "/news" },
   { label: "MEDIA", href: "/media" },
   { label: "ABOUT US", href: "/about" },
+  { label: "RECRUIT", href: "/recruit" },
 ];
 
 export default function Nav() {
