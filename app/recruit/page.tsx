@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getOgImage } from "@/lib/og";
+
+// noteのインターン記事のOGP画像取得のため週次で再生成
+export const revalidate = 604800;
 
 export const metadata: Metadata = {
   title: "RECRUIT | Co-Studio株式会社",
@@ -39,7 +43,15 @@ const positions = [
   },
 ];
 
-export default function RecruitPage() {
+const INTERN_ARTICLE = {
+  url: "https://note.com/co_studio/n/n71ae419eb0a0",
+  title:
+    "レベル違いのインターン体験。4年間で手に入れた、IT系メガベンチャーへの切符と圧倒的な自信。",
+  desc: "Co-Studioで4年間インターンとして働いた学生へのインタビュー。現場で何を任され、何を得たのか——インターンのリアルはこちらから。",
+};
+
+export default async function RecruitPage() {
+  const internOg = await getOgImage(INTERN_ARTICLE.url);
   return (
     <>
       {/* Hero */}
@@ -113,6 +125,39 @@ export default function RecruitPage() {
             <Link href="/contact" className="underline underline-offset-2 hover:text-black transition-colors">お問い合わせフォーム</Link>
             からお気軽にご連絡ください。
           </p>
+        </div>
+      </section>
+
+      {/* インターンの声（note記事） */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Voice</p>
+          <a
+            href={INTERN_ARTICLE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group grid md:grid-cols-2 border border-gray-200 hover:border-black transition-colors overflow-hidden"
+          >
+            <div className="relative aspect-[16/9] md:aspect-auto md:min-h-56 bg-gray-100">
+              {internOg && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={internOg}
+                  alt=""
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
+            </div>
+            <div className="p-8 md:p-10 flex flex-col justify-center">
+              <p className="text-xs text-gray-400 mb-3">インターン経験者インタビュー</p>
+              <h2 className="text-lg md:text-xl font-medium leading-relaxed mb-4 group-hover:underline underline-offset-4">
+                {INTERN_ARTICLE.title}
+              </h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-5">{INTERN_ARTICLE.desc}</p>
+              <span className="text-xs text-gray-400 tracking-widest uppercase">note.com/co_studio ↗</span>
+            </div>
+          </a>
         </div>
       </section>
 
