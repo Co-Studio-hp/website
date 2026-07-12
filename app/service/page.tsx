@@ -30,6 +30,7 @@ const services = [
   },
   {
     id: "sprint",
+    video: "/videos/service-sprint.mp4",
     label: "0 → 1",
     name: "SPRINT",
     tagline: "1年で事業を作る。近未来デザイン×ビジネスモデル×特許を一体開発。",
@@ -72,6 +73,7 @@ const services = [
   },
   {
     id: "livinglab",
+    video: "/videos/service-labs.mp4",
     label: "0 → 1",
     name: "LIVING LAB",
     tagline: "フィールドがなくても、PoCができる。",
@@ -92,6 +94,7 @@ const services = [
   },
   {
     id: "spot",
+    video: "/videos/service-spotassist.mp4",
     label: "単発",
     name: "Spot Assist",
     tagline: "1時間で、霧を晴らす。",
@@ -248,6 +251,21 @@ export default async function ServicePage() {
         </div>
       </section>
 
+      {/* Step overview movie */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3 text-center">Movie</p>
+          <h2 className="text-2xl md:text-3xl font-normal mb-8 text-center">2分でわかる 新規事業のStep</h2>
+          <video
+            src="/videos/service-steps.mp4"
+            controls
+            preload="metadata"
+            playsInline
+            className="w-full border border-black/10"
+          />
+        </div>
+      </section>
+
       {/* Service Details */}
       <div className="max-w-7xl mx-auto px-6">
         {services.map((s, i) => (
@@ -262,6 +280,15 @@ export default async function ServicePage() {
                 <h2 className="text-3xl md:text-4xl font-medium mt-6 mb-4">{s.name}</h2>
                 <p className="text-base text-gray-600 mb-6 leading-relaxed">{s.tagline}</p>
                 <p className="text-sm text-gray-500 leading-relaxed mb-8">{s.description}</p>
+                {"video" in s && typeof s.video === "string" && (
+                  <video
+                    src={s.video}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="w-full border border-black/10 mb-8"
+                  />
+                )}
                 <div>
                   <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">こんな企業に</p>
                   <ul className="space-y-2">

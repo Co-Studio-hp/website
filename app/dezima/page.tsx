@@ -91,6 +91,21 @@ export default async function DezimaPage() {
         </div>
       </section>
 
+      {/* Intro movie */}
+      <section className="bg-[#0a0a0a] text-white px-6 py-16">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-3 text-center">About</p>
+          <h2 className="text-2xl md:text-3xl font-normal mb-10 text-center">1分でわかる Night DEZIMA</h2>
+          <video
+            src="/videos/night-dezima.mp4"
+            controls
+            preload="metadata"
+            playsInline
+            className="w-full border border-white/10"
+          />
+        </div>
+      </section>
+
       {/* Movie */}
       <section className="bg-[#0a0a0a] text-white px-6 py-16">
         <div className="max-w-5xl mx-auto">

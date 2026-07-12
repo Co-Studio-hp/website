@@ -73,6 +73,18 @@ export default async function DoSukasuPage() {
         </div>
       </section>
 
+      {/* Movie */}
+      <section className="px-6 max-w-7xl mx-auto pb-6">
+        <video
+          src="/videos/portfolio-dosukasu.mp4"
+          controls
+          preload="metadata"
+          playsInline
+          className="w-full max-w-3xl border border-black/10"
+        />
+        <p className="text-xs text-gray-400 mt-2">1分でわかる do.Sukasu（動画）</p>
+      </section>
+
       <section className="px-6 max-w-7xl mx-auto pb-16">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
