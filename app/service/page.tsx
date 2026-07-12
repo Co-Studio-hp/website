@@ -51,6 +51,7 @@ const services = [
   },
   {
     id: "bizlab",
+    video: "/videos/service-bizlab.mp4",
     label: "0 → 1",
     name: "BUSINESS LAB",
     tagline: "ビジネスモデル・知財・近未来デザイン。事業の悩みを、即座に解きほぐす。",
@@ -73,7 +74,7 @@ const services = [
   },
   {
     id: "livinglab",
-    video: "/videos/service-labs.mp4",
+    video: "/videos/service-livinglab.mp4",
     label: "0 → 1",
     name: "LIVING LAB",
     tagline: "フィールドがなくても、PoCができる。",
@@ -280,15 +281,6 @@ export default async function ServicePage() {
                 <h2 className="text-3xl md:text-4xl font-medium mt-6 mb-4">{s.name}</h2>
                 <p className="text-base text-gray-600 mb-6 leading-relaxed">{s.tagline}</p>
                 <p className="text-sm text-gray-500 leading-relaxed mb-8">{s.description}</p>
-                {"video" in s && typeof s.video === "string" && (
-                  <video
-                    src={s.video}
-                    controls
-                    preload="metadata"
-                    playsInline
-                    className="w-full border border-black/10 mb-8"
-                  />
-                )}
                 <div>
                   <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">こんな企業に</p>
                   <ul className="space-y-2">
@@ -373,6 +365,18 @@ export default async function ServicePage() {
                       詳しく相談する
                     </Link>
                   </div>
+                  {"video" in s && typeof s.video === "string" && (
+                    <div className="mt-6">
+                      <p className="text-xs text-gray-400 mb-2">動画で見る（2分）</p>
+                      <video
+                        src={s.video}
+                        controls
+                        preload="metadata"
+                        playsInline
+                        className="w-full border border-black/10"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
