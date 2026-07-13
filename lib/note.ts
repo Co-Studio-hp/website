@@ -2,6 +2,8 @@
 // 記事を追加・編集したいときは note に投稿するだけでOK（コード変更不要）。
 // このサイトは1時間ごとにRSSを取り直して自動反映します。
 
+import { getOgImages } from "./og";
+
 const NOTE_RSS_URL = "https://note.com/co_studio/rss";
 export const NOTE_URL = "https://note.com/co_studio";
 
@@ -98,6 +100,17 @@ export async function getNoteArticles(): Promise<NoteArticle[]> {
 
     // 新しい順
     articles.sort((a, b) => (a.isoDate < b.isoDate ? 1 : -1));
+
+    // noteで「見出し画像」未設定の記事はRSSにmedia:thumbnailが入らない。
+    // その場合は記事ページのog:image（noteが自動生成するカード画像）で補完する。
+    const missing = articles.filter((a) => !a.thumbnail).map((a) => a.link);
+    if (missing.length > 0) {
+      const ogMap = await getOgImages(missing);
+      for (const a of articles) {
+        if (!a.thumbnail) a.thumbnail = ogMap[a.link] ?? null;
+      }
+    }
+
     return articles;
   } catch {
     return [];

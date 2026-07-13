@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 const services = [
   {
     id: "dezima",
+    video: "/videos/dezima-intro.mp4",
+    poster: "/videos/dezima-intro-poster.jpg",
+    videoLabel: "動画で見る（3分）",
+    detailLink: "/co-dezima",
+    detailLinkLabel: "Co-DEZIMAの詳細ページへ（動画・資料ダウンロード）",
     label: "1 → 10",
     name: "Co-DEZIMA",
     tagline: "大企業の資産と可能性を、組織の外に解き放つ。",
@@ -357,19 +362,30 @@ export default async function ServicePage() {
                       </div>
                     ))}
                   </dl>
-                  <div className="mt-8 pt-6 border-t border-gray-200">
+                  <div className="mt-8 pt-6 border-t border-gray-200 space-y-3">
                     <Link
                       href="/contact"
                       className="block text-center px-6 py-3 bg-black text-white text-xs tracking-[0.3em] uppercase hover:bg-gray-800 transition-colors"
                     >
                       詳しく相談する
                     </Link>
+                    {"detailLink" in s && typeof s.detailLink === "string" && (
+                      <Link
+                        href={s.detailLink}
+                        className="block text-center px-6 py-3 border border-black/30 text-black text-xs tracking-[0.2em] uppercase hover:bg-black/5 transition-colors"
+                      >
+                        {("detailLinkLabel" in s && typeof s.detailLinkLabel === "string" ? s.detailLinkLabel : "詳細ページへ")} →
+                      </Link>
+                    )}
                   </div>
                   {"video" in s && typeof s.video === "string" && (
                     <div className="mt-6">
-                      <p className="text-xs text-gray-400 mb-2">動画で見る（2分）</p>
+                      <p className="text-xs text-gray-400 mb-2">
+                        {"videoLabel" in s && typeof s.videoLabel === "string" ? s.videoLabel : "動画で見る（2分）"}
+                      </p>
                       <video
                         src={s.video}
+                        poster={"poster" in s && typeof s.poster === "string" ? s.poster : undefined}
                         controls
                         preload="metadata"
                         playsInline
