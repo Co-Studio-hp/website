@@ -205,8 +205,8 @@ export default function ResultsPage() {
               name: "エナフォワード",
               parent: "大手石油会社 × Co-Studio",
               field: "美容 / SaaS",
-              body: "美容師向けアプリ「ビーネ」事業をCo-DEZIMAで設立し、100店舗導入を達成。",
-              note: "※現在はCo-Studioのポートフォリオ（出資先）ではなく、独立して運営されている事業です。",
+              body: "美容師向けアプリ「ビーネ」事業をCo-DEZIMAで設立し、2年で100店舗導入を達成。",
+              note: null,
             },
           ].map((c) => (
             <div key={c.name} className="border border-gray-100 p-7 md:flex items-start gap-6 hover:border-gray-300 transition-colors">

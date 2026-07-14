@@ -5,7 +5,7 @@ const portfolios = [
   { slug: "do-sukasu",  name: "do.Sukasu",               year: "2020", field: "ヘルスケア / 教育 / 自動車", milestone: "シリーズA調達中" },
   { slug: "aikomi",     name: "Aikomi",                   year: "2021", field: "認知症ケア / AI",            milestone: "約1億円調達" },
   { slug: "hers",       name: "Hers HeAlth Technologies", year: "2025", field: "ヘルステック / 更年期",      milestone: "PoC実施中" },
-  { slug: "enaforward", name: "エナフォワード",             year: "2023", field: "美容 / SaaS",              milestone: "EXIT（2026）", href: "/results" },
+  { slug: "enaforward", name: "エナフォワード",             year: "2023", field: "美容 / SaaS",              milestone: "100店舗導入", href: "/results" },
 ];
 
 const clients = [
@@ -256,7 +256,7 @@ export default function Home() {
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 Co-DEZIMAは、独立した株式会社として「出島スタートアップ」を設立するスキームです。Co-Studioが子会社に出資し、株式を持ちながら共同創業者として経営に参画。大企業の資産（技術・顧客・ブランド）と、スタートアップのスピード・柔軟性を両立させます。
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed">現在4社が稼働中・EXIT済み。調達総額は累計数億円規模に達しています。</p>
+              <p className="text-sm text-gray-500 leading-relaxed">これまでに4社を設立。調達総額は累計数億円規模に達しています。</p>
               <div className="mt-8">
                 <Link href="/portfolio" className="inline-block px-7 py-3 border border-black text-xs tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-colors font-medium">ポートフォリオを見る →</Link>
               </div>
@@ -266,7 +266,7 @@ export default function Home() {
                 { step:"01", title:"事業テーマの定義",  desc:"大企業内の埋もれた技術・アセットからテーマを絞り込む。SPRINTやBUSINESS LABでの0→1フェーズが前提となることも多い。" },
                 { step:"02", title:"出島法人の設立",    desc:"Co-Studioが設立する子会社に出資する形で独立法人を設立。代表者は大企業からの出向起業か、Co-Studioが招聘する人材。" },
                 { step:"03", title:"PoC・事業検証",     desc:"スタートアップとして自由に動きながら、市場検証・顧客開拓・資金調達を進める。Co-Studioがエコシステム構築・VC壁打ちを伴走。" },
-                { step:"04", title:"独立・スケール",    desc:"外部調達・黒字化・M&A・EXITなど各社の戦略に合わせて成長フェーズを設計。エナフォワードは2026年にEXIT完了。" },
+                { step:"04", title:"独立・スケール",    desc:"外部調達・黒字化・提携など各社の戦略に合わせて成長フェーズを設計。出口の分岐は設立時に契約へ内蔵する。" },
               ].map(s => (
                 <div key={s.step} className="flex gap-5 p-5 bg-white/70 border border-black/5">
                   <span className="text-[10px] text-gray-300 font-medium shrink-0 mt-0.5 w-6">{s.step}</span>
