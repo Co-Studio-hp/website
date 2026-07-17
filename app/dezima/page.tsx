@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getDezimaContent, NOTE_URL } from "@/lib/note";
+import LiteYouTube from "@/components/LiteYouTube";
 
 export const metadata: Metadata = {
   title: "Night DEZIMA",
@@ -83,9 +84,10 @@ export default async function DezimaPage() {
             <div className="overflow-hidden border border-white/10 shadow-2xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/dezima/group.png"
+                src="/dezima/group.webp"
                 alt="Night DEZIMA 参加者の集合写真"
                 className="w-full h-auto object-cover"
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -113,14 +115,7 @@ export default async function DezimaPage() {
           <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-3 text-center">Movie</p>
           <h2 className="text-2xl md:text-3xl font-medium mb-10 text-center">映像で見る Night DEZIMA</h2>
           <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/yoDGXup-FJQ"
-              title="Night DEZIMA"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
+            <LiteYouTube videoId="yoDGXup-FJQ" title="Night DEZIMA" />
           </div>
         </div>
       </section>
