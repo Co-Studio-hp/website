@@ -63,9 +63,11 @@ const legacyRedirects = [
 
 const nextConfig: NextConfig = {
   images: {
-    // NEWS/MEDIAのサムネイルは PR TIMES / note / 旧Wix など複数の外部CDNから
-    // 取得するOGP画像のため、ホストを限定せずVercelの画像最適化を通す。
-    remotePatterns: [{ protocol: "https", hostname: "**" }],
+    // next/image で読み込む外部画像は app/news/page.tsx の PR TIMES OGP画像のみ
+    // （lib/og.ts が prtimes.jp の記事から og:image を取得し、実体は PR TIMES の
+    // 画像CDNである prcdn.freetls.fastly.net から配信される）。
+    // 他ページの外部サムネイル（note等）は <img> タグで表示しておりnext/image対象外。
+    remotePatterns: [{ protocol: "https", hostname: "prcdn.freetls.fastly.net" }],
   },
   async redirects() {
     return legacyRedirects;

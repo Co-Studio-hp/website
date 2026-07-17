@@ -17,9 +17,10 @@ const categoryColor: Record<string, string> = {
 };
 
 export const metadata: Metadata = {
-  title: "NEWS | Co-Studio株式会社",
+  title: "NEWS",
   description:
     "Co-Studioおよびポートフォリオ・グループ各社の新会社設立・資金調達・業務提携などのニュースリリースを横断的にまとめています。",
+  alternates: { canonical: "/news" },
 };
 
 export default async function NewsPage() {

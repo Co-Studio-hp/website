@@ -11,8 +11,14 @@ const siteDescription = "共感を軸に拡がるコミュニティの実現。�
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.co-studio.co.jp"),
-  title: siteTitle,
+  title: {
+    template: "%s | Co-Studio株式会社",
+    default: siteTitle,
+  },
   description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",

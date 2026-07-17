@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import ShindanForm from "./ShindanForm";
 
 export const metadata: Metadata = {
-  title: "出島適合セルフ診断｜Co-Studio",
+  title: "出島適合セルフ診断",
   description:
     "新規事業テーマの『出島（カーブアウト）適合度』を10問・3分で判定。テーマ・人・資金・決裁の4観点から、外に出して育てる選択肢を診断します。",
+  alternates: { canonical: "/shindan" },
+  openGraph: {
+    title: "出島適合セルフ診断",
+    description:
+      "そのテーマは、社内で育てるべきか。外で育てるべきか。10の質問で「出島適合度」を判定します。3分・登録不要。",
+  },
 };
 
 export default function ShindanPage() {

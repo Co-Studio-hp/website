@@ -52,7 +52,7 @@ export default function Nav() {
       style={{background:"#F5F3EE"}}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="shrink-0">
-          <Image src="/costudio-logo.png" alt="Co STUDIO" width={120} height={24} className="h-6 w-auto object-contain" priority />
+          <Image src="/costudio-logo.png" alt="Co STUDIO" width={120} height={24} className="h-6 w-auto object-contain" preload />
         </Link>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
           {links.map((l) => (

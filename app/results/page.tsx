@@ -3,8 +3,9 @@ import Link from "next/link";
 import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
-  title: "支援実績 | Co-Studio株式会社",
+  title: "支援実績",
   description: "Co-Studioが支援してきた新規事業開発の実績一覧。SPRINT・Business Lab・Living Labなどのプログラム別に掲載。",
+  alternates: { canonical: "/results" },
 };
 
 const sprintResults = [

@@ -6,9 +6,10 @@ import { getOgImage } from "@/lib/og";
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: "RECRUIT | Co-Studio株式会社",
+  title: "RECRUIT",
   description:
     "Co-Studioは、大企業と共に出島スタートアップを立ち上げる仲間を探しています。インターン（常時募集）と、出島のCXO・プロ人材の登録を受け付けています。",
+  alternates: { canonical: "/recruit" },
 };
 
 const values = [
@@ -57,7 +58,7 @@ export default async function RecruitPage() {
       {/* Hero */}
       <section className="bg-black text-white py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.4em] uppercase text-white/30 mb-6">Recruit</p>
+          <h2 className="text-xs tracking-[0.4em] uppercase text-white/30 mb-6">Recruit</h2>
           <h1 className="text-4xl md:text-6xl font-medium leading-tight mb-8">
             創ろう、共に。<br />次の出島を。
           </h1>
@@ -71,7 +72,7 @@ export default async function RecruitPage() {
       {/* Values */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Why Co-Studio</p>
+          <h2 className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Why Co-Studio</h2>
           <div className="grid md:grid-cols-3 gap-px bg-black/10 fx-stagger">
             {values.map((v, i) => (
               <div key={v.title} className="bg-[#F5F3EE] p-8">
@@ -87,7 +88,7 @@ export default async function RecruitPage() {
       {/* Positions */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Open Positions</p>
+          <h2 className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Open Positions</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {positions.map((p) => (
               <div key={p.name} className="bg-white border border-gray-100 p-8 flex flex-col">
@@ -131,7 +132,7 @@ export default async function RecruitPage() {
       {/* インターンの声（note記事） */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Voice</p>
+          <h2 className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-10">Voice</h2>
           <a
             href={INTERN_ARTICLE.url}
             target="_blank"

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PORTFOLIO | Co-Studio株式会社",
+  title: "PORTFOLIO",
   description: "Co-Studioの出島スキームから生まれた独立スタートアップ。",
+  alternates: { canonical: "/portfolio" },
 };
 
 const companies = [

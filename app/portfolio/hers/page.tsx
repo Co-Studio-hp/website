@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
-export const metadata: Metadata = { title: "Hers HeAlth Technologies | Portfolio | Co-Studio株式会社" };
+export const metadata: Metadata = {
+  title: "Hers HeAlth Technologies | Portfolio",
+  alternates: { canonical: "/portfolio/hers" },
+};
 
 const pressReleases = [
   { title: "旭化成ファーマ発ヘルスケアベンチャー「Hers HeAlth Technologies Inc.」を設立（旭化成ファーマ）", url: "https://prtimes.jp/main/html/rd/p/000000191.000079452.html", date: "2025.05" },

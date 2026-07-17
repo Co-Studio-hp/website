@@ -3,8 +3,9 @@ import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "SERVICE | Co-Studio株式会社",
+  title: "SERVICE",
   description: "0→1の新規事業開発から、出島による1→10の事業化まで。Co-Studioのサービス一覧。",
+  alternates: { canonical: "/service" },
 };
 
 const services = [

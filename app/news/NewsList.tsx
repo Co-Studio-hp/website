@@ -54,7 +54,12 @@ export default function NewsList({
           >
             <span className="text-xs text-gray-400 shrink-0 w-20 pt-0.5 tabular-nums">{r.date}</span>
             <span className={`text-xs px-2 py-0.5 font-medium shrink-0 ${r.color}`}>{r.company}</span>
-            <p className="text-sm text-gray-700 group-hover:text-black transition-colors flex-1 leading-relaxed">{r.title}</p>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm text-gray-700 group-hover:text-black transition-colors leading-relaxed">{r.title}</p>
+              {r.excerpt && (
+                <p className="text-xs text-gray-400 leading-relaxed mt-1 line-clamp-2">{r.excerpt}</p>
+              )}
+            </div>
             <span className="text-xs text-gray-300 group-hover:text-black transition-colors shrink-0 hidden md:block">→</span>
           </a>
         ))}

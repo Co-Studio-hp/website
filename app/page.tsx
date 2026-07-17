@@ -61,11 +61,11 @@ export default function Home() {
 
         <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-7xl mx-auto w-full py-28 relative z-10">
           <p className="text-xs tracking-[0.5em] uppercase text-black/30 mb-8 fx-up">Co-Studio — Since 2019</p>
-          <div className="mb-10">
-            <h1 className="text-[clamp(4rem,11vw,9rem)] font-medium leading-[0.95] tracking-[-0.03em] text-black fx-up fx-d1">創ろう、</h1>
-            <h1 className="text-[clamp(4rem,11vw,9rem)] font-medium leading-[0.95] tracking-[-0.03em] text-black/25 fx-up fx-d2">共に、</h1>
-            <h1 className="text-[clamp(4rem,11vw,9rem)] font-medium leading-[0.95] tracking-[-0.03em] text-black fx-up fx-d3">未来から。</h1>
-          </div>
+          <h1 className="text-[clamp(4rem,11vw,9rem)] font-medium leading-[0.95] tracking-[-0.03em] mb-10">
+            <span className="block text-black fx-up fx-d1">創ろう、</span>
+            <span className="block text-black/25 fx-up fx-d2">共に、</span>
+            <span className="block text-black fx-up fx-d3">未来から。</span>
+          </h1>
           <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-16 fx-up fx-d4">
             <p className="text-sm text-gray-500 max-w-sm leading-relaxed">
               大企業の新規事業開発を「共に走る」オープンスタジオ。自らリスクを取り事業化の果実を共に目指します。
@@ -105,7 +105,8 @@ export default function Home() {
               loop
               playsInline
               controls
-              className="w-full border border-white/10"
+              preload="metadata"
+              className="w-full aspect-video border border-white/10"
             />
           </div>
           <div className="md:col-span-2">

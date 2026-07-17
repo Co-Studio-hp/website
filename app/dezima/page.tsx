@@ -3,9 +3,10 @@ import Link from "next/link";
 import { getDezimaContent, NOTE_URL } from "@/lib/note";
 
 export const metadata: Metadata = {
-  title: "Night DEZIMA | Co-Studio株式会社",
+  title: "Night DEZIMA",
   description:
     "大企業の新規事業担当者（イントレプレナー）が集まる定期交流イベント。業種・会社を超えて、同じ課題を抱える仲間がつながります。",
+  alternates: { canonical: "/dezima" },
 };
 
 const themes = [

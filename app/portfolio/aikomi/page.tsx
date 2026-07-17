@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
-export const metadata: Metadata = { title: "Aikomi | Portfolio | Co-Studio株式会社" };
+export const metadata: Metadata = {
+  title: "Aikomi | Portfolio",
+  alternates: { canonical: "/portfolio/aikomi" },
+};
 
 const pressReleases = [
   { title: "株式会社Aikomiの株式取得およびCo-Studioからの代表取締役CEO派遣について", url: "https://prtimes.jp/main/html/rd/p/000000037.000059402.html", date: "2023" },

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "プライバシーポリシー | Co-Studio株式会社",
+  title: "プライバシーポリシー",
   description: "Co-Studio株式会社の個人情報の取り扱いに関する方針をご案内します。",
+  alternates: { canonical: "/privacy" },
 };
 
 const sections: { title: string; body: React.ReactNode }[] = [

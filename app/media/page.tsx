@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { getNoteArticles, NOTE_URL, type NoteArticle } from "@/lib/note";
 
 export const metadata: Metadata = {
-  title: "MEDIA | Co-Studio株式会社",
+  title: "MEDIA",
   description:
     "Co-Studioのオウンドメディア、共同プロジェクト記事、インタビュー、イベントレポートをまとめています。",
+  alternates: { canonical: "/media" },
 };
 
 const categoryColor: Record<string, string> = {
@@ -27,7 +28,7 @@ export default async function MediaPage() {
   return (
     <>
       <section className="py-14 px-6 max-w-7xl mx-auto">
-        <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Media</p>
+        <h2 className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Media</h2>
         <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
           Co-Studioの<br />活動記録。
         </h1>
@@ -58,7 +59,7 @@ export default async function MediaPage() {
         <>
           {/* Featured（最新3本・サムネイル付き） */}
           <section className="px-6 max-w-7xl mx-auto pb-20">
-            <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-8">Featured</p>
+            <h2 className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-8">Featured</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {featured.map((a: NoteArticle) => (
                 <a
@@ -96,7 +97,7 @@ export default async function MediaPage() {
           <section className="bg-gray-50 py-14 px-6">
             <div className="max-w-7xl mx-auto">
               <div className="flex justify-between items-end mb-8">
-                <p className="text-xs tracking-[0.3em] uppercase text-gray-400">最新記事</p>
+                <h2 className="text-xs tracking-[0.3em] uppercase text-gray-400">最新記事</h2>
                 <a
                   href={NOTE_URL}
                   target="_blank"
@@ -132,7 +133,7 @@ export default async function MediaPage() {
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <div className="border border-gray-100 p-10 md:p-16 flex flex-col md:flex-row gap-8 items-center justify-between">
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3">Official Note</p>
+            <h2 className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-3">Official Note</h2>
             <h2 className="text-2xl font-medium mb-2">note.com/co_studio</h2>
             <p className="text-sm text-gray-500">イベントレポート・コラム・共同プロジェクト記事を定期発信中。</p>
           </div>

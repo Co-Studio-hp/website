@@ -3,9 +3,15 @@ import Link from "next/link";
 import WpDownloadForm from "@/components/WpDownloadForm";
 
 export const metadata: Metadata = {
-  title: "Co-DEZIMA｜出島という選択肢 | Co-Studio株式会社",
+  title: "Co-DEZIMA｜出島という選択肢",
   description:
     "新規事業を独立したスタートアップとして社外に切り出す「出島」。Co-Studioが共同で設立・伴走するCo-DEZIMAスキームを、3分の動画と無料資料でご紹介します。",
+  alternates: { canonical: "/co-dezima" },
+  openGraph: {
+    title: "Co-DEZIMA｜出島という選択肢",
+    description:
+      "新規事業を独立したスタートアップとして社外に切り出す「出島」。Co-Studioが共同で設立・伴走する事業共創スキームを、3分の動画と無料資料でご紹介します。",
+  },
 };
 
 const points = [

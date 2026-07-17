@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "CONTACT | Co-Studio株式会社",
+  title: "CONTACT",
   description: "お問い合わせ・壁打ちのご相談はこちらから。",
+  alternates: { canonical: "/contact" },
 };
 
 // /contact?topic=xxx で種別を事前選択できる（採用ページ等からの導線用）

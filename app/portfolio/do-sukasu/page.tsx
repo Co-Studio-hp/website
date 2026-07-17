@@ -3,7 +3,8 @@ import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "do.Sukasu | Portfolio | Co-Studio株式会社",
+  title: "do.Sukasu | Portfolio",
+  alternates: { canonical: "/portfolio/do-sukasu" },
 };
 
 const timeline = [

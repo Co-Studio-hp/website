@@ -3,8 +3,9 @@ import Link from "next/link";
 import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
-  title: "ABOUT US | Co-Studio株式会社",
+  title: "ABOUT US",
   description: "Co-Studio株式会社の会社概要、経営チーム、ミッションをご紹介します。",
+  alternates: { canonical: "/about" },
 };
 
 const team = [
@@ -42,7 +43,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-end">
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">About Us</p>
+              <h2 className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">About Us</h2>
               <h1 className="text-5xl md:text-7xl font-medium leading-tight mb-8">
                 共感を軸に<br />拡がる<br />コミュニティの実現
               </h1>
@@ -77,7 +78,7 @@ export default function AboutPage() {
       {/* CEO Message */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-10">Message from CEO</p>
+          <h2 className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-10">Message from CEO</h2>
           <p className="text-base text-gray-500 italic mb-10 leading-relaxed">
             「未知なるものを、みずから受け入れる。すべての人、知恵それぞれの可能性を信じる。小さく素早く、大きく確実に、いま始める。」
           </p>
@@ -105,7 +106,7 @@ export default function AboutPage() {
       {/* Team */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-10">Team</p>
+          <h2 className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-10">Team</h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl">
             {team.map((m) => (
               <div key={m.name} className="bg-white p-7 border border-gray-100">
@@ -129,7 +130,7 @@ export default function AboutPage() {
 
       {/* Company Info */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
-        <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-10">Company</p>
+        <h2 className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-10">Company</h2>
         <div className="max-w-2xl">
           <dl>
             {companyInfo.map((item) => (
