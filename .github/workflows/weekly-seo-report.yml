@@ -1,0 +1,36 @@
+name: Weekly SEO Report
+
+on:
+  schedule:
+    # JST月曜9:00 = UTC月曜0:00
+    - cron: '0 0 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: scripts/weekly-seo-report
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: scripts/weekly-seo-report/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run weekly SEO report
+        run: node index.js
+        env:
+          GOOGLE_SA_KEY_JSON: ${{ secrets.GOOGLE_SA_KEY_JSON }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+          SLACK_HP_WEBHOOK_URL: ${{ secrets.SLACK_HP_WEBHOOK_URL }}

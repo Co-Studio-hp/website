@@ -1,0 +1,57 @@
+name: Uptime Check
+
+on:
+  schedule:
+    # 15分間隔（UTC基準。cron自体はタイムゾーンを持たないため常時実行される）
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check site availability
+        id: check
+        run: |
+          set +e
+          URL="https://www.co-studio.co.jp"
+          HTTP_CODE=$(curl -sf -o /dev/null -w "%{http_code}" \
+            --retry 1 \
+            --max-time 15 \
+            "$URL")
+          CURL_EXIT=$?
+          set -e
+
+          echo "http_code=${HTTP_CODE}" >> "$GITHUB_OUTPUT"
+          echo "curl_exit=${CURL_EXIT}" >> "$GITHUB_OUTPUT"
+
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "status=down" >> "$GITHUB_OUTPUT"
+            echo "Site check failed (curl exit code: ${CURL_EXIT}, http_code: ${HTTP_CODE})"
+          else
+            echo "status=up" >> "$GITHUB_OUTPUT"
+            echo "Site is up (http_code: ${HTTP_CODE})"
+          fi
+
+      - name: Notify Slack on failure
+        if: steps.check.outputs.status == 'down'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_HP_WEBHOOK_URL }}
+          HTTP_CODE: ${{ steps.check.outputs.http_code }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "::error::SLACK_HP_WEBHOOK_URL secret is not set. Cannot send notification."
+            exit 1
+          fi
+
+          DISPLAY_CODE="${HTTP_CODE:-N/A}"
+          MESSAGE="🔴 co-studio.co.jp がダウンしています（HTTP ${DISPLAY_CODE}）。 https://www.co-studio.co.jp の疎通を確認してください。"
+
+          PAYLOAD=$(printf '{"text": %s}' "$(printf '%s' "$MESSAGE" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')")
+
+          curl -sf -X POST -H "Content-Type: application/json" \
+            -d "$PAYLOAD" \
+            "$SLACK_WEBHOOK_URL"
