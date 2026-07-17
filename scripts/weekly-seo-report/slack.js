@@ -142,6 +142,8 @@ export async function postToSlack({ webhookUrl, gsc, ga4, psi, errors = {}, date
       type: 'header',
       text: { type: 'plain_text', text: '📈 HP週次SEOレポート', emoji: true },
     },
+    // チャンネル全員に通知（HP問い合わせ通知と同じチャンネルに配信される想定）
+    section('<!channel> 今週のHPレポートです'),
   ];
 
   if (dateRanges?.gsc?.current) {
