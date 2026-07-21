@@ -8,11 +8,6 @@ const portfolios = [
   { slug: "enaforward", name: "エナフォワード",             year: "2023", field: "美容 / SaaS",              milestone: "100店舗導入", href: "/results" },
 ];
 
-const clients = [
-  "住友ファーマ","ダイキン","OMRON","味の素","JT","キリン","SOMPO",
-  "三井物産","東京ガス","三井不動産","サントリー","アース製薬","塩野義製薬","エーザイ","旭化成ファーマ",
-];
-
 const serviceGroups = [
   {
     phase: "0→1",
@@ -230,18 +225,10 @@ export default function Home() {
       </section>
 
       {/* 3. CLIENTS */}
-      <section className="bg-[#F5F3EE] py-16 overflow-hidden border-y border-black/10">
-        <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 text-center mb-8">Clients — 延べ60社以上</p>
-        <div className="flex gap-14 whitespace-nowrap marquee mb-4">
-          {[...clients, ...clients].map((c, i) => (
-            <span key={i} className="text-base text-gray-400 shrink-0 font-medium">{c}</span>
-          ))}
-        </div>
-        <div className="flex gap-14 whitespace-nowrap marquee-rev">
-          {[...clients, ...clients].map((c, i) => (
-            <span key={i} className="text-base text-gray-300 shrink-0">{c}</span>
-          ))}
-        </div>
+      <section className="bg-[#F5F3EE] py-16 px-6 text-center border-y border-black/10">
+        <p className="text-[10px] tracking-[0.4em] uppercase text-gray-400 mb-4">Clients</p>
+        <p className="text-2xl md:text-3xl font-medium tracking-tight">延べ60社以上の大手企業と共創</p>
+        <p className="text-xs text-gray-400 mt-3">製薬・食品・エネルギー・保険・不動産など、業種を超えた共創実績</p>
       </section>
 
       {/* 4. Co-DEZIMA */}

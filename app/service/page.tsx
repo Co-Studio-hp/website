@@ -205,12 +205,6 @@ const services = [
   },
 ];
 
-const clients = [
-  "住友ファーマ", "小野薬品", "日産化学", "SOMPO", "JT", "ダイキン",
-  "ロート製薬", "ニット", "旭化成ファーマ", "サントリー",
-  "神戸新聞", "キリン", "Cowellnex", "福岡地所",
-];
-
 export default async function ServicePage() {
   const caseUrls = services.flatMap((s) => {
     const urls: string[] = [];
@@ -423,16 +417,6 @@ export default async function ServicePage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* Clients */}
-      <section className="py-20 px-6 max-w-7xl mx-auto">
-        <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-8">支援実績（一部）</p>
-        <div className="flex flex-wrap gap-x-8 gap-y-3">
-          {clients.map((c) => (
-            <span key={c} className="text-sm text-gray-500">{c}</span>
-          ))}
         </div>
       </section>
 
