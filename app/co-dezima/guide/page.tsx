@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { DiagramStructure, DiagramTerms, DiagramLoop } from "./diagrams";
 
 export const metadata: Metadata = {
   title: "出島（カーブアウト）とは｜新規事業を社外に出すという選択肢",
@@ -325,15 +325,8 @@ export default function DezimaGuidePage() {
               <span className="text-white/80">登録は不要です。</span>
             </p>
           </div>
-          <div className="relative aspect-[3/2] bg-[#F5F3EE]">
-            <Image
-              src="/guide/hero.webp"
-              alt="本土から切り離され、細い橋だけでつながった扇形の島。出島スキームの構造を表した図。"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-            />
+          <div className="text-white/90">
+            <DiagramStructure className="w-full h-auto" />
           </div>
         </div>
       </section>
@@ -385,6 +378,9 @@ export default function DezimaGuidePage() {
               </div>
             ))}
           </div>
+          <div className="mt-12 text-gray-800">
+            <DiagramTerms className="w-full h-auto" />
+          </div>
           <p className="text-xs text-gray-400 mt-6 leading-relaxed">
             Co-Studioの「Co-DEZIMA」は、この中の<b className="text-gray-600">起業家主導型カーブアウト</b>にあたります。
             スタジオが共同創業者として新会社を組成し、外部調達の前に準備期間を確保する型です。
@@ -415,16 +411,8 @@ export default function DezimaGuidePage() {
       </section>
 
       {/* 03 学習ループ */}
-      <section id="concept" className="relative bg-[#111111] text-white py-24 md:py-32 px-6 overflow-hidden scroll-mt-16">
-        <Image
-          src="/guide/loop.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          aria-hidden
-          className="object-cover opacity-70"
-        />
-        <div className="relative max-w-3xl mx-auto text-center">
+      <section id="concept" className="bg-[#111111] text-white py-24 md:py-28 px-6 scroll-mt-16">
+        <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-8">
             <span className="text-white/70 mr-3 tabular-nums">03</span>Concept
           </p>
@@ -438,6 +426,9 @@ export default function DezimaGuidePage() {
             社内に置いたままだと、ループの一周ごとに承認と説明が挟まる。
             出島は、そのループを新会社が丸ごと所有する形にするための器です。
           </p>
+        </div>
+        <div className="max-w-3xl mx-auto mt-14 text-white/85">
+          <DiagramLoop className="w-full h-auto" />
         </div>
       </section>
 
@@ -719,16 +710,6 @@ export default function DezimaGuidePage() {
           <p className="text-sm text-gray-500 leading-relaxed mb-10 max-w-2xl">
             共通言語づくりから、テーマの診断、組成の検討へと段階を踏みます。
           </p>
-          <div className="relative aspect-[3/1] mb-10 bg-[#F5F3EE]">
-            <Image
-              src="/guide/steps.webp"
-              alt=""
-              fill
-              aria-hidden
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              className="object-cover"
-            />
-          </div>
           <div className="grid md:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
             {steps.map((s) => (
               <div key={s.n} className="bg-white p-6">
