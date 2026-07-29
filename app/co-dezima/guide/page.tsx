@@ -733,27 +733,29 @@ export default function DezimaGuidePage() {
       </section>
 
       {/* 09 Q&A */}
-      <section id="faq" className="bg-[#F5F3EE] py-16 md:py-20 px-6 scroll-mt-16">
+      <section id="faq" className="bg-[#111111] text-white py-20 md:py-24 px-6 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
-          <Label n="09">Q &amp; A</Label>
+          <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-4">
+            <span className="text-white/80 mr-3 tabular-nums">09</span>Q &amp; A
+          </p>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             よくいただく4つの懸念。
           </h2>
-          <p className="text-sm text-gray-600 leading-relaxed mb-10">
+          <p className="text-sm md:text-base text-white/65 leading-relaxed mb-12">
             いずれも「契約と設計」で担保します。実案件で使われてきた型があります。
           </p>
           <div className="space-y-8">
             {faqs.map((f, i) => (
-              <div key={f.q} className="border-t border-gray-300 pt-5">
+              <div key={f.q} className="border-t border-white/15 pt-5">
                 <h3 className="text-sm md:text-base font-medium mb-2.5">
-                  <span className="text-gray-500 mr-2 tabular-nums">Q{i + 1}.</span>
+                  <span className="text-white/45 mr-2 tabular-nums">Q{i + 1}.</span>
                   {f.q}
                 </h3>
-                <p className="text-sm text-gray-700 leading-relaxed">{f.a}</p>
+                <p className="text-sm text-white/70 leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>
-          <p className="text-xs text-gray-500 mt-8 leading-relaxed">
+          <p className="text-xs text-white/40 mt-10 leading-relaxed">
             経済産業省のガイダンスは、事業会社側の「10のつまずき」（自社事業化への揺り戻し、過半出資前提、拒否権、事後介入など）も公表しています。
             Co-DEZIMAはその回避策を織り込んで設計します。
           </p>
@@ -770,12 +772,18 @@ export default function DezimaGuidePage() {
           <p className="text-sm text-gray-600 leading-relaxed mb-10 max-w-2xl">
             共通言語づくりから、テーマの診断、組成の検討へと段階を踏みます。
           </p>
-          <div className="grid md:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5">
             {steps.map((s) => (
-              <div key={s.n} className="bg-white p-6 flex flex-col hover:bg-gray-50/80 transition-colors">
-                <p className="text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-2">{s.n}</p>
-                <h3 className="text-base font-medium mb-1">{s.t}</h3>
-                <p className="text-xs text-gray-500 mb-4">{s.span}</p>
+              <div
+                key={s.n}
+                className="relative bg-white border border-gray-300 hover:border-gray-800 transition-colors p-6 pt-8 flex flex-col"
+              >
+                {/* 段階の番号を枠の上に出す */}
+                <span className="absolute -top-3 left-6 bg-white px-2 text-[10px] tracking-[0.3em] uppercase text-gray-500">
+                  {s.n}
+                </span>
+                <h3 className="text-base md:text-lg font-medium mb-1">{s.t}</h3>
+                <p className="text-xs text-gray-500 mb-5 pb-4 border-b border-gray-100">{s.span}</p>
                 <ul className="space-y-2 flex-1">
                   {s.items.map((it) => (
                     <li key={it} className="text-xs text-gray-700 leading-relaxed flex gap-2">
