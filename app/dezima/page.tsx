@@ -65,7 +65,10 @@ export default async function DezimaPage() {
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-10">
               大企業の新規事業担当者（イントレプレナー）が集まる、定期交流イベント。<br />
-              業種・役職・会社の枠を外し、本音で語り合う夜。
+              業種・役職・会社の枠を外し、本音で語り合う夜。<br />
+              <span className="text-white/40 text-base">
+                出島スキームで新規事業を支援するCo-Studioが運営しています。
+              </span>
             </p>
             <div className="flex flex-wrap gap-12 mb-10">
               {[
@@ -286,6 +289,17 @@ export default async function DezimaPage() {
       {/* CTA */}
       <section className="py-14 px-6 max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-medium mb-4">次回のNight DEZIMAに参加する</h2>
+        <p className="text-sm text-gray-500 mb-3 max-w-lg mx-auto leading-relaxed">
+          自社のテーマを「出島」として外に出すことを検討している方は、
+          <Link href="/co-dezima" className="underline underline-offset-4 hover:text-black transition-colors">
+            出島スキーム（Co-DEZIMA）
+          </Link>
+          や
+          <Link href="/shindan" className="underline underline-offset-4 hover:text-black transition-colors">
+            出島適合セルフ診断
+          </Link>
+          もあわせてご覧ください。
+        </p>
         <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
           参加希望の方はお問い合わせフォームよりご連絡ください。<br />
           次回開催の案内をお送りします。

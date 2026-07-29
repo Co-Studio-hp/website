@@ -142,7 +142,12 @@ export default function CoDezimaPage() {
       <section className="py-16 px-6 max-w-7xl mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-medium mb-6">出島について、話してみませんか。</h2>
         <p className="text-sm text-gray-500 mb-8 max-w-xl mx-auto leading-relaxed">
-          「うちの事業案は出島向きか」という段階のご相談から承っています。
+          「うちの事業案は出島向きか」という段階のご相談から承っています。<br />
+          同じ立場の新規事業担当者と話したい方には、月次の交流イベント
+          <Link href="/dezima" className="underline underline-offset-4 hover:text-black transition-colors">
+            Night DEZIMA
+          </Link>
+          もあります。
         </p>
         <div className="flex justify-center gap-4">
           <Link

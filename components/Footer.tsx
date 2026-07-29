@@ -8,7 +8,7 @@ export default function Footer() {
           <p className="text-sm font-medium tracking-widest uppercase mb-1">Co-Studio株式会社</p>
           <p className="text-xs text-gray-400">東京都中央区日本橋本町3丁目8-3 日本橋ライフサイエンスビルディング</p>
         </div>
-        <nav className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6">
+        <nav className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap md:justify-end gap-4 md:gap-x-6 md:gap-y-3">
           {[
             { label: "HOME", href: "/" },
             { label: "SERVICE", href: "/service" },
@@ -23,7 +23,7 @@ export default function Footer() {
             { label: "RECRUIT", href: "/recruit" },
             { label: "CONTACT", href: "/contact" },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className="text-xs tracking-widest uppercase text-gray-400 hover:text-black transition-colors">
+            <Link key={l.href} href={l.href} className="text-xs tracking-widest uppercase text-gray-400 hover:text-black transition-colors whitespace-nowrap">
               {l.label}
             </Link>
           ))}
