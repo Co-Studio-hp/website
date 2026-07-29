@@ -3,8 +3,16 @@ import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "Aikomi | Portfolio",
+  title: "Aikomi｜AIを活用した認知症ケアのデジタルセラピー",
+  description:
+    "AIを活用した認知症ケアで、一人ひとりの尊厳ある生を支えるAikomi。パーソンセンタードケアのアプローチで個人に最適化されたデジタルセラピーを提供します。Co-Studioが2023年から経営参画するポートフォリオ企業です。",
   alternates: { canonical: "/portfolio/aikomi" },
+  openGraph: {
+    title: "Aikomi｜AIを活用した認知症ケアのデジタルセラピー",
+    description:
+      "AIを活用した認知症ケアで、一人ひとりの尊厳ある生を支える。Co-Studioが経営参画するポートフォリオ企業。",
+    url: "/portfolio/aikomi",
+  },
 };
 
 const pressReleases = [

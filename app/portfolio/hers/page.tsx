@@ -3,8 +3,16 @@ import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "Hers HeAlth Technologies | Portfolio",
+  title: "Hers HeAlth Technologies｜女性の健康と自立を骨から支える",
+  description:
+    "「My Life. 私らしい人生を。」更年期女性の健康課題に骨ケアで向き合うヘルステック企業 Hers HeAlth Technologies。旭化成ファーマと連携し、2025年5月に設立した出島スタートアップです。",
   alternates: { canonical: "/portfolio/hers" },
+  openGraph: {
+    title: "Hers HeAlth Technologies｜女性の健康と自立を骨から支える",
+    description:
+      "更年期女性の健康課題に骨ケアで向き合うヘルステック企業。旭化成ファーマ発の出島スタートアップ。",
+    url: "/portfolio/hers",
+  },
 };
 
 const pressReleases = [

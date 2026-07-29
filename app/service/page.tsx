@@ -3,9 +3,16 @@ import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "SERVICE",
-  description: "0→1の新規事業開発から、出島による1→10の事業化まで。Co-Studioのサービス一覧。",
+  title: "新規事業開発・出島設立の支援サービス",
+  description:
+    "大企業の新規事業を、0→1の探索から出島スタートアップによる1→10の事業化まで支援します。Co-DEZIMA・SPRINT・BUSINESS LAB・LIVING LAB・Spot Assistの各プログラムをご紹介します。",
   alternates: { canonical: "/service" },
+  openGraph: {
+    title: "新規事業開発・出島設立の支援サービス｜Co-Studio",
+    description:
+      "0→1の探索から、出島スタートアップによる1→10の事業化まで。事業フェーズと課題に合わせて選べるCo-Studioのプログラム一覧。",
+    url: "/service",
+  },
 };
 
 const services = [
@@ -47,8 +54,6 @@ const services = [
       "ビジネスモデルと知財を同時に設計したい",
       "外部の力を借りて開発をスピードアップしたい",
     ],
-    caseLink: "https://www.co-studio.co.jp/post/%E3%80%90%E5%89%8D%E7%B7%A8%E3%80%91co-studio-%E4%BD%8F%E5%8F%8B%E3%83%95%E3%82%A1%E3%83%BC%E3%83%9E%E3%80%8C%E5%8D%8A%E5%B9%B4%E3%81%A7%E7%89%B9%E8%A8%B1%E5%87%BA%E9%A1%98%EF%BC%9F%E3%80%8D%E3%82%B7%E3%83%BC%E3%82%BA%E3%82%82%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2%E3%82%82%E3%81%AA%E3%81%8F%E5%A7%8B%E3%81%BE%E3%81%A3%E3%81%9F%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88",
-    caseLinkLabel: "事例記事：Co-Studio×住友ファーマ",
     info: [
       { label: "期間", value: "6ヶ月（Biz&Pat 3ヶ月 ＋ Scrum 3ヶ月）" },
       { label: "フェーズ", value: "0 → 1" },
@@ -70,8 +75,8 @@ const services = [
       "社内に壁打ち相手がいない",
       "定期的に外部視点でフィードバックを受けたい",
     ],
-    caseLink: "https://www.co-studio.co.jp/post/%E3%80%90%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%83%BC%E3%80%91%E3%81%BE%E3%81%A0%E8%A6%8B%E3%81%AC%E3%81%8A%E5%AE%A2%E6%A7%98%E3%81%AE%E7%AC%91%E9%A1%94%E3%82%92%E6%B1%82%E3%82%81%E3%81%A6%E3%80%82%E4%BC%91%E7%9C%A0%E7%89%B9%E8%A8%B1%E3%81%AE%E8%A6%9A%E9%86%92%E3%83%8E%E3%82%A6%E3%83%8F%E3%82%A6%E3%81%A7%E7%A0%94%E7%A9%B6%E9%96%8B%E7%99%BA%E3%81%AE%E6%B4%BB%E6%80%A7%E5%8C%96%E3%82%92%E3%80%82-1",
-    caseLinkLabel: "事例記事：休眠特許の覚醒ノウハウで研究開発の活性化",
+    caseLink: "https://note.com/co_studio/n/ndea03990fd68",
+    caseLinkLabel: "事例記事：ロート製薬 休眠特許の覚醒プロジェクト（note）",
     info: [
       { label: "期間", value: "3ヶ月〜" },
       { label: "頻度", value: "隔週 1〜2時間" },
@@ -91,8 +96,6 @@ const services = [
       "外部環境での検証を経てから意思決定したい",
       "PoC設計の経験・知見が社内に不足している",
     ],
-    caseLink: "https://www.co-studio.co.jp/post/%E3%80%90%E5%A1%A9%E9%87%8E%E7%BE%A9%E8%A3%BD%E8%96%AC%E3%80%91%E8%A3%BD%E8%96%AC%E4%BC%9A%E7%A4%BE%E3%81%AE%E6%96%B0%E8%A6%8F%E4%BA%8B%E6%A5%AD%E3%81%AE%E6%8D%89%E3%81%88%E6%96%B9%E3%80%81living-lab%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95",
-    caseLinkLabel: "事例記事：塩野義製薬 Living Labの活用方法",
     info: [
       { label: "期間", value: "3〜6ヶ月" },
       { label: "フェーズ", value: "0 → 1" },
@@ -112,8 +115,6 @@ const services = [
       "特定の課題についてプロの意見を聞きたい",
       "大きな契約前に雰囲気を確かめたい",
     ],
-    caseLink: "https://www.co-studio.co.jp/post/%E3%80%8Cco-studio%E3%81%AE%E6%94%AF%E6%8F%B4%E3%81%AF%E3%83%9B%E3%83%B3%E3%83%88%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%EF%BC%9F-%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%81%AB%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%A3%B0%E3%82%92%E8%81%9E%E3%81%84%E3%81%A6%E3%81%BF%E3%81%9F%E3%80%8D",
-    caseLinkLabel: "クライアントにリアルな声を聞いてみた",
     info: [
       { label: "時間", value: "1時間" },
       { label: "形式", value: "オンライン or 対面" },
@@ -152,8 +153,6 @@ const services = [
       "グローバルのトレンドを事業開発に活かしたい",
       "通常のオープンイノベーションに限界を感じている",
     ],
-    caseLink: "https://www.co-studio.co.jp/post/%E5%A4%A7%E6%89%8B%E6%97%A5%E6%9C%AC%E4%BC%81%E6%A5%AD%E3%81%8C%E7%B1%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E5%8D%94%E6%A5%AD%E6%8F%90%E6%A1%88%E2%80%95%E3%80%8Ckicker-japan-fit%E3%80%8D%E8%AA%95%E7%94%9F%E7%A7%98%E8%A9%B1",
-    caseLinkLabel: "「Kicker Japan Fit」誕生秘話",
     info: [
       { label: "期間", value: "3〜6ヶ月" },
       { label: "形式", value: "プログラム参加型" },
@@ -173,8 +172,6 @@ const services = [
       "担当者のマインドセットを変えたい",
       "研修と体験を組み合わせたプログラムを探している",
     ],
-    caseLink: "https://www.co-studio.co.jp/post/tokyo-gas-real-discovery-outdoors",
-    caseLinkLabel: "事例：東京ガス×Co-Studio アドベンチャーレース",
     info: [
       { label: "期間", value: "1〜2日間" },
       { label: "形式", value: "野外フィールド" },
@@ -239,7 +236,7 @@ export default async function ServicePage() {
             {[
               { phase: "0 → 1", desc: "アイデアを事業に", services: "SPRINT / BUSINESS LAB / LIVING LAB / 知財支援" },
               { phase: "1 → 10", desc: "組織の外で事業化", services: "Co-DEZIMA" },
-              { phase: "10 → 100", desc: "事業をスケール", services: "ACCELERATION / Kicker Japan Fit" },
+              { phase: "10 → 100", desc: "事業をスケール", services: "Growth Support / Kicker Japan Fit" },
               { phase: "Spot", desc: "今すぐ相談・単発", services: "Spot Assist / 勉強会 / イベント設計 / アドベンチャーレース" },
             ].map((item) => (
               <div key={item.phase} className="bg-white p-8">

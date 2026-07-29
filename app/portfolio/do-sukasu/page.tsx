@@ -3,8 +3,16 @@ import Link from "next/link";
 import { getOgImages } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "do.Sukasu | Portfolio",
+  title: "do.Sukasu｜視空間認知能力の評価・トレーニング",
+  description:
+    "視空間認知能力の評価・トレーニングで、社会のあらゆる「動き」を最適化するdo.Sukasu。住友ファーマとのSPRINTプログラムから生まれ、教習所・療育・医療・スポーツ分野でPoCを展開する出島スタートアップです。",
   alternates: { canonical: "/portfolio/do-sukasu" },
+  openGraph: {
+    title: "do.Sukasu｜視空間認知能力の評価・トレーニング",
+    description:
+      "視空間認知能力の評価・トレーニングで、社会のあらゆる「動き」を最適化する。住友ファーマ発の出島スタートアップ。",
+    url: "/portfolio/do-sukasu",
+  },
 };
 
 const timeline = [
@@ -92,7 +100,7 @@ export default async function DoSukasuPage() {
             <h2 className="text-2xl font-medium mb-5">Co-Studioの関与</h2>
             <div className="space-y-3">
               {[
-                { phase: "0→1", desc: "住友ファーマとのSPRINTで視空間認知能力IndexをIndexを共同設計。近未来デザイン・ビジネスモデル・特許を一体開発。" },
+                { phase: "0→1", desc: "住友ファーマとのSPRINTで視空間認知能力Indexを共同設計。近未来デザイン・ビジネスモデル・特許を一体開発。" },
                 { phase: "スピンアウト", desc: "住友ファーマから出島スタートアップとして独立。会社設立・経営体制構築・資金調達を全面支援。" },
                 { phase: "1→10", desc: "シードおよびプレシリーズAの調達設計・投資家紹介を伴走。合計1億円超の調達を実現。" },
               ].map((item) => (
