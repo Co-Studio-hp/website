@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import WpDownloadForm from "@/components/WpDownloadForm";
 
 export const metadata: Metadata = {
   title: "Co-DEZIMA｜出島という選択肢",
   description:
-    "新規事業を独立したスタートアップとして社外に切り出す「出島」。Co-Studioが共同で設立・伴走するCo-DEZIMAスキームを、3分の動画と無料資料でご紹介します。",
+    "新規事業を独立したスタートアップとして社外に切り出す「出島」。Co-Studioが共同で設立・伴走するCo-DEZIMAスキームを、3分の動画と出島ガイドでご紹介します。",
   alternates: { canonical: "/co-dezima" },
   openGraph: {
     title: "Co-DEZIMA｜出島という選択肢",
     description:
-      "新規事業を独立したスタートアップとして社外に切り出す「出島」。Co-Studioが共同で設立・伴走する事業共創スキームを、3分の動画と無料資料でご紹介します。",
+      "新規事業を独立したスタートアップとして社外に切り出す「出島」。Co-Studioが共同で設立・伴走する事業共創スキームを、3分の動画と出島ガイドでご紹介します。",
   },
 };
 
@@ -107,34 +106,40 @@ export default function CoDezimaPage() {
       </section>
 
       {/* 資料ダウンロード（2点セット） */}
-      <section id="download" className="bg-[#0a0a0a] text-white py-20 px-6 scroll-mt-16">
+      {/* 出島ガイドへの導線（旧・資料ダウンロード枠） */}
+      <section id="guide" className="bg-[#0a0a0a] text-white py-20 px-6 scroll-mt-16">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Download</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">Guide</p>
             <h2 className="text-3xl md:text-4xl font-medium leading-snug mb-6">
-              出島の資料<span className="text-white/40 text-xl md:text-2xl block mt-2">— 2点セットを無料でダウンロード</span>
+              出島のことは、全部ここに書きました。
+              <span className="text-white/40 text-xl md:text-2xl block mt-2">— 登録不要で読めます</span>
             </h2>
             <p className="text-sm text-white/50 leading-relaxed mb-8 max-w-md">
-              「まず自分が理解する」から「社内に説明する」まで。フォーム送信で2点ともその場でご覧いただけます。
+              カーブアウトとの違い、なぜ社内では育たないのか、他の立ち上げ方との比較、
+              そして出島が向く事業・向かない事業まで。実案件から体系化した内容を公開しています。
             </p>
-            <div className="space-y-px">
-              <div className="bg-white/5 border border-white/10 p-5">
-                <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mb-1.5">01 — まず知る</p>
-                <p className="text-sm font-medium mb-1">出島入門（全19ページ）</p>
-                <p className="text-xs text-white/50 leading-relaxed">
-                  実案件から体系化したプレイブックの抜粋版。社内で進まない構造的理由、スキームの全体像、実例まで。
-                </p>
-              </div>
-              <div className="bg-white/5 border border-white/10 p-5">
-                <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mb-1.5">02 — 社内で共有する</p>
-                <p className="text-sm font-medium mb-1">社内説得キット「出島という選択肢」（全12ページ）</p>
-                <p className="text-xs text-white/50 leading-relaxed">
-                  役員・関係部門への説明にそのまま使える汎用資料。経産省ガイダンス準拠の整理で「第3の出口」を提示。
-                </p>
-              </div>
-            </div>
+            <Link
+              href="/co-dezima/guide"
+              className="inline-block px-8 py-3.5 bg-white text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-white/80 transition-colors"
+            >
+              出島ガイドを読む →
+            </Link>
           </div>
-          <WpDownloadForm />
+          <div className="space-y-px">
+            {[
+              { n: "01", t: "出島とは何か", d: "カーブアウト・スピンオフ・スピンアウト・出向起業との違いを、経済産業省の整理に沿って解きほぐします。" },
+              { n: "02", t: "なぜ社内では育たないのか", d: "意思決定の速度、100億円の壁、ステージゲートの硬直性。出島が解こうとしている構造問題。" },
+              { n: "03", t: "他の立ち上げ方との比較", d: "社内事業化・100%子会社・JV・出向起業・スピンアウトと並べ、主要な観点で比較します。" },
+              { n: "04", t: "向く事業・向かない事業", d: "出島は万能ではありません。先に見積もっておくべきコストと、判断の軸を示します。" },
+            ].map((s) => (
+              <div key={s.n} className="bg-white/5 border border-white/10 p-5">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mb-1.5">{s.n}</p>
+                <p className="text-sm font-medium mb-1">{s.t}</p>
+                <p className="text-xs text-white/50 leading-relaxed">{s.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

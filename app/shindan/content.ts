@@ -144,14 +144,14 @@ export const VERDICT_CONTENT = {
     body:
       "テーマには出島の素質がありますが、前提のいくつかが未確定です。Co-Studioでは、テーマ2〜3件を6週間で評価する「出島適合診断」を提供しています。社内説明に使える外部評価レポートの形でお返しします。",
     primary: { label: "診断サービスについて問い合わせる", kind: "form" as const },
-    sub: { label: "社内説明用の資料を受け取る", href: "/co-dezima#download" },
+    sub: { label: "出島ガイドを読む", href: "/co-dezima/guide" },
 
   },
   C: {
     badge: "まずは情報収集から",
     body:
-      "いま無理に外へ出す段階ではありません。まずは「出島とはどんな選択肢か」を知るところから。プレイブック抜粋版（無料）と、月次イベント「ナイトDEZIMA」をご案内します。",
-    primary: { label: "プレイブック抜粋版を読む", kind: "link" as const, href: "/co-dezima#download" },
+      "いま無理に外へ出す段階ではありません。まずは「出島とはどんな選択肢か」を知るところから。出島ガイドと、月次イベント「ナイトDEZIMA」をご案内します。",
+    primary: { label: "出島ガイドを読む", kind: "link" as const, href: "/co-dezima/guide" },
     sub: { label: "イベント案内を受け取る", href: "#lead-form" },
 
   },
