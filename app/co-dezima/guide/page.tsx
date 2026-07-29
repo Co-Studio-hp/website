@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { DiagramStructure, DiagramTerms, DiagramLoop } from "./diagrams";
 
 export const metadata: Metadata = {
@@ -576,61 +577,115 @@ export default function DezimaGuidePage() {
       </section>
 
       {/* 07 公的な裏付け */}
-      <section id="background" className="bg-[#F5F3EE] py-16 md:py-20 px-6 scroll-mt-16">
+      <section id="background" className="bg-[#111111] text-white py-20 md:py-24 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label n="07">Background</Label>
-          <h2 className="text-2xl md:text-3xl font-medium mb-6 leading-snug">
+          <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-4">
+            <span className="text-white/80 mr-3 tabular-nums">07</span>Background
+          </p>
+          <h2 className="text-2xl md:text-3xl font-medium mb-5 leading-snug">
             特殊な手法ではありません。
           </h2>
-          <div className="max-w-3xl space-y-12">
-            <div>
-              <h3 className="text-base md:text-lg font-medium mb-4">国が型を示している</h3>
-              <p className="text-sm md:text-base text-gray-700 leading-loose mb-5">
-                経済産業省はカーブアウトに関する研究会を設け、<a href="https://www.meti.go.jp/press/2024/04/20240426003/20240426003.html" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black transition-colors">ガイダンス</a>と実践ガイドブックを公表しています。
-                「起業家主導型カーブアウト」はそこで整理された類型のひとつです。
-              </p>
-              <p className="text-sm md:text-base text-gray-700 leading-loose">
-                制度面でも、所属企業を辞めずに起業する
-                <a
-                  href="https://www.meti.go.jp/policy/economy/jinzai/shukkokigyo/shukkoukigyou.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-black transition-colors"
-                >
-                  出向起業
-                </a>
-                の枠組みや、
-                <a
-                  href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/saihenzeisei/spin-off.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-black transition-colors"
-                >
-                  スピンオフに関する税制措置
-                </a>
-                の整備が進んでいます。
-                <span className="text-gray-500">（各制度の最新の要件・公募状況は、リンク先の公式情報をご確認ください）</span>
-              </p>
-            </div>
-            <div>
-              <h3 className="text-base md:text-lg font-medium mb-4">実例が積み上がっている</h3>
-              <p className="text-sm md:text-base text-gray-700 leading-loose mb-5">
-                NEC発のdotData、味の素発のつばめBHB、HOYA発のViXion、大阪ガス発のSPACECOOLなど、
-                大企業発のカーブアウト事例が積み上がっています。
-                Honda IGNITIONやリコーTRIBUSのように、社内制度としてカーブアウトの出口を規定する企業も増えています。
-                （いずれも経済産業省の手引書に掲載された事例）
-              </p>
-              <p className="text-sm md:text-base text-gray-700 leading-loose">
-                Co-Studio自身も出島スタートアップを設立・運営しています。
-                <Link href="/portfolio" className="underline underline-offset-4 hover:text-black transition-colors">
-                  ポートフォリオはこちら
-                </Link>
-                。
-              </p>
-            </div>
+          <p className="text-sm md:text-base text-white/65 leading-relaxed mb-14 max-w-2xl">
+            国が型を示し、大企業発の実例が積み上がっている領域です。
+          </p>
+
+          {/* 国が示した型 */}
+          <h3 className="text-base md:text-lg font-medium mb-6">国が型を示している</h3>
+          <div className="grid md:grid-cols-2 gap-px bg-white/10 mb-8">
+            {[
+              {
+                issuer: "経済産業省",
+                date: "2024年4月",
+                title: "起業家主導型カーブアウト実践のガイダンス",
+                href: "https://www.meti.go.jp/press/2024/04/20240426003/20240426003.html",
+              },
+              {
+                issuer: "経済産業省",
+                date: "2026年4月",
+                title: "カーブアウト実践ガイドブック Why編・How編",
+                href: "https://www.meti.go.jp/press/2026/04/20260417003/20260417003.html",
+              },
+            ].map((d) => (
+              <a
+                key={d.href}
+                href={d.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#111111] hover:bg-white/[0.06] transition-colors p-7 flex flex-col"
+              >
+                <div className="flex items-baseline justify-between mb-5">
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/40">{d.issuer}</span>
+                  <span className="text-[10px] text-white/40 tabular-nums">{d.date}</span>
+                </div>
+                {/* 資料の見立て */}
+                <div className="border border-white/20 group-hover:border-white/40 transition-colors p-5 mb-5 flex-1">
+                  <div className="space-y-1.5 mb-4">
+                    <div className="h-px bg-white/25 w-1/3" />
+                    <div className="h-px bg-white/15 w-full" />
+                    <div className="h-px bg-white/15 w-full" />
+                    <div className="h-px bg-white/15 w-2/3" />
+                  </div>
+                  <p className="text-sm md:text-base leading-relaxed">{d.title}</p>
+                </div>
+                <span className="text-xs text-white/50 group-hover:text-white transition-colors inline-flex items-center gap-1.5">
+                  経済産業省のページで見る
+                  <span aria-hidden>↗</span>
+                </span>
+              </a>
+            ))}
           </div>
+          <p className="text-sm text-white/60 leading-relaxed mb-16 max-w-2xl">
+            「起業家主導型カーブアウト」は、ここで整理された類型のひとつです。制度面でも、所属企業を辞めずに起業する{" "}
+            <a
+              href="https://www.meti.go.jp/policy/economy/jinzai/shukkokigyo/shukkoukigyou.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 text-white/80 hover:text-white transition-colors"
+            >
+              出向起業
+            </a>
+            {" "}の枠組みや、{" "}
+            <a
+              href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/saihenzeisei/spin-off.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 text-white/80 hover:text-white transition-colors"
+            >
+              スピンオフの税制措置
+            </a>
+            {" "}の整備が進んでいます。
+            <span className="text-white/40">（最新の要件・公募状況はリンク先の公式情報をご確認ください）</span>
+          </p>
+
+          {/* 実例 */}
+          <h3 className="text-base md:text-lg font-medium mb-6">実例が積み上がっている</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 mb-6">
+            {[
+              { from: "NEC 発", name: "dotData" },
+              { from: "味の素 発", name: "つばめBHB" },
+              { from: "HOYA 発", name: "ViXion" },
+              { from: "大阪ガス 発", name: "SPACECOOL" },
+            ].map((c) => (
+              <div key={c.name} className="bg-[#111111] p-6">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">{c.from}</p>
+                <p className="text-base md:text-lg">{c.name}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-white/60 leading-relaxed mb-3 max-w-2xl">
+            Honda IGNITION やリコー TRIBUS のように、社内制度としてカーブアウトの出口を規定する企業も出てきました。
+          </p>
+          <p className="text-xs text-white/35 mb-10">いずれも経済産業省の手引書に掲載された事例です。</p>
+
+          <p className="text-sm text-white/60 leading-relaxed">
+            Co-Studio自身も出島スタートアップを設立・運営しています。{" "}
+            <Link href="/portfolio" className="underline underline-offset-4 text-white/80 hover:text-white transition-colors">
+              ポートフォリオを見る
+            </Link>
+          </p>
         </div>
       </section>
+
 
       {/* 08 デメリット */}
       <section id="tradeoffs" className="py-16 md:py-20 px-6 scroll-mt-16">
@@ -780,8 +835,17 @@ export default function DezimaGuidePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#0a0a0a] text-white py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative bg-[#0a0a0a] text-white py-24 md:py-28 px-6 overflow-hidden">
+        {/* 実際のNight DEZIMAの様子。装飾ではなく、この下のリンク先で行っている場そのもの */}
+        <Image
+          src="/dezima/group-scene.jpg"
+          alt="Night DEZIMAに集まった大企業の新規事業担当者たち"
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/70 to-[#0a0a0a]" />
+        <div className="relative max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-medium mb-6">出島について、話してみませんか。</h2>
           <p className="text-sm text-white/65 leading-relaxed mb-10">
             「うちの事業案は出島向きか」という段階のご相談から承っています。
