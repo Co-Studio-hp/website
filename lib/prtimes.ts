@@ -47,6 +47,10 @@ function decode(s: string): string {
     .replace(/&apos;/g, "'")
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
+    // PR TIMES側に &amp;nbsp; と二重エスケープされた実体参照が混ざっているため、
+    // &amp; を戻したあとにもう一度 &nbsp; を潰す。
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s{2,}/g, " ")
     .trim();
 }
 
