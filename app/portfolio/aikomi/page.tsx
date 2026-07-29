@@ -24,6 +24,21 @@ export default async function AikomiPage() {
   const ogMap = await getOgImages(pressReleases.map((p) => p.url));
   return (
     <>
+      {/* パンくずの構造化データ（検索結果での階層表示用） */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.co-studio.co.jp" },
+              { "@type": "ListItem", position: 2, name: "ポートフォリオ", item: "https://www.co-studio.co.jp/portfolio" },
+              { "@type": "ListItem", position: 3, name: "Aikomi", item: "https://www.co-studio.co.jp/portfolio/aikomi" },
+            ],
+          }),
+        }}
+      />
       <section className="bg-gradient-to-br from-green-950 to-black text-white py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <Link href="/portfolio" className="text-xs text-white/40 hover:text-white/80 transition-colors mb-8 block tracking-widest">← PORTFOLIO</Link>

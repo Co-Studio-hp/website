@@ -40,6 +40,33 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="min-h-screen flex flex-col">
+        {/*
+          Organization構造化データ。記載する事実は正史（会社概要）に準拠し、
+          確定していない項目（資本金・従業員数等）は載せない。
+        */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Co-Studio株式会社",
+              alternateName: "Co-Studio",
+              url: "https://www.co-studio.co.jp",
+              logo: "https://www.co-studio.co.jp/icon.png",
+              description: siteDescription,
+              foundingDate: "2019-12",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "日本橋本町3-8-3 日本橋ライフサイエンスビルディング",
+                addressLocality: "中央区",
+                addressRegion: "東京都",
+                addressCountry: "JP",
+              },
+              sameAs: ["https://note.com/co_studio"],
+            }),
+          }}
+        />
         <Nav />
         <ScrollFx />
         <main className="flex-1 pt-16">{children}</main>
