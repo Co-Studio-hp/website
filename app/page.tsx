@@ -119,6 +119,13 @@ export default function Home() {
             >
               出島について詳しく →
             </Link>
+            <p className="text-xs text-white/40 mt-5 leading-relaxed">
+              そもそも出島（カーブアウト）とは何か、から知りたい方は{" "}
+              <Link href="/co-dezima/guide" className="underline underline-offset-4 text-white/70 hover:text-white transition-colors">
+                出島ガイド
+              </Link>
+              {" "}へ。
+            </p>
           </div>
         </div>
       </section>
