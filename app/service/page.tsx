@@ -226,6 +226,13 @@ export default async function ServicePage() {
         <p className="text-sm text-gray-500 max-w-xl leading-relaxed">
           0→1の探索から、出島による1→10の事業化、10→100のスケールまで。<br />単発の壁打ちや社内勉強会、海外連携、体験型プログラムも対応します。
         </p>
+        <p className="text-sm text-gray-500 max-w-xl leading-relaxed mt-4">
+          「出島（カーブアウト）とは何か」から知りたい方は{" "}
+          <Link href="/co-dezima/guide" className="underline underline-offset-4 text-gray-700 hover:text-black transition-colors">
+            出島ガイド
+          </Link>
+          {" "}をご覧ください。登録は不要です。
+        </p>
       </section>
 
       {/* Approach overview */}

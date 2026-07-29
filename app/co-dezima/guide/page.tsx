@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "出島（カーブアウト）とは｜新規事業を社外に出すという選択肢",
@@ -38,7 +39,7 @@ const terms = [
   },
   {
     term: "出向起業",
-    def: "所属元に在籍したまま新会社へ出向して起業する「人の出し方」の制度。国の補助制度がある。",
+    def: "所属元に在籍したまま新会社へ出向して起業する「人の出し方」の枠組み。国が制度整備と情報提供を行っている。",
     rel: "出島と併用する制度。スキームではなく人事の器",
   },
 ];
@@ -220,8 +221,54 @@ const steps = [
   },
 ];
 
-const Label = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">{children}</p>
+// 目次（各セクションのid・アンカーと対応）
+const contents = [
+  { id: "terms", n: "01", t: "まず、言葉を揃える", s: "カーブアウト／スピンオフ／スピンアウト／出向起業" },
+  { id: "why", n: "02", t: "なぜ社内で育たないのか", s: "出島が解こうとしている5つの構造問題" },
+  { id: "concept", n: "03", t: "学習ループを所有する装置", s: "出島とは何か" },
+  { id: "options", n: "04", t: "出口は2択ではない", s: "社内継続／中止／出島の比較" },
+  { id: "economics", n: "05", t: "「20%で200」の経済学", s: "出口4択を現在価値と将来リターンで並べる" },
+  { id: "comparison", n: "06", t: "他の立ち上げ方と並べる", s: "6手法 × 8観点の比較表" },
+  { id: "background", n: "07", t: "特殊な手法ではない", s: "国が示した型と、他社の実例" },
+  { id: "tradeoffs", n: "08", t: "出島は万能ではない", s: "4つの覚悟と、向く事業・向かない事業" },
+  { id: "faq", n: "09", t: "よくいただく4つの懸念", s: "知財／人材／ガバナンス／失敗時" },
+  { id: "how", n: "10", t: "小さく始める3ステップ", s: "勉強会 → 適合診断 → 組成検討" },
+];
+
+// 出典・参考リンク（すべて公的機関の公開情報）
+const sources = [
+  {
+    label: "起業家主導型カーブアウト実践のガイダンス（2024年4月）",
+    note: "本ページの用語整理は、このガイダンスの分類に準拠しています。",
+    href: "https://www.meti.go.jp/press/2024/04/20240426003/20240426003.html",
+  },
+  {
+    label: "カーブアウト実践ガイドブック Why編・How編（2026年4月）",
+    note: "経営層の合意形成に向けたWhy編と、実務のHow編。経済合理性の考え方はWhy編の整理に基づきます。",
+    href: "https://www.meti.go.jp/press/2026/04/20260417003/20260417003.html",
+  },
+  {
+    label: "カーブアウトの戦略的活用に係る研究会",
+    note: "ガイダンスがまとめられた研究会。議事と配布資料が公開されています。",
+    href: "https://www.meti.go.jp/shingikai/economy/carve_out/index.html",
+  },
+  {
+    label: "出向起業の促進",
+    note: "所属企業に在籍したまま起業する「出向起業」について、国が制度整備と情報提供を行っています。",
+    href: "https://www.meti.go.jp/policy/economy/jinzai/shukkokigyo/shukkoukigyou.html",
+  },
+  {
+    label: "「スピンオフ」の活用に向けた取組について",
+    note: "スピンオフに関する税制措置（パーシャルスピンオフ税制）の解説と手引。",
+    href: "https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/saihenzeisei/spin-off.html",
+  },
+];
+
+const Label = ({ n, children }: { n?: string; children: React.ReactNode }) => (
+  <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">
+    {n && <span className="text-gray-800 mr-3 tabular-nums">{n}</span>}
+    {children}
+  </p>
 );
 
 export default function DezimaGuidePage() {
@@ -258,31 +305,69 @@ export default function DezimaGuidePage() {
       />
 
       {/* Hero */}
-      <section className="bg-[#0a0a0a] text-white px-6 py-24 md:py-28">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-[0.4em] uppercase text-white/30 mb-6">Guide</p>
-          <h1 className="text-3xl md:text-5xl font-medium leading-tight mb-8">
-            出島（カーブアウト）とは
-            <span className="block text-white/40 text-xl md:text-2xl mt-3">
-              ― 新規事業を社外に出すという選択肢
-            </span>
-          </h1>
-          <p className="text-sm md:text-base text-white/60 leading-relaxed mb-6">
-            有望なテーマほど、社内では育たないことがあります。
-            決裁の速度、評価制度、ステージゲート。事業の筋の良し悪しとは別のところで、芽が摘まれていく。
-          </p>
-          <p className="text-sm md:text-base text-white/60 leading-relaxed">
-            出島は、その構造から抜けるための選択肢です。
-            このページでは、言葉の定義から他の立ち上げ方との比較、向かない場合の判断まで、
-            実案件から体系化した内容を公開しています。<span className="text-white/80">登録は不要です。</span>
-          </p>
+      <section className="bg-[#0a0a0a] text-white px-6 pt-20 pb-16 md:pt-24 md:pb-20">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <p className="text-xs tracking-[0.4em] uppercase text-white/30 mb-6">Guide</p>
+            <h1 className="text-[1.75rem] md:text-4xl xl:text-5xl font-medium leading-tight mb-8">
+              <span className="whitespace-nowrap">出島（カーブアウト）とは</span>
+              <span className="block text-white/40 text-lg md:text-xl xl:text-2xl mt-3">
+                ― 新規事業を社外に出すという選択肢
+              </span>
+            </h1>
+            <p className="text-sm md:text-base text-white/60 leading-relaxed mb-5">
+              有望なテーマほど、社内では育たないことがあります。
+              決裁の速度、評価制度、ステージゲート。事業の筋の良し悪しとは別のところで、芽が摘まれていく。
+            </p>
+            <p className="text-sm md:text-base text-white/60 leading-relaxed">
+              出島は、その構造から抜けるための選択肢です。
+              言葉の定義から他の立ち上げ方との比較、向かない場合の判断まで、実案件から体系化した内容を公開しています。
+              <span className="text-white/80">登録は不要です。</span>
+            </p>
+          </div>
+          <div className="relative aspect-[3/2] bg-[#F5F3EE]">
+            <Image
+              src="/guide/hero.webp"
+              alt="本土から切り離され、細い橋だけでつながった扇形の島。出島スキームの構造を表した図。"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 
-      {/* 1. 用語の整理 */}
-      <section className="py-16 md:py-20 px-6">
+      {/* 目次 */}
+      <section className="bg-[#0a0a0a] text-white px-6 pb-20 md:pb-24">
+        <div className="max-w-6xl mx-auto border-t border-white/10 pt-10">
+          <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-8">Contents</p>
+          <ol className="grid md:grid-cols-2 gap-x-12 gap-y-px">
+            {contents.map((c) => (
+              <li key={c.id}>
+                <a
+                  href={`#${c.id}`}
+                  className="group flex gap-5 items-baseline py-3.5 border-b border-white/5 hover:border-white/30 transition-colors"
+                >
+                  <span className="text-xs text-white/25 tabular-nums shrink-0 group-hover:text-white/50 transition-colors">
+                    {c.n}
+                  </span>
+                  <span className="flex-1">
+                    <span className="block text-sm text-white/80 group-hover:text-white transition-colors">{c.t}</span>
+                    <span className="block text-xs text-white/30 mt-0.5 leading-relaxed">{c.s}</span>
+                  </span>
+                  <span className="text-white/20 group-hover:text-white/60 transition-colors shrink-0">↓</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 01 用語の整理 */}
+      <section id="terms" className="py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>Terms</Label>
+          <Label n="01">Terms</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             まず、言葉を揃える。
           </h2>
@@ -307,10 +392,10 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 2. 社内で育たない構造 */}
-      <section className="bg-[#F5F3EE] py-16 md:py-20 px-6">
+      {/* 02 社内で育たない構造 */}
+      <section id="why" className="bg-[#F5F3EE] py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>Why</Label>
+          <Label n="02">Why</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             なぜ、有望なテーマほど社内で育たないのか。
           </h2>
@@ -329,14 +414,25 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 3. 学習ループ */}
-      <section className="bg-[#111111] text-white py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <Label>Concept</Label>
-          <h2 className="text-2xl md:text-4xl font-medium leading-snug mb-8">
-            出島とは、<br className="md:hidden" />学習ループを所有する装置である。
+      {/* 03 学習ループ */}
+      <section id="concept" className="relative bg-[#111111] text-white py-24 md:py-32 px-6 overflow-hidden scroll-mt-16">
+        <Image
+          src="/guide/loop.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          aria-hidden
+          className="object-cover opacity-70"
+        />
+        <div className="relative max-w-3xl mx-auto text-center">
+          <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-8">
+            <span className="text-white/70 mr-3 tabular-nums">03</span>Concept
+          </p>
+          <h2 className="text-3xl md:text-5xl font-medium leading-[1.35] mb-10">
+            出島とは、<br />
+            学習ループを<br className="md:hidden" />所有する装置である。
           </h2>
-          <p className="text-sm md:text-base text-white/60 leading-relaxed">
+          <p className="text-sm md:text-base text-white/60 leading-loose max-w-xl mx-auto">
             新規事業は、学習速度の競争です。
             仮説を立て、顧客に当て、外し、直す。このループを何周できるかで結果が決まります。
             社内に置いたままだと、ループの一周ごとに承認と説明が挟まる。
@@ -345,10 +441,10 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 4. 出口は2択ではない */}
-      <section className="py-16 md:py-20 px-6">
+      {/* 04 出口は2択ではない */}
+      <section id="options" className="py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>Options</Label>
+          <Label n="04">Options</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             テーマの出口は「継続か、中止か」の2択ではない。
           </h2>
@@ -380,10 +476,10 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 5. 経済合理性 */}
-      <section className="bg-[#F5F3EE] py-16 md:py-20 px-6">
+      {/* 05 経済合理性 */}
+      <section id="economics" className="bg-[#F5F3EE] py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>Economics</Label>
+          <Label n="05">Economics</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             「20%で200」は、「100%で100」より大きい。
           </h2>
@@ -391,6 +487,18 @@ export default function DezimaGuidePage() {
             保有比率ではなく「事業価値の絶対額」で考えるのが、出島の経済学です。
             出口の4択を、現在価値と将来のリターンで並べます。
           </p>
+          <div className="grid sm:grid-cols-2 gap-px bg-gray-300 mb-10 border border-gray-300">
+            <div className="bg-black text-white p-8 md:p-10">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-3">出島（20%保有）</p>
+              <p className="text-5xl md:text-6xl font-medium tabular-nums leading-none mb-3">200</p>
+              <p className="text-xs text-white/50 leading-relaxed">企業価値 1000 × 保有 20%</p>
+            </div>
+            <div className="bg-white p-8 md:p-10">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-3">社内に抱える（100%保有）</p>
+              <p className="text-5xl md:text-6xl font-medium tabular-nums leading-none mb-3 text-gray-300">100</p>
+              <p className="text-xs text-gray-500 leading-relaxed">企業価値 100 × 保有 100%</p>
+            </div>
+          </div>
           <div className="grid md:grid-cols-2 gap-px bg-gray-300">
             {economics.map((e) => (
               <div key={e.label} className={`p-6 ${e.highlight ? "bg-black text-white" : "bg-[#F5F3EE]"}`}>
@@ -420,10 +528,10 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 6. 立ち上げ方の比較 */}
-      <section className="py-16 md:py-20 px-6">
+      {/* 06 立ち上げ方の比較 */}
+      <section id="comparison" className="py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>Comparison</Label>
+          <Label n="06">Comparison</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             他の立ち上げ方と、並べてみる。
           </h2>
@@ -471,10 +579,10 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 7. 公的な裏付け */}
-      <section className="bg-[#F5F3EE] py-16 md:py-20 px-6">
+      {/* 07 公的な裏付け */}
+      <section id="background" className="bg-[#F5F3EE] py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>Background</Label>
+          <Label n="07">Background</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-6 leading-snug">
             特殊な手法ではありません。
           </h2>
@@ -482,13 +590,30 @@ export default function DezimaGuidePage() {
             <div>
               <h3 className="text-sm font-medium mb-3">国が型を示している</h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                経済産業省はカーブアウトに関する研究会を設け、ガイダンスと実践ガイドブックを公表しています。
+                経済産業省はカーブアウトに関する研究会を設け、<a href="https://www.meti.go.jp/press/2024/04/20240426003/20240426003.html" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-black transition-colors">ガイダンス</a>と実践ガイドブックを公表しています。
                 「起業家主導型カーブアウト」はそこで整理された類型のひとつです。
               </p>
               <p className="text-sm text-gray-600 leading-relaxed">
-                制度面でも、スタートアップ育成5か年計画のもとで
-                <b>出向起業補助金</b>（辞職せずに出向して起業する経費を補助）や
-                <b>スピンオフ税制</b>（課税の繰り延べ）が整備されています。
+                制度面でも、所属企業を辞めずに起業する
+                <a
+                  href="https://www.meti.go.jp/policy/economy/jinzai/shukkokigyo/shukkoukigyou.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-black transition-colors"
+                >
+                  出向起業
+                </a>
+                の枠組みや、
+                <a
+                  href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/saihenzeisei/spin-off.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-black transition-colors"
+                >
+                  スピンオフに関する税制措置
+                </a>
+                の整備が進んでいます。
+                <span className="text-gray-400">（各制度の最新の要件・公募状況は、リンク先の公式情報をご確認ください）</span>
               </p>
             </div>
             <div>
@@ -511,10 +636,10 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 8. デメリット */}
-      <section className="py-16 md:py-20 px-6">
+      {/* 08 デメリット */}
+      <section id="tradeoffs" className="py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>Trade-offs</Label>
+          <Label n="08">Trade-offs</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             出島は、万能ではありません。
           </h2>
@@ -556,10 +681,10 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 9. Q&A */}
-      <section className="bg-[#F5F3EE] py-16 md:py-20 px-6">
+      {/* 09 Q&A */}
+      <section id="faq" className="bg-[#F5F3EE] py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
-          <Label>Q &amp; A</Label>
+          <Label n="09">Q &amp; A</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             よくいただく4つの懸念。
           </h2>
@@ -584,16 +709,26 @@ export default function DezimaGuidePage() {
         </div>
       </section>
 
-      {/* 10. 進め方 */}
-      <section className="py-16 md:py-20 px-6">
+      {/* 10 進め方 */}
+      <section id="how" className="py-16 md:py-20 px-6 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
-          <Label>How to start</Label>
+          <Label n="10">How to start</Label>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 leading-snug">
             いきなり会社は作りません。
           </h2>
           <p className="text-sm text-gray-500 leading-relaxed mb-10 max-w-2xl">
             共通言語づくりから、テーマの診断、組成の検討へと段階を踏みます。
           </p>
+          <div className="relative aspect-[3/1] mb-10 bg-[#F5F3EE]">
+            <Image
+              src="/guide/steps.webp"
+              alt=""
+              fill
+              aria-hidden
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover"
+            />
+          </div>
           <div className="grid md:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
             {steps.map((s) => (
               <div key={s.n} className="bg-white p-6">
@@ -614,6 +749,40 @@ export default function DezimaGuidePage() {
           <p className="text-sm text-gray-500 mt-6">
             まずはSTEP 1の勉強会から。具体的なテーマが1件もなくても始められます。
           </p>
+        </div>
+      </section>
+
+      {/* 出典・参考リンク */}
+      <section className="bg-[#F5F3EE] py-16 md:py-20 px-6 border-t border-gray-200">
+        <div className="max-w-5xl mx-auto">
+          <Label>Sources</Label>
+          <h2 className="text-xl md:text-2xl font-medium mb-4 leading-snug">出典・参考リンク</h2>
+          <p className="text-sm text-gray-500 leading-relaxed mb-8 max-w-2xl">
+            本ページの用語整理と制度の説明は、経済産業省が公開している以下の資料に基づいています。
+            一次情報にあたりたい方はこちらへ。
+          </p>
+          <ul className="border-t border-gray-300">
+            {sources.map((src) => (
+              <li key={src.href} className="border-b border-gray-200">
+                <a
+                  href={src.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex gap-4 items-start py-5 hover:bg-white/60 transition-colors px-2 -mx-2"
+                >
+                  <span className="flex-1">
+                    <span className="block text-sm text-gray-800 group-hover:text-black transition-colors mb-1">
+                      {src.label}
+                    </span>
+                    <span className="block text-xs text-gray-500 leading-relaxed">{src.note}</span>
+                  </span>
+                  <span className="text-xs text-gray-300 group-hover:text-black transition-colors shrink-0 pt-0.5">
+                    経済産業省 ↗
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

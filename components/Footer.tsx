@@ -13,6 +13,7 @@ export default function Footer() {
             { label: "HOME", href: "/" },
             { label: "SERVICE", href: "/service" },
             { label: "Co-DEZIMA", href: "/co-dezima" },
+            { label: "出島とは", href: "/co-dezima/guide" },
             { label: "支援実績", href: "/results" },
             { label: "PORTFOLIO", href: "/portfolio" },
             { label: "NIGHT DEZIMA", href: "/dezima" },
