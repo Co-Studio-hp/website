@@ -45,6 +45,7 @@ function decode(s: string): string {
     .replace(/&quot;/g, '"')
     .replace(/&#0?39;/g, "'")
     .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
     .trim();
 }
@@ -68,7 +69,14 @@ function parseFeed(xml: string, company: PrCompany): PrRelease[] {
     const title = decode(body.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? "");
     const iso = (body.match(/<dc:date>([^<]+)<\/dc:date>/)?.[1] ?? "").trim().slice(0, 10);
     let excerpt = decode(body.match(/<description>([\s\S]*?)<\/description>/)?.[1] ?? "");
-    excerpt = excerpt.replace(/^\[[^\]]*\]\s*/, ""); // 先頭の[会社名]を除去
+    // PR TIMESのdescriptionには本文中に [画像1: https://... ] のような埋め込みタグが
+    // そのまま含まれる。除去しないと抜粋が画像URLで埋まる。
+    excerpt = excerpt
+      .replace(/^\[[^\]]*\]\s*/, "") // 先頭の[会社名]を除去
+      .replace(/\[[^\]]*https?:\/\/[^\]]*\]/g, " ") // URLを含む埋め込みタグ（画像・動画・表）を除去
+      .replace(/\[[^\]]*https?:\/\/[^\]]*$/, " ") // 末尾で途切れた埋め込みタグ（descriptionが切れている場合）
+      .replace(/\s{2,}/g, " ")
+      .trim();
     if (!title || !iso) continue;
     out.push({
       title,

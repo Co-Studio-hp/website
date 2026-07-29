@@ -21,7 +21,12 @@ export default function ScrollFx() {
           }
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+      // threshold は割合ではなく 0 を使う。
+      // 割合（旧: 0.08）だと、ビューポートより大幅に高いセクションが
+      // 「8%以上見えている」状態に永久に到達できず、opacity:0 のまま表示されない。
+      // 実際に /news の全リリース一覧（約24,000px）がこれで丸ごと不可視になっていた。
+      // 少しスクロールしてから入場させたい意図は rootMargin の下マージンで担保する。
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     );
 
     // stagger用CSSを有効化（JS到達済みの印。no-JS環境では初期非表示にならない）
