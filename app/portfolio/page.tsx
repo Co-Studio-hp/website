@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PORTFOLIO",
-  description: "Co-Studioの出島スキームから生まれた独立スタートアップ。",
+  title: "ポートフォリオ｜出島スタートアップとグループ事業",
+  description:
+    "Co-Studioの出島スキームから生まれた独立スタートアップ。do.Sukasu（視空間認知）、Aikomi（認知症ケアAI）、Hers HeAlth Technologies（女性の骨ケア）と、グループ事業のLife Reversal Gaming・Comunion・SG Labをご紹介します。",
   alternates: { canonical: "/portfolio" },
+  openGraph: {
+    title: "ポートフォリオ｜出島スタートアップとグループ事業",
+    description:
+      "出島スキームから生まれた独立スタートアップ do.Sukasu・Aikomi・Hers HeAlth Technologies と、Co-Studioグループ事業。",
+    url: "/portfolio",
+  },
 };
 
 const companies = [

@@ -3,9 +3,16 @@ import Link from "next/link";
 import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
-  title: "支援実績",
-  description: "Co-Studioが支援してきた新規事業開発の実績一覧。SPRINT・Business Lab・Living Labなどのプログラム別に掲載。",
+  title: "支援実績｜延べ60社以上との新規事業共創",
+  description:
+    "Co-Studioが支援してきた新規事業開発の実績一覧。延べ60社以上との共創実績を、SPRINT・Business Lab・Living Lab・Spot Assist・出島設立のプログラム別に掲載しています。",
   alternates: { canonical: "/results" },
+  openGraph: {
+    title: "支援実績｜延べ60社以上との新規事業共創",
+    description:
+      "延べ60社以上との共創実績を、SPRINT・Business Lab・Living Lab・Spot Assist・出島設立のプログラム別に掲載。",
+    url: "/results",
+  },
 };
 
 const sprintResults = [

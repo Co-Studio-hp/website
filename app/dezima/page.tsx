@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   description:
     "大企業の新規事業担当者（イントレプレナー）が集まる定期交流イベント。業種・会社を超えて、同じ課題を抱える仲間がつながります。",
   alternates: { canonical: "/dezima" },
+  openGraph: {
+    title: "Night DEZIMA｜イントレプレナーが集まる夜",
+    description:
+      "大企業の新規事業担当者（イントレプレナー）が集まる定期交流イベント。業種・会社を超えて、同じ課題を抱える仲間がつながります。",
+    url: "/dezima",
+  },
 };
 
 const themes = [
