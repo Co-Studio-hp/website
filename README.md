@@ -50,6 +50,13 @@ git add -A && git commit -m "変更内容" && git push
 
 ### 4. 環境変数（Vercel側で管理）
 - `SLACK_CONTACT_WEBHOOK_URL` … お問い合わせフォーム→Slack通知用。Vercelプロジェクトの Settings → Environment Variables で管理（コードには含めない）。
+- `HUBSPOT_PORTAL_ID` … HubSpotのポータルID。メルマガ登録フォームの送信先。
+- `HUBSPOT_NEWSLETTER_FORM_GUID` … HubSpot上に作成したメルマガ登録フォームのGUID。
+- `HUBSPOT_NEWSLETTER_SUBSCRIPTION_ID` … 購読タイプのID（任意）。設定すると配信同意の記録も一緒に送る。
+
+> メルマガ登録ブロック（フッター直上）は、`HUBSPOT_PORTAL_ID` と `HUBSPOT_NEWSLETTER_FORM_GUID` の
+> 両方が設定されているときだけ表示される。未設定のうちは何も描画しないので、HubSpot側の準備が
+> 整うまでこのまま本番に置いておいて問題ない。
 
 ## 技術スタック
 Next.js 16 (App Router) / React 19 / Tailwind CSS v4 / TypeScript
