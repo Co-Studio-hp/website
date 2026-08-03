@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import NewsletterBlock from "@/components/NewsletterBlock";
 import ScrollFx from "@/components/ScrollFx";
 
 const siteTitle = "Co-Studio株式会社｜大企業と新規事業を共創するオープンスタジオ";
@@ -70,6 +71,7 @@ export default function RootLayout({
         <Nav />
         <ScrollFx />
         <main className="flex-1 pt-16">{children}</main>
+        <NewsletterBlock />
         <Footer />
         <Analytics />
       </body>
