@@ -61,7 +61,7 @@ export async function POST(request: Request) {
 
   try {
     const res = await fetch(
-      `https://api.hubapi.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_GUID}`,
+      `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_GUID}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

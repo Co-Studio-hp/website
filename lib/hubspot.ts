@@ -12,6 +12,8 @@
 // 氏名・会社名などの詳細は message にまとめて入れる。HubSpot側では
 // フォーム送信の記録としてコンタクトのタイムラインに残るため、情報は失われない。
 
+// 送信先は api.hubapi.com ではなく api.hsforms.com。
+// api.hubapi.com へ送るとHTMLの404が返る（実機で確認済み）。認証は不要。
 const PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 
 type SubmitArgs = {
@@ -38,7 +40,7 @@ export async function submitToHubSpot({
 
   try {
     const res = await fetch(
-      `https://api.hubapi.com/submissions/v3/integration/submit/${PORTAL_ID}/${formGuid}`,
+      `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${formGuid}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
