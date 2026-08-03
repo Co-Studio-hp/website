@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { submitToHubSpot } from "@/lib/hubspot";
 
 export const runtime = "nodejs";
 
@@ -87,6 +88,21 @@ export async function POST(request: Request) {
     console.error("Slack webhook error", e);
     return NextResponse.json({ ok: false, error: "slack_error" }, { status: 502 });
   }
+
+  // HubSpotへも記録する。失敗しても問い合わせ自体は成立させる（Slack通知が主）
+  await submitToHubSpot({
+    formGuid: process.env.HUBSPOT_CONTACT_FORM_GUID,
+    email,
+    message: [
+      `【HPお問い合わせ】`,
+      `お名前：${name}`,
+      `会社名：${company || "（未記入）"}`,
+      `種別：${category || "（未選択）"}`,
+      ``,
+      message,
+    ].join("\n"),
+    pageName: "お問い合わせ",
+  });
 
   return NextResponse.json({ ok: true });
 }
