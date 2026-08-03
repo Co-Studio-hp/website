@@ -83,6 +83,60 @@ export default function CoDezimaPage() {
       </section>
 
       {/* Shindan CTA */}
+      {/* 実績：Co-DEZIMAから実際に生まれた会社 */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">Track record</p>
+          <h2 className="text-2xl md:text-3xl font-medium leading-snug mb-4">
+            この方法で、実際に会社が生まれています。
+          </h2>
+          <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-10 max-w-2xl">
+            Co-Studioは提案するだけでなく、自ら出資し経営に入る形で出島スタートアップを設立・運営しています。
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5 mb-8">
+            {[
+              {
+                slug: "do-sukasu",
+                name: "do.Sukasu",
+                parent: "住友ファーマ 発",
+                desc: "視空間認知能力の評価・トレーニング。教習所・療育・医療で実証を重ね、シリーズA調達中。",
+              },
+              {
+                slug: "aikomi",
+                name: "Aikomi",
+                parent: "大手製薬 発",
+                desc: "AIを活用した認知症ケアのデジタルセラピー。Co-Studioは代表取締役を派遣して経営参画。",
+              },
+              {
+                slug: "hers",
+                name: "Hers HeAlth Technologies",
+                parent: "旭化成ファーマ 発",
+                desc: "更年期女性の健康課題に骨ケアで向き合うヘルステック。2025年5月設立。",
+              },
+            ].map((c) => (
+              <Link
+                key={c.slug}
+                href={`/portfolio/${c.slug}`}
+                className="group border border-gray-300 hover:border-gray-800 transition-colors p-6 flex flex-col"
+              >
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gray-500 mb-2">{c.parent}</p>
+                <h3 className="text-base md:text-lg font-medium mb-3">{c.name}</h3>
+                <p className="text-xs text-gray-700 leading-relaxed flex-1">{c.desc}</p>
+                <span className="mt-5 pt-4 border-t border-gray-100 text-xs text-gray-700 group-hover:text-black transition-colors">
+                  詳しく見る →
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/results"
+            className="text-sm text-gray-700 underline underline-offset-4 hover:text-black transition-colors"
+          >
+            出島以外も含めた支援実績を見る
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-[#111111] text-white py-16 px-6">
         <div className="max-w-5xl mx-auto md:flex items-center justify-between gap-10">
           <div>
