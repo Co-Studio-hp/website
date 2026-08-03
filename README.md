@@ -56,6 +56,8 @@ git add -A && git commit -m "変更内容" && git push
 - `HUBSPOT_CONTACT_FORM_GUID` … お問い合わせをHubSpotに記録するフォームのGUID（任意）。
 - `HUBSPOT_SHINDAN_FORM_GUID` … セルフ診断のリードをHubSpotに記録するフォームのGUID（任意）。
 
+> 送信先ホストは `api.hsforms.com`（`api.hubapi.com` ではない。後者へ送るとHTMLの404が返る）。認証は不要。
+>
 > HubSpotへ送るのは **email と message の2項目だけ**。氏名・会社名・役職は message に
 > まとめて入れている。HubSpotのフォーム送信は既存コンタクトのプロパティを必ず上書きし、
 > それを止める設定が無いため、名刺由来で埋まっている標準プロパティ（company / lastname /
