@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { submitToHubSpot } from "@/lib/hubspot";
 
 export const runtime = "nodejs";
 
@@ -121,6 +122,20 @@ export async function POST(request: Request) {
   } catch (e) {
     console.error("Slack webhook error", e);
   }
+
+  // HubSpotへも記録する。失敗しても診断リード自体は成立させる
+  await submitToHubSpot({
+    formGuid: process.env.HUBSPOT_SHINDAN_FORM_GUID,
+    email,
+    message: [
+      `【出島適合セルフ診断】`,
+      `判定：${VERDICT_LABEL[verdict] ?? verdict}（${total}点）`,
+      `お名前：${name}`,
+      `会社名：${company || "（未記入）"}`,
+      `部署・役職：${role || "（未記入）"}`,
+    ].join("\n"),
+    pageName: "出島適合セルフ診断",
+  });
 
   return NextResponse.json({ ok: true });
 }

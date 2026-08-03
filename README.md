@@ -53,6 +53,13 @@ git add -A && git commit -m "変更内容" && git push
 - `HUBSPOT_PORTAL_ID` … HubSpotのポータルID。メルマガ登録フォームの送信先。
 - `HUBSPOT_NEWSLETTER_FORM_GUID` … HubSpot上に作成したメルマガ登録フォームのGUID。
 - `HUBSPOT_NEWSLETTER_SUBSCRIPTION_ID` … 購読タイプのID（任意）。設定すると配信同意の記録も一緒に送る。
+- `HUBSPOT_CONTACT_FORM_GUID` … お問い合わせをHubSpotに記録するフォームのGUID（任意）。
+- `HUBSPOT_SHINDAN_FORM_GUID` … セルフ診断のリードをHubSpotに記録するフォームのGUID（任意）。
+
+> HubSpotへ送るのは **email と message の2項目だけ**。氏名・会社名・役職は message に
+> まとめて入れている。HubSpotのフォーム送信は既存コンタクトのプロパティを必ず上書きし、
+> それを止める設定が無いため、名刺由来で埋まっている標準プロパティ（company / lastname /
+> jobtitle）を壊さないための設計。message プロパティは既存利用が0件なので上書きしても影響がない。
 
 > メルマガ登録ブロック（フッター直上）は、`HUBSPOT_PORTAL_ID` と `HUBSPOT_NEWSLETTER_FORM_GUID` の
 > 両方が設定されているときだけ表示される。未設定のうちは何も描画しないので、HubSpot側の準備が
