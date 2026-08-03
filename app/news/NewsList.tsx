@@ -11,6 +11,10 @@ export default function NewsList({
   companies: { name: string; color: string }[];
 }) {
   const [filter, setFilter] = useState<string>("ALL");
+  // 全件（約370件）を一度に描画するとページが3万px近くなりフッターまで辿り着けないため、
+  // 初期は50件だけ出して「もっと見る」で追加する。
+  const PAGE_SIZE = 50;
+  const [shown, setShown] = useState(PAGE_SIZE);
   const filtered = filter === "ALL" ? releases : releases.filter((r) => r.company === filter);
 
   return (
@@ -18,7 +22,7 @@ export default function NewsList({
       {/* フィルタ */}
       <div className="flex flex-wrap gap-2 mb-8">
         <button
-          onClick={() => setFilter("ALL")}
+          onClick={() => { setFilter("ALL"); setShown(PAGE_SIZE); }}
           className={`text-xs px-3 py-1.5 border transition-colors ${
             filter === "ALL" ? "bg-black text-white border-black" : "border-gray-200 text-gray-500 hover:border-black"
           }`}
@@ -31,7 +35,7 @@ export default function NewsList({
           return (
             <button
               key={c.name}
-              onClick={() => setFilter(c.name)}
+              onClick={() => { setFilter(c.name); setShown(PAGE_SIZE); }}
               className={`text-xs px-3 py-1.5 border transition-colors ${
                 filter === c.name ? "bg-black text-white border-black" : "border-gray-200 text-gray-500 hover:border-black"
               }`}
@@ -44,7 +48,7 @@ export default function NewsList({
 
       {/* 一覧 */}
       <div className="space-y-0">
-        {filtered.map((r) => (
+        {filtered.slice(0, shown).map((r) => (
           <a
             key={r.url}
             href={r.url}
@@ -64,6 +68,20 @@ export default function NewsList({
           </a>
         ))}
       </div>
+
+      {filtered.length > shown && (
+        <div className="mt-10 text-center">
+          <button
+            onClick={() => setShown((n) => n + PAGE_SIZE)}
+            className="px-8 py-3.5 border border-gray-300 text-xs tracking-[0.2em] uppercase font-medium hover:border-black hover:bg-white transition-colors"
+          >
+            もっと見る（残り{filtered.length - shown}件）
+          </button>
+          <p className="text-xs text-gray-500 mt-3 tabular-nums">
+            {shown} / {filtered.length} 件を表示中
+          </p>
+        </div>
+      )}
     </div>
   );
 }
