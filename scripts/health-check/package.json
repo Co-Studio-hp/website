@@ -1,0 +1,11 @@
+{
+  "name": "health-check",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Co-Studio HP 日次ヘルスチェック（表示崩れ・リンク切れ・API設定切れの検知）",
+  "type": "module",
+  "main": "check.mjs",
+  "scripts": { "start": "node check.mjs" },
+  "engines": { "node": ">=20" },
+  "dependencies": { "playwright": "^1.50.0" }
+}
