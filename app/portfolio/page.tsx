@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "ポートフォリオ｜出島スタートアップとグループ事業",
   description:
-    "Co-Studioの出島スキームから生まれた独立スタートアップ。do.Sukasu（視空間認知）、Aikomi（認知症ケアAI）、Hers HeAlth Technologies（女性の骨ケア）と、グループ事業のLife Reversal Gaming・Comunion・SG Labをご紹介します。",
+    "Co-Studioの出島スキームから生まれた独立スタートアップ。do.Sukasu（視空間認知）、Aikomi（認知症ケアAI）、Hers HeAlth Technologies（女性の骨ケア）と、グループ事業のSOCIAL GOOD ENTERTAINMENT・Comunion・SG Labをご紹介します。",
   alternates: { canonical: "/portfolio" },
   openGraph: {
     title: "ポートフォリオ｜出島スタートアップとグループ事業",
@@ -55,12 +55,12 @@ const companies = [
 
 const groupCompanies = [
   {
-    name: "Life Reversal Gaming",
-    logo: "/portfolio/lrg.png",
-    url: "https://life-reversal-gaming.co.jp/",
-    tags: ["ゲーム", "社会課題", "eSports"],
+    name: "SOCIAL GOOD ENTERTAINMENT（一般社団法人）",
+    logo: "/portfolio/sge.png",
+    url: "http://social-good-entertainment.com/",
+    tags: ["社会課題", "eスポーツ", "環境"],
     category: "コミュニティ",
-    body: "ゲームと社会・組織課題をかけ合わせたeSportsイベント企画・運営会社。ゲームの力で社会課題を解決する新しいアプローチを展開。",
+    body: "「社会課題を楽しさで解決していく」を掲げる一般社団法人。eスポーツとごみ拾いをかけ合わせた『eスポGOMI』などのイベントを全国で開催し、社会課題の情報発信・啓発活動と調査・研究に取り組む。",
   },
   {
     name: "Comunion",

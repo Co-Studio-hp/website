@@ -11,7 +11,7 @@ export const PR_COMPANIES: PrCompany[] = [
   { id: "115817", name: "Aikomi", color: "bg-green-900 text-white" },
   { id: "129383", name: "エナフォワード", color: "bg-orange-900 text-white" },
   { id: "166603", name: "Hers HeAlth", color: "bg-pink-900 text-white" },
-  { id: "77755", name: "Life Reversal Gaming", color: "bg-red-900 text-white" },
+  { id: "128090", name: "SOCIAL GOOD ENTERTAINMENT", color: "bg-red-900 text-white" },
   { id: "91514", name: "Comunion", color: "bg-amber-700 text-white" },
 ];
 
